@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAÍZ | Muebles con historia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: '#F5F2EB',
+                        magenta: '#F233B9',
+                        lima: '#63F263',
+                        mostaza: '#F2C94C',
+                        oscuro: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-crema text-oscuro font-sans antialiased overflow-x-hidden">
+
+    <header class="fixed w-full top-0 z-50 bg-crema/90 backdrop-blur-md border-b border-oscuro/10 transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <button class="flex flex-col gap-1.5 p-2 focus:outline-none">
+                <span class="w-6 h-0.5 bg-oscuro block"></span>
+                <span class="w-6 h-0.5 bg-oscuro block"></span>
+                <span class="w-4 h-0.5 bg-oscuro block"></span>
+            </button>
+            
+            <a href="#" class="font-serif text-3xl font-bold tracking-tight">RAÍZ</a>
+            
+            <button class="relative p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                <span class="absolute top-0 right-0 bg-magenta text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="min-h-screen flex items-center pt-24 pb-12 px-6 container mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center w-full">
+                <div class="hero-content z-10">
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-4">
+                        Muebles con <br>historia
+                    </h1>
+                    <p class="font-serif italic text-xl md:text-2xl text-oscuro/80 mb-8">
+                        Diseñados para una nueva generación.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#curso" class="magnetic-btn bg-mostaza text-oscuro font-semibold px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-mostaza/90 transition-colors">
+                            APRENDÉ EL OFICIO
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                        <a href="#proceso" class="px-8 py-4 rounded-full border border-oscuro text-oscuro font-medium text-center hover:bg-oscuro hover:text-crema transition-colors">
+                            CONOCER EL PROCESO
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image relative h-[60vh] w-full rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&q=80&w=1000" alt="Mueble restaurado contemporáneo" class="object-cover w-full h-full">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 container mx-auto gs-section">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative h-[70vh] rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1000" alt="Sillón moderno verde" class="object-cover w-full h-full">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-magenta font-bold tracking-widest text-sm mb-4 block">1. HISTORIA</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Cada pieza tiene una historia</h2>
+                    <p class="text-lg text-oscuro/70 mb-8 leading-relaxed">
+                        Rescatamos muebles olvidados, los restauramos y los reinterpretamos para que vuelvan a formar parte de la vida cotidiana. La madera es la base emocional; el color, nuestro lenguaje contemporáneo.
+                    </p>
+                    <a href="#" class="text-lima font-bold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                        SOBRE RAÍZ <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="proceso" class="py-24 px-6 bg-white gs-section">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-magenta font-bold tracking-widest text-sm mb-4 block">2. ANTES Y DESPUÉS</span>
+                    <h2 class="font-serif text-4xl font-bold">La Transformación</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4 mb-16 rounded-2xl overflow-hidden">
+                    <div class="relative h-[50vh] group">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1000" alt="Mueble antes" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute top-4 left-4 bg-oscuro/80 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm">Antes</div>
+                    </div>
+                    <div class="relative h-[50vh]">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=1000" alt="Mueble después azul" class="object-cover w-full h-full">
+                        <div class="absolute top-4 right-4 bg-magenta text-white px-4 py-1 rounded-full text-sm shadow-lg">Después</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-lima rounded-full p-1 text-oscuro"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span class="font-medium text-lg">Rescatado</span>
+                    </div>
+                    <div class="w-12 h-px bg-oscuro/20 hidden md:block"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-lima rounded-full p-1 text-oscuro"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span class="font-medium text-lg">Restaurado</span>
+                    </div>
+                    <div class="w-12 h-px bg-oscuro/20 hidden md:block"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-lima rounded-full p-1 text-oscuro"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span class="font-medium text-lg">Reinterpretado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curso" class="py-24 px-6 bg-mostaza text-oscuro overflow-hidden gs-section">
+            <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-magenta font-bold tracking-widest text-sm mb-4 block">3. CURSO</span>
+                    <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6">Aprendé el oficio</h2>
+                    <p class="text-xl mb-10 opacity-90">
+                        Transformá muebles y creá piezas únicas. Sumate a nuestros talleres presenciales y descubrí el potencial detrás de lo descartado.
+                    </p>
+                    <a href="#" class="inline-flex bg-magenta text-white font-semibold px-8 py-4 rounded-full items-center gap-2 hover:bg-oscuro transition-colors shadow-lg shadow-magenta/30">
+                        APRENDÉ EL OFICIO 
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+                <div class="relative h-[60vh] rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?auto=format&fit=crop&q=80&w=1000" alt="Persona pintando madera" class="object-cover w-full h-full">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 container mx-auto gs-section">
+            <div class="text-center mb-16">
+                <span class="text-magenta font-bold tracking-widest text-sm mb-4 block">4. COLECCIÓN</span>
+                <h2 class="font-serif text-4xl font-bold">Piezas Únicas</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="relative h-96 mb-4 rounded-xl overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=800" alt="Silla de comedor" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-oscuro/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-crema text-oscuro font-medium px-6 py-3 rounded-full translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">Añadir al carrito</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl font-bold">Silla "Viena" Reinterpretada</h3>
+                        <span class="font-medium">$125.000</span>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-96 mb-4 rounded-xl overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&q=80&w=800" alt="Taburete lima" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-lima text-oscuro text-xs font-bold px-3 py-1 rounded-full">NUEVO</div>
+                        <div class="absolute inset-0 bg-oscuro/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-crema text-oscuro font-medium px-6 py-3 rounded-full translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">Añadir al carrito</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl font-bold">Banqueta "Neón Madera"</h3>
+                        <span class="font-medium">$85.000</span>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-96 mb-4 rounded-xl overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&q=80&w=800" alt="Sillón de lectura" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-oscuro/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-crema text-oscuro font-medium px-6 py-3 rounded-full translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">Añadir al carrito</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl font-bold">Poltrona "Herencia" Magenta</h3>
+                        <span class="font-medium">$280.000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-oscuro text-crema pt-24 pb-8 px-6">
+        <div class="container mx-auto grid md:grid-cols-2 gap-16 border-b border-white/10 pb-16 mb-8 gs-section">
+            <div>
+                <h2 class="font-serif text-4xl font-bold mb-6">Sumate a la nueva generación de restauradores.</h2>
+                <p class="text-white/60 mb-8">Recibí novedades sobre piezas únicas, cursos y tips de restauración.</p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Tu correo electrónico" class="bg-white/5 border border-white/20 rounded-full px-6 py-3 outline-none focus:border-lima w-full transition-colors text-white">
+                    <button type="submit" class="bg-lima text-oscuro font-bold px-8 py-3 rounded-full hover:bg-white transition-colors">Unirme</button>
+                </form>
+            </div>
+            <div class="grid grid-cols-2 gap-8 md:justify-items-end">
+                <div>
+                    <h4 class="font-bold mb-4">Navegación</h4>
+                    <ul class="space-y-2 text-white/60">
+                        <li><a href="#" class="hover:text-magenta transition-colors">Tienda</a></li>
+                        <li><a href="#curso" class="hover:text-magenta transition-colors">Cursos</a></li>
+                        <li><a href="#" class="hover:text-magenta transition-colors">Nosotros</a></li>
+                        <li><a href="#" class="hover:text-magenta transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Redes</h4>
+                    <ul class="space-y-2 text-white/60">
+                        <li><a href="#" class="hover:text-lima transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-lima transition-colors">TikTok</a></li>
+                        <li><a href="#" class="hover:text-lima transition-colors">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto text-center text-white/40 text-sm">
+            &copy; 2026 RAÍZ. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
