@@ -131,3 +131,127 @@ const initCompareSlider = () => {
 
 // Ejecutar la función directamente
 initCompareSlider();
+// ==========================================
+// 5. Efecto de Revelado Circular en el Hero (CORREGIDO)
+// ==========================================
+const initHeroReveal = () => {
+    // Buscamos la sección entera del Hero como el área de movimiento
+    const heroSection = document.querySelector('section.relative.min-h-screen');
+    const clip = document.getElementById('heroBeforeClip');
+    
+    if (!heroSection || !clip) return;
+
+    // Tamaño del círculo de revelado (en píxeles)
+    const circleRadius = 150; 
+
+    // Escuchamos el movimiento en TODO el Hero, no solo en la foto
+    heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        // Calculamos la posición exacta respecto a la pantalla
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Aplicamos la máscara
+        clip.style.clipPath = `circle(${circleRadius}px at ${x}px ${y}px)`;
+    });
+
+    // Si el cursor sale por completo de la sección del Hero, se oculta
+    heroSection.addEventListener('mouseleave', () => {
+        clip.style.clipPath = `circle(0px at 0px 0px)`;
+    });
+};
+
+// Volvemos a ejecutar la función corregida
+initHeroReveal();
+
+// ==========================================
+// INTERACTIVIDAD DEL MENÚ FULLSCREEN (GSAP) - ¡CORREGIDO VERTICAL!
+// ==========================================
+const menuToggle = document.getElementById('menuToggle');
+const fullscreenMenu = document.getElementById('fullscreenMenu');
+const menuLinks = document.querySelectorAll('#fullscreenMenu a');
+
+const line1 = document.getElementById('line1');
+const line2 = document.getElementById('line2');
+const line3 = document.getElementById('line3');
+
+let isMenuOpen = false;
+
+// Creamos la Timeline de GSAP modificada para desplazamiento VERTICAL (eje Y)
+const menuTimeline = gsap.timeline({ paused: true });
+
+menuTimeline.to(fullscreenMenu, {
+    y: "0%", // Ahora baja desde arriba tapando el top-20
+    duration: 0.5,
+    ease: "power3.out",
+    onStart: () => {
+        fullscreenMenu.classList.remove('pointer-events-none');
+    }
+})
+.to(".menu-item", {
+    opacity: 1,
+    y: 0, // Los textos suben sutilmente a su posición original
+    duration: 0.4,
+    stagger: 0.06,
+    ease: "power2.out"
+}, "-=0.2");
+
+function toggleMenu() {
+    if (!isMenuOpen) {
+        menuTimeline.play();
+        // Transformación del botón a "X"
+        line1.style.transform = "translateY(7px) rotate(45deg)";
+        line2.style.opacity = "0";
+        line3.style.transform = "translateY(-7px) rotate(-45deg)";
+        line3.style.width = "24px"; 
+        document.body.classList.add('overflow-hidden');
+    } else {
+        menuTimeline.reverse();
+        // Botón vuelve a su estado original (3 líneas)
+        line1.style.transform = "none";
+        line2.style.opacity = "1";
+        line3.style.transform = "none";
+        line3.style.width = "16px"; 
+        fullscreenMenu.classList.add('pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+    }
+    isMenuOpen = !isMenuOpen;
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+
+// Cierra el menú automáticamente al hacer click en una sección
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (isMenuOpen) {
+            toggleMenu();
+        }
+    });
+});
+// CONFIGURADOR INTERACTIVO DE COLOR (SECCIÓN 4.5)
+function cambiarColorSillon(nuevaRutaImg, botonActivo) {
+    const visualizador = document.getElementById('mueble-visualizador');
+    if (!visualizador) return;
+
+    // 1. Efecto de salida suave (Fade out)
+    visualizador.style.opacity = '0';
+    visualizador.style.transform = 'scale(0.98)';
+
+    setTimeout(() => {
+        // 2. Cambiar la fuente de la imagen en el punto de opacidad 0
+        visualizador.src = nuevaRutaImg;
+        
+        // 3. Efecto de entrada suave (Fade in)
+        visualizador.style.opacity = '1';
+        visualizador.style.transform = 'scale(1)';
+    }, 250); // Ocurre a la mitad de la transición de CSS
+
+    // 4. Actualizar el anillo visual del botón seleccionado
+    document.querySelectorAll('.color-btn').forEach(btn => {
+        btn.classList.remove('border-oscuro', 'ring-4', 'ring-oscuro/20', 'scale-110');
+        btn.classList.add('border-transparent');
+    });
+
+    botonActivo.classList.remove('border-transparent');
+    botonActivo.classList.add('border-oscuro', 'ring-4', 'ring-oscuro/20', 'scale-110');
+}
