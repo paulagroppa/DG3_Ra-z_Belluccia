@@ -255,3 +255,203 @@ function cambiarColorSillon(nuevaRutaImg, botonActivo) {
     botonActivo.classList.remove('border-transparent');
     botonActivo.classList.add('border-oscuro', 'ring-4', 'ring-oscuro/20', 'scale-110');
 }
+
+// ==========================================
+// 6. CONTROLADOR DE PILA INFINITA (SWIPE/CLICK CYCLING)
+// ==========================================
+const initCardStackSlider = () => {
+    const container = document.getElementById('cardsStackContainer');
+    const cards = Array.from(document.querySelectorAll('.card-stack'));
+    const indicatorText = document.getElementById('cardIndicatorText');
+    
+    if (!container || cards.length === 0) return;
+
+    // Lista ordenada de proyectos coordinada con el orden de las tarjetas
+    const proyectos = [
+        "Proyecto: Aparador de comedor (Lucía M.)",
+        "Proyecto: Escritorio de roble (Martín R.)",
+        "Proyecto: Cómoda vintage (Sofía G.)",
+        "Proyecto: Mesa de comedor antigua (Javier y Camila)"
+    ];
+
+    // Mantenemos el estado de qué tarjeta está al frente de la pila
+    let currentIndex = 0;
+
+    function updateStack() {
+        const totalCards = cards.length;
+
+        cards.forEach((card) => {
+            // Calculamos la posición relativa de cada tarjeta respecto a la de adelante
+            const cardIndex = parseInt(card.getAttribute('data-index'));
+            let relativePosition = (cardIndex - currentIndex + totalCards) % totalCards;
+
+            // Variables de diseño para el efecto de abanico/pila hacia atrás
+            let zIndex = totalCards - relativePosition;
+            let scale = 1 - (relativePosition * 0.05); // Se achican sutilmente hacia atrás
+            let translateY = relativePosition * 12;      // Se desfasan hacia abajo
+            let rotate = (relativePosition * 4) * (cardIndex % 2 === 0 ? 1 : -1); // Rotación alternada
+            let opacity = relativePosition >= 3 ? 0 : 1 - (relativePosition * 0.25); // Desvanecido al fondo
+
+            // Si es la tarjeta del frente (activa), resalta derecha y limpia rotación
+            if (relativePosition === 0) {
+                rotate = 0;
+                translateY = 0;
+                scale = 1;
+                opacity = 1;
+                card.style.cursor = 'grab';
+                if (indicatorText) indicatorText.innerText = proyectos[cardIndex];
+            } else {
+                card.style.cursor = 'pointer';
+            }
+
+            // Aplicamos los estilos calculados con transiciones fluidas de hardware
+            card.style.zIndex = zIndex;
+            card.style.transform = `translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`;
+            card.style.opacity = opacity;
+        });
+    }
+
+    // Función premium para mandar la tarjeta activa al fondo con animación
+    function cycleCard(card) {
+        // 1. Animamos la tarjeta saliendo hacia un lado elegantemente
+        card.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s';
+        card.style.transform = `translateX(120%) translateY(-20px) rotate(15deg) scale(0.95)`;
+        card.style.opacity = '0';
+
+        // 2. Cuando termina la animación de salida, actualizamos el orden y la mandamos al fondo
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            
+            // Reestablecemos la transición normal para el re-acomodo general de la pila
+            cards.forEach(c => c.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s');
+            
+            updateStack();
+        }, 300);
+    }
+
+    // Inicializamos el layout base
+    cards.forEach(c => c.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s');
+    updateStack();
+
+    // Eventos interactivos por tarjeta
+    cards.forEach((card) => {
+        // Al hacer click: si está al frente se pasa al fondo; si está atrás te permite traerla
+        card.addEventListener('click', (e) => {
+            const cardIndex = parseInt(card.getAttribute('data-index'));
+            const totalCards = cards.length;
+            let relativePosition = (cardIndex - currentIndex + totalCards) % totalCards;
+
+            if (relativePosition === 0) {
+                cycleCard(card);
+            }
+        });
+
+        // Soporte de Arrastre Inteligente (Drag / Swipe) básico sin librerías extras
+        let startX = 0;
+        let isDragging = false;
+
+        card.addEventListener('mousedown', (e) => {
+            const cardIndex = parseInt(card.getAttribute('data-index'));
+            if (((cardIndex - currentIndex + cards.length) % cards.length) !== 0) return;
+            
+            startX = e.clientX;
+            isDragging = true;
+            card.style.transition = 'none';
+            card.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            let currentX = e.clientX;
+            let diffX = currentX - startX;
+            
+            // Movemos la tarjeta en tiempo real siguiendo el mouse
+            if (diffX > 0) {
+                card.style.transform = `translateX(${diffX}px) rotate(${diffX * 0.04}deg) scale(1)`;
+            }
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            card.style.cursor = 'grab';
+            
+            let currentX = e.clientX;
+            let diffX = currentX - startX;
+
+            // Umbral de descarte: si la arrastró más de 90px, pasa la tarjeta
+            if (diffX > 90) {
+                cycleCard(card);
+            } else {
+                // Si no llegó al umbral, vuelve elásticamente a su lugar original
+                card.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                updateStack();
+            }
+        });
+
+        // Adaptación Mobile (Touch) idéntica para celulares
+        card.addEventListener('touchstart', (e) => {
+            const cardIndex = parseInt(card.getAttribute('data-index'));
+            if (((cardIndex - currentIndex + cards.length) % cards.length) !== 0) return;
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            card.style.transition = 'none';
+        }, { passive: true });
+
+        card.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            let currentX = e.touches[0].clientX;
+            let diffX = currentX - startX;
+            if (diffX > 0) {
+                card.style.transform = `translateX(${diffX}px) rotate(${diffX * 0.03}deg)`;
+            }
+        }, { passive: true });
+
+        card.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            let endX = e.changedTouches[0].clientX;
+            let diffX = endX - startX;
+
+            if (diffX > 80) {
+                cycleCard(card);
+            } else {
+                card.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                updateStack();
+            }
+        });
+    });
+};
+
+// Ejecutamos la nueva lógica al cargar la página
+initCardStackSlider();
+
+// ==========================================
+// 4.5. ANIMACIÓN JUGUETONA DEL TÍTULO (DESDE IZQUIERDA)
+// ==========================================
+const initPlayfulTitle = () => {
+    const words = document.querySelectorAll('#titulo-jugueton .word');
+    
+    if (words.length === 0) return;
+
+    gsap.to(words, {
+        x: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.12,                     // Hace que aparezcan una tras otra progresivamente
+        ease: "elastic.out(1, 0.6)",       // Efecto elástico sutil y juguetón al frenar
+        scrollTrigger: {
+            trigger: "#titulo-jugueton",
+            start: "top 85%",              // Arranca la animación cuando el título entra un 85% en pantalla
+            toggleActions: "play none none reverse"
+        }
+    });
+};
+
+// Dejamos las palabras preparadas corridas a la izquierda antes de que empiece la animación
+gsap.set("#titulo-jugueton .word", { x: -80, opacity: 0 });
+
+// Inicializamos al cargar el DOM
+document.addEventListener("DOMContentLoaded", () => {
+    initPlayfulTitle();
+});

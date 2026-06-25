@@ -32,14 +32,10 @@
         }
     </script>
 </head>
-<!-- ÉXITO 1: El body ahora por defecto tiene texto oscuro para que todo sea legible -->
 <body class="bg-crema text-oscuro font-sans antialiased overflow-x-hidden">
 
-    <!-- ÉXITO 2: Agregamos 'text-crema' aquí para que SOLO el header use este color -->
-    <!-- HEADER -->
     <header class="fixed w-full top-0 z-50 bg-magenta/90 backdrop-blur-md border-b border-oscuro/10 transition-all duration-300 text-crema">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Botón Hamburguesa -->
             <button id="menuToggle" class="flex flex-col gap-1.5 p-2 focus:outline-none z-50 relative group" aria-label="Abrir menú">
                 <span id="line1" class="w-6 h-0.5 bg-crema block transition-transform duration-300"></span>
                 <span id="line2" class="w-6 h-0.5 bg-crema block transition-opacity duration-300"></span>
@@ -57,39 +53,33 @@
         </div>
     </header>
 
-    <!-- MENÚ CORTINA HORIZONTAL (CON FORMA DE edited-image_3.png) -->
     <div id="fullscreenMenu" class="fixed top-20 left-0 w-full bg-magenta z-40 border-b border-oscuro/10 pointer-events-none -translate-y-full transition-transform duration-300 shadow-lg">
         <div class="container mx-auto px-6 py-6">
             <nav>
                 <ul class="flex flex-col md:flex-row md:items-center justify-center gap-6 md:gap-12 text-center">
                     <li class="menu-item opacity-0 translate-y-2">
                         <a href="#historia" class="font-sans text-base md:text-lg font-semibold text-white hover:text-lima hover:underline decoration-lima decoration-2 underline-offset-4 uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 group">
-                            SOBRE RAÍZ 
-                            <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
+                            SOBRE RAÍZ <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
                         </a>
                     </li>
                     <li class="menu-item opacity-0 translate-y-2">
                         <a href="#proceso" class="font-sans text-base md:text-lg font-semibold text-white hover:text-lima hover:underline decoration-lima decoration-2 underline-offset-4 uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 group">
-                            PROCESO 
-                            <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
+                            PROCESO <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
                         </a>
                     </li>
                     <li class="menu-item opacity-0 translate-y-2">
                         <a href="#curso" class="font-sans text-base md:text-lg font-semibold text-white hover:text-lima hover:underline decoration-lima decoration-2 underline-offset-4 uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 group">
-                            VER CURSO 
-                            <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
+                            VER CURSO <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
                         </a>
                     </li>
                     <li class="menu-item opacity-0 translate-y-2">
                         <a href="#beneficios" class="font-sans text-base md:text-lg font-semibold text-white hover:text-lima hover:underline decoration-lima decoration-2 underline-offset-4 uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 group">
-                            BENEFICIOS 
-                            <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
+                            BENEFICIOS <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
                         </a>
                     </li>
                     <li class="menu-item opacity-0 translate-y-2">
                         <a href="#tienda" class="font-sans text-base md:text-lg font-semibold text-white hover:text-lima hover:underline decoration-lima decoration-2 underline-offset-4 uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 group">
-                            COLECCION 
-                            <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
+                            COLECCION <span class="transform group-hover:translate-x-1 transition-transform duration-200 text-lima font-normal">→</span>
                         </a>
                     </li>
                 </ul>
@@ -98,15 +88,12 @@
     </div>
 
     <main>
-        <!-- HERO FULL-SCREEN -->
         <section class="relative min-h-screen flex items-center">
             <div id="heroRevealContainer" class="absolute inset-0 w-full h-full z-0 hero-image opacity-0 scale-105 overflow-hidden select-none cursor-none">
                 <img src="imagenes/img1.png" alt="Mueble restaurado contemporáneo" class="absolute inset-0 object-cover w-full h-full">
-                
                 <div id="heroBeforeClip" class="absolute inset-0 w-full h-full pointer-events-none" style="clip-path: circle(0px at 0px 0px);">
                     <img src="imagenes/img10.png" alt="Mueble antes de restaurar" class="absolute inset-0 object-cover w-full h-full">
                 </div>
-                
                 <div class="absolute inset-0 bg-oscuro/10 pointer-events-none"></div>
             </div>
 
@@ -118,7 +105,6 @@
                     <p class="font-serif italic text-2xl md:text-3xl text-oscuro/90 mb-10 opacity-0 translate-y-10">
                         Diseñados para una nueva generación.
                     </p>
-                    
                     <div class="flex flex-col gap-4 max-w-md opacity-0 translate-y-10">
                         <a href="#curso" class="magnetic-btn bg-lima text-oscuro font-semibold px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-lima/90 transition-colors shadow-md">
                             APRENDÉ EL OFICIO
@@ -130,7 +116,7 @@
                     </div>
                 </div>
             </div>
-<!--  -->
+
             <div class="absolute w-full bottom-0 left-0 overflow-hidden bg-magenta py-4 transform -rotate-2 z-20 scale-105 translate-y-1/2 select-none shadow-sm">
                 <style>
                     @keyframes marqueeRAIZ {
@@ -143,7 +129,6 @@
                         animation: marqueeRAIZ 25s linear infinite;
                     }
                 </style>
-
                 <div class="marquee-infinite gap-8">
                     <div class="flex font-sans font-semibold text-xl md:text-2xl text-crema uppercase tracking-widest gap-8 items-center flex-shrink-0">
                         <span>SOBRE RAÍZ</span> <span>✦</span>
@@ -161,9 +146,8 @@
                     </div>
                 </div>
             </div>
-        </section> <!-- AQUÍ COMPROBÁ QUE QUEDE EL CIERRE DEL HERO -->
+        </section>
 
-        <!-- SECCIÓN MANIFIESTO -->
         <section id="historia" class="py-24 bg-crema gs-section opacity-0 translate-y-10 overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -176,73 +160,45 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- TARJETA 01 -->
                     <div class="bg-white rounded-2xl border border-oscuro/5 p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="flex justify-between items-start mb-6">
-                                <span class="font-sans font-medium text-xs uppercase text-magenta tracking-wider">
-                                    EDICIONES LIMITADAS
-                                </span>
+                                <span class="font-sans font-medium text-xs uppercase text-magenta tracking-wider">EDICIONES LIMITADAS</span>
                                 <span class="font-serif italic text-2xl font-bold text-oscuro/20">01/</span>
                             </div>
-                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-oscuro mb-4 leading-tight">
-                                Piezas con Historia
-                            </h3>
-                            <p class="font-sans text-oscuro/70 text-base mb-8 leading-relaxed">
-                                No hacemos muebles en serie ni repetimos fórmulas. Rescatamos treasures olvidados, investigamos su origen histórico y los reimaginamos bajo una lente contemporánea.
-                            </p>
+                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-oscuro mb-4 leading-tight">Piezas con Historia</h3>
+                            <p class="font-sans text-oscuro/70 text-base mb-8 leading-relaxed">No hacemos muebles en serie ni repetimos fórmulas. Rescatamos treasures olvidados, investigamos su origen histórico y los reimaginamos bajo una lente contemporánea.</p>
                         </div>
-                        <a href="#tienda" class="bg-oscuro text-crema font-sans font-medium py-3.5 px-6 rounded-full text-center hover:bg-magenta transition-colors duration-300 uppercase tracking-wider text-xs">
-                            Ver piezas disponibles
-                        </a>
+                        <a href="#tienda" class="bg-oscuro text-crema font-sans font-medium py-3.5 px-6 rounded-full text-center hover:bg-magenta transition-colors duration-300 uppercase tracking-wider text-xs">Ver piezas disponibles</a>
                     </div>
 
-                    <!-- TARJETA 02 -->
                     <div class="bg-white rounded-2xl border border-oscuro/5 p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="flex justify-between items-start mb-6">
-                                <span class="font-sans font-medium text-xs uppercase text-magenta tracking-wider">
-                                    100% CONSCIENTE
-                                </span>
+                                <span class="font-sans font-medium text-xs uppercase text-magenta tracking-wider">100% CONSCIENTE</span>
                                 <span class="font-serif italic text-2xl font-bold text-oscuro/20">02/</span>
                             </div>
-                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-oscuro mb-4 leading-tight">
-                                Proceso Circular
-                            </h3>
-                            <p class="font-sans text-oscuro/70 text-base mb-8 leading-relaxed">
-                                Cada marca, veta y ensamble hereda una vida pasada. Diseñamos para expandir esa línea de tiempo utilizando acabados naturales, orgánicos y materiales biodegradables premium.
-                            </p>
+                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-oscuro mb-4 leading-tight">Proceso Circular</h3>
+                            <p class="font-sans text-oscuro/70 text-base mb-8 leading-relaxed">Cada marca, veta y ensamble hereda una vida pasada. Diseñamos para expandir esa línea de tiempo utilizando acabados naturales, orgánicos y materiales biodegradables premium.</p>
                         </div>
-                        <a href="#proceso" class="bg-oscuro text-crema font-sans font-medium py-3.5 px-6 rounded-full text-center hover:bg-magenta transition-colors duration-300 uppercase tracking-wider text-xs">
-                            Descubrir el proceso
-                        </a>
+                        <a href="#proceso" class="bg-oscuro text-crema font-sans font-medium py-3.5 px-6 rounded-full text-center hover:bg-magenta transition-colors duration-300 uppercase tracking-wider text-xs">Descubrir el proceso</a>
                     </div>
 
-                    <!-- TARJETA 03 -->
                     <div class="bg-white rounded-2xl border border-oscuro/5 p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="flex justify-between items-start mb-6">
-                                <span class="font-sans font-medium text-xs uppercase text-magenta tracking-wider">
-                                    NUESTRA COMUNIDAD
-                                </span>
+                                <span class="font-sans font-medium text-xs uppercase text-magenta tracking-wider">NUESTRA COMUNIDAD</span>
                                 <span class="font-serif italic text-2xl font-bold text-oscuro/20">03/</span>
                             </div>
-                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-oscuro mb-4 leading-tight">
-                                Aprendé el Oficio
-                            </h3>
-                            <p class="font-sans text-oscuro/70 text-base mb-8 leading-relaxed">
-                                Queremos devolver el diseño a las manos de las personas. Aprendé técnicas de restauración, ebanistería y cuidado de objetos de valor histórico en nuestros talleres intensivos.
-                            </p>
+                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-oscuro mb-4 leading-tight">Aprendé el Oficio</h3>
+                            <p class="font-sans text-oscuro/70 text-base mb-8 leading-relaxed">Queremos devolver el diseño a las manos de las personas. Aprendé técnicas de restauración, ebanistería y cuidado de objetos de valor histórico en nuestros talleres intensivos.</p>
                         </div>
-                        <a href="#curso" class="bg-oscuro text-crema font-sans font-medium py-3.5 px-6 rounded-full text-center hover:bg-magenta transition-colors duration-300 uppercase tracking-wider text-xs">
-                            Reservar mi vacante
-                        </a>
+                        <a href="#curso" class="bg-oscuro text-crema font-sans font-medium py-3.5 px-6 rounded-full text-center hover:bg-magenta transition-colors duration-300 uppercase tracking-wider text-xs">Reservar mi vacante</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN ANTES Y DESPUÉS (Ya se ven "La Transformación", "Rescatado", etc.) -->
         <section id="proceso" class="py-24 px-6 bg-white gs-section">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
@@ -287,9 +243,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CURSO (CON DOBLE MARQUESINA CORREGIDA) -->
         <section id="curso" class="relative bg-mostaza text-oscuro gs-section pt-36 pb-36 z-10">
-            
             <div class="absolute top-0 left-0 w-full overflow-hidden pointer-events-none z-30 transform -rotate-1 -translate-y-1/2 scale-105">
                 <style>
                     @keyframes marqueeCurso {
@@ -305,22 +259,13 @@
                 <div class="bg-lima py-4 shadow-md w-[115vw] relative left-1/2 -translate-x-1/2">
                     <div class="marquee-curso-infinite gap-12">
                         <div class="flex font-sans font-semibold text-xl md:text-2xl text-oscuro uppercase tracking-widest gap-12 items-center flex-shrink-0">
-                            <span>CURSO</span> <span>✦</span>
-                            <span>TRANSFORMÁ</span> <span>✦</span>
-                            <span>CREÁ</span> <span>✦</span>
-                            <span>APRENDÉ EL OFICIO</span> <span>✦</span>
+                            <span>CURSO</span> <span>✦</span> <span>TRANSFORMÁ</span> <span>✦</span> <span>CREÁ</span> <span>✦</span> <span>APRENDÉ EL OFICIO</span> <span>✦</span>
                         </div>
                         <div class="flex font-sans font-semibold text-xl md:text-2xl text-oscuro uppercase tracking-widest gap-12 items-center flex-shrink-0" aria-hidden="true">
-                            <span>CURSO</span> <span>✦</span>
-                            <span>TRANSFORMÁ</span> <span>✦</span>
-                            <span>CREÁ</span> <span>✦</span>
-                            <span>APRENDÉ EL OFICIO</span> <span>✦</span>
+                            <span>CURSO</span> <span>✦</span> <span>TRANSFORMÁ</span> <span>✦</span> <span>CREÁ</span> <span>✦</span> <span>APRENDÉ EL OFICIO</span> <span>✦</span>
                         </div>
                         <div class="flex font-sans font-semibold text-xl md:text-2xl text-oscuro uppercase tracking-widest gap-12 items-center flex-shrink-0" aria-hidden="true">
-                            <span>CURSO</span> <span>✦</span>
-                            <span>TRANSFORMÁ</span> <span>✦</span>
-                            <span>CREÁ</span> <span>✦</span>
-                            <span>APRENDÉ EL OFICIO</span> <span>✦</span>
+                            <span>CURSO</span> <span>✦</span> <span>TRANSFORMÁ</span> <span>✦</span> <span>CREÁ</span> <span>✦</span> <span>APRENDÉ EL OFICIO</span> <span>✦</span>
                         </div>
                     </div>
                 </div>
@@ -330,12 +275,9 @@
                 <div>
                     <span class="text-magenta font-bold tracking-widest text-sm mb-4 block">3. CURSO</span>
                     <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6">Aprendé el oficio</h2>
-                    <p class="text-xl mb-10 opacity-90">
-                        Transformá muebles y creá piezas únicas. Sumate a nuestros talleres presenciales y descubrí el potencial detrás de lo descartado.
-                    </p>
+                    <p class="text-xl mb-10 opacity-90">Transformá muebles y creá piezas únicas. Sumate a nuestros talleres presenciales y descubrí el potencial detrás de lo descartado.</p>
                     <a href="#" class="inline-flex bg-magenta text-white font-semibold px-8 py-4 rounded-full items-center gap-2 hover:bg-oscuro transition-colors shadow-lg shadow-magenta/30">
-                        APRENDÉ EL OFICIO 
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        APRENDÉ EL OFICIO <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </a>
                 </div>
                 <div class="relative h-[60vh] rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
@@ -347,158 +289,119 @@
                 <div class="bg-lima py-4 shadow-md w-[115vw] relative left-1/2 -translate-x-1/2">
                     <div class="marquee-curso-infinite gap-12">
                         <div class="flex font-sans font-semibold text-xl md:text-2xl text-oscuro uppercase tracking-widest gap-12 items-center flex-shrink-0">
-                            <span>CURSO</span> <span>✦</span>
-                            <span>TRANSFORMÁ</span> <span>✦</span>
-                            <span>CREÁ</span> <span>✦</span>
-                            <span>APRENDÉ EL OFICIO</span> <span>✦</span>
+                            <span>CURSO</span> <span>✦</span> <span>TRANSFORMÁ</span> <span>✦</span> <span>CREÁ</span> <span>✦</span> <span>APRENDÉ EL OFICIO</span> <span>✦</span>
                         </div>
                         <div class="flex font-sans font-semibold text-xl md:text-2xl text-oscuro uppercase tracking-widest gap-12 items-center flex-shrink-0" aria-hidden="true">
-                            <span>CURSO</span> <span>✦</span>
-                            <span>TRANSFORMÁ</span> <span>✦</span>
-                            <span>CREÁ</span> <span>✦</span>
-                            <span>APRENDÉ EL OFICIO</span> <span>✦</span>
+                            <span>CURSO</span> <span>✦</span> <span>TRANSFORMÁ</span> <span>✦</span> <span>CREÁ</span> <span>✦</span> <span>APRENDÉ EL OFICIO</span> <span>✦</span>
                         </div>
                         <div class="flex font-sans font-semibold text-xl md:text-2xl text-oscuro uppercase tracking-widest gap-12 items-center flex-shrink-0" aria-hidden="true">
-                            <span>CURSO</span> <span>✦</span>
-                            <span>TRANSFORMÁ</span> <span>✦</span>
-                            <span>CREÁ</span> <span>✦</span>
-                            <span>APRENDÉ EL OFICIO</span> <span>✦</span>
+                            <span>CURSO</span> <span>✦</span> <span>TRANSFORMÁ</span> <span>✦</span> <span>CREÁ</span> <span>✦</span> <span>APRENDÉ EL OFICIO</span> <span>✦</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-<section id="beneficios" class="py-24 bg-crema border-b border-oscuro/5 gs-section opacity-0 translate-y-10 overflow-hidden">
-    <div class="container mx-auto px-6">
+        <section id="beneficios" class="py-24 bg-crema gs-section opacity-0 translate-y-10 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="mb-16">
+                    <span class="text-magenta font-sans font-bold tracking-widest text-sm uppercase block">4. POR QUÉ ELEGIR RAÍZ</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 items-start">
+                    <!-- Beneficio 1: Selección Curada -->
+                    <div class="flex items-start gap-5 md:pr-12 md:border-r border-oscuro/10 h-full">
+                        <div class="flex-shrink-0 mt-1">
+                            <img src="svg/estrella.svg" alt="Ícono Estrella" class="w-12 h-12">
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-oscuro mb-3 leading-tight">Selección curada</h3>
+                            <p class="font-sans text-oscuro/70 text-base leading-relaxed">Elegimos piezas uniques con alma e historia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 2: Trabajo Artesanal -->
+                    <div class="flex items-start gap-5 md:px-12 md:border-r border-oscuro/10 h-full">
+                        <div class="flex-shrink-0 mt-1">
+                            <img src="svg/mano.svg" alt="Ícono Mano" class="w-12 h-12">
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-oscuro mb-3 leading-tight">Trabajo artesanal</h3>
+                            <p class="font-sans text-oscuro/70 text-base leading-relaxed">Restauramos cada mueble con dedicación y detalle.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beneficio 3: Entrega a Domicilio -->
+                    <div class="flex items-start gap-5 md:pl-12 h-full">
+                        <div class="flex-shrink-0 mt-1">
+                            <img src="svg/camion.svg" alt="Ícono Camión" class="w-12 h-12">
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-oscuro mb-3 leading-tight">Entrega a domicilio</h3>
+                            <p class="font-sans text-oscuro/70 text-base leading-relaxed">Llevamos tu pieza a donde estés.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full overflow-hidden bg-crema leading-[0]">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px] md:h-[90px] fill-oscuro text-oscuro">
+                <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,42.7C840,32,960,32,1080,42.7C1200,53,1320,75,1380,85.3L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+            </svg>
+        </div>
+
+        <section id="configurador" class="py-24 bg-oscuro text-crema relative overflow-hidden gs-section">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
         
-        <!-- Título alineado a la izquierda según wireframeseccion 4.jpg -->
-        <div class="mb-16">
-            <span class="text-magenta font-sans font-bold tracking-widest text-sm uppercase block">
-                4. POR QUÉ ELEGIR RAÍZ
+        <div class="space-y-6 flex flex-col justify-center">
+            <span class="text-magenta font-bold tracking-widest text-sm uppercase block">
+                Tu propia versión
             </span>
-        </div>
-
-        <!-- Grilla de 3 columnas con separadores sutiles en desktop -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 items-start">
             
-            <!-- BENEFICIO 1: Selección Curada -->
-            <div class="flex items-start gap-5 md:pr-12 md:border-r border-oscuro/10 h-full">
-                <!-- Icono Sparkle/Destello en color Lima -->
-                <div class="text-lima flex-shrink-0 mt-1">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l-.813-5.096L3 15l5.187-.813L9 9l.813 5.187L15 15l-5.187.813zM19 6l-.407 2.593L16 9l2.593.407L19 12l.407-2.593L22 9l-2.593-.407L19 6z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="font-serif text-2xl font-bold text-oscuro mb-3 leading-tight">
-                        Selección curada
-                    </h3>
-                    <p class="font-sans text-oscuro/70 text-base leading-relaxed">
-                        Elegimos piezas únicas con alma e historia.
-                    </p>
+            <h2 id="titulo-jugueton" class="font-serif text-5xl md:text-6xl font-bold uppercase leading-tight tracking-tight text-white flex flex-wrap gap-x-3 overflow-hidden">
+                <span class="word inline-block opacity-0">EL</span>
+                <span class="word inline-block opacity-0 text-crema">COLOR</span>
+                <span class="word inline-block opacity-0">COMO</span>
+                <span class="word inline-block opacity-0 text-crema">SEGUNDA</span>
+                <span class="word inline-block opacity-0">VIDA</span>
+            </h2>
+
+            <p class="font-sans text-crema/80 text-base md:text-lg max-w-md leading-relaxed">
+                Cada tono reinterpreta la pieza y revela una nueva capa de su historia. Explorá cómo cambia su presencia sin perder su esencia.
+            </p>
+
+            <div class="space-y-3 pt-4">
+                <span class="text-xs font-bold tracking-wider text-magenta uppercase block">Seleccioná un acabado:</span>
+                <div class="flex gap-4 items-center">
+                    <button onclick="cambiarColorSillon('imagenes/img11.png', this)" class="color-btn w-10 h-10 rounded-full bg-[#F5F2EB] border-2 border-transparent transition-all duration-300 scale-110 border-crema ring-4 ring-crema/20" title="Crema natural"></button>
+                    <button onclick="cambiarColorSillon('imagenes/img12.png', this)" class="color-btn w-10 h-10 rounded-full bg-[#F233B9] border-2 border-transparent transition-all duration-300 hover:scale-105" title="Magenta vibrante"></button>
+                    <button onclick="cambiarColorSillon('imagenes/img13.png', this)" class="color-btn w-10 h-10 rounded-full bg-[#63F263] border-2 border-transparent transition-all duration-300 hover:scale-105" title="Lima neón"></button>
+                    <button onclick="cambiarColorSillon('imagenes/img14.png', this)" class="color-btn w-10 h-10 rounded-full bg-[#F2C94C] border-2 border-transparent transition-all duration-300 hover:scale-105" title="Mostaza artesanal"></button>
                 </div>
             </div>
-
-            <!-- BENEFICIO 2: Trabajo Artesanal -->
-            <div class="flex items-start gap-5 md:px-12 md:border-r border-oscuro/10 h-full">
-                <!-- Icono Mano Artesanal en color Lima -->
-                <div class="text-lima flex-shrink-0 mt-1">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.59 1.59 0 10-3.18 0v7.65c0 .245-.078.48-.222.674l-1.54 2.055a1.875 1.875 0 102.999 2.25l1.943-2.59c.144-.193.222-.43.222-.674V4.575zM13.23 6.165a1.59 1.59 0 10-3.18 0v5.335h3.18V6.165zM16.41 7.755a1.59 1.59 0 10-3.18 0v3.745h3.18V7.755zM19.59 10.43a1.59 1.59 0 10-3.18 0v2.11h3.18v-2.11z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="font-serif text-2xl font-bold text-oscuro mb-3 leading-tight">
-                        Trabajo artesanal
-                    </h3>
-                    <p class="font-sans text-oscuro/70 text-base leading-relaxed">
-                        Restauramos cada mueble con dedicación y detalle.
-                    </p>
-                </div>
-            </div>
-
-            <!-- BENEFICIO 3: Entrega a Domicilio -->
-            <div class="flex items-start gap-5 md:pl-12 h-full">
-                <!-- Icono Camión de Envío en color Lima -->
-                <div class="text-lima flex-shrink-0 mt-1">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM19.5 18.75a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM2.25 15h13.5m3 0H21m-2.25-4.5h2.25l1.319 3.96a1.5 1.5 0 01-.162 1.291L21 16.5m-3-6H13.5M18 10.5V6a1.5 1.5 0 00-1.5-1.5h-3m-11 12h11.25M3 15V7.5A1.5 1.5 0 014.5 6h9"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="font-serif text-2xl font-bold text-oscuro mb-3 leading-tight">
-                        Entrega a domicilio
-                    </h3>
-                    <p class="font-sans text-oscuro/70 text-base leading-relaxed">
-                        Llevamos tu pieza a donde estés.
-                    </p>
-                </div>
-            </div>
-
         </div>
+
+        <div class="w-full flex items-center justify-center">
+            <img id="mueble-visualizador" src="imagenes/img11.png" alt="Sillón Raíz" class="w-full h-auto max-h-[500px] object-cover object-center transition-all duration-500 rounded-2xl">
+        </div>
+
     </div>
 </section>
 
-<section id="configurador" class="relative bg-oscuro text-crema py-24 px-6 gs-section overflow-hidden">
-            <div class="container mx-auto grid lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-5 space-y-8 z-10">
-                    <div>
-                        <span class="text-magenta font-bold tracking-widest text-sm mb-3 block">TU PROPIA VERSIÓN</span>
-                        <h2 class="font-serif text-5xl md:text-7xl font-bold leading-tight uppercase tracking-tighter">
-                            El color <br>como <br>segunda vida
-                        </h2>
-                    </div>
-                    
-                    <p class="text-xl opacity-80 font-sans max-w-md">
-                        Cada tono reinterpreta la pieza y revela una nueva capa de su historia. Explorá cómo cambia su presencia sin perder su esencia.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <span class="text-xs font-semibold tracking-widest uppercase text-magenta/60 block">Seleccioná un acabado:</span>
-                        <div class="flex gap-4 items-center">
-                            <button onclick="cambiarColorSillon('imagenes/img11.png', this)" 
-                                    class="color-btn w-10 h-10 rounded-full bg-[#F5F2EB] border-2 border-oscuro ring-4 ring-oscuro/20 transition-all duration-300 scale-110"
-                                    title="Acabado Crema">
-                            </button>
-                            <button onclick="cambiarColorSillon('imagenes/img12.png', this)" 
-                                    class="color-btn w-10 h-10 rounded-full bg-[#F233B9] border-2 border-transparent hover:border-oscuro/40 transition-all duration-300"
-                                    title="Acabado Magenta">
-                            </button>
-                            <button onclick="cambiarColorSillon('imagenes/img13.png', this)" 
-                                    class="color-btn w-10 h-10 rounded-full bg-[#63F263] border-2 border-transparent hover:border-oscuro/40 transition-all duration-300"
-                                    title="Acabado Lima">
-                            </button>
-                            <button onclick="cambiarColorSillon('imagenes/img14.png', this)" 
-                                    class="color-btn w-10 h-10 rounded-full bg-[#F2C94C] border-2 border-transparent hover:border-oscuro/40 transition-all duration-300"
-                                    title="Acabado Mostaza">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:col-span-7 flex justify-center items-center relative min-h-[40vh] lg:min-h-[50vh]">
-                    <div class="w-full h-full max-w-2xl flex justify-center items-center">
-                        <img id="mueble-visualizador" 
-                             src="imagenes/img11.png" 
-                             alt="Sillón Raíz" 
-                             class="object-contain w-full h-auto transition-all duration-500 ease-out transform scale-100 opacity-100">
-                    </div>
-                </div>
+        <div class="w-full overflow-hidden bg-oscuro leading-[0]">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px] md:h-[90px] fill-crema text-crema">
+                <path d="M0,64L48,58.7C96,53,192,43,288,53.3C384,64,480,96,576,101.3C672,107,768,85,864,69.3C960,53,1056,43,1152,48C1248,53,1344,75,1392,85.3L1440,96L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+            </svg>
+        </div>
 
-            </div>
-        </section>
-
-        <!-- SECCIÓN TIENDA -->
-        <section class="py-24 px-6 container mx-auto gs-section">
+        <section id="tienda" class="py-24 px-6 container mx-auto gs-section">
             <div class="text-center mb-16">
                 <span class="text-magenta font-bold tracking-widest text-sm mb-4 block">5. COLECCIÓN</span>
                 <h2 class="font-serif text-4xl font-bold">Piezas Únicas</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- PRODUCTO 1 -->
                 <div class="group cursor-pointer">
                     <div class="relative h-96 mb-4 rounded-xl overflow-hidden bg-oscuro">
                         <img src="imagenes/img7.png" alt="Silla de comedor" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
@@ -512,7 +415,6 @@
                     </div>
                 </div>
 
-                <!-- PRODUCTO 2 -->
                 <div class="group cursor-pointer">
                     <div class="relative h-96 mb-4 rounded-xl overflow-hidden bg-white">
                         <img src="imagenes/img8.png" alt="Taburete lima" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
@@ -527,7 +429,6 @@
                     </div>
                 </div>
 
-                <!-- PRODUCTO 3 -->
                 <div class="group cursor-pointer">
                     <div class="relative h-96 mb-4 rounded-xl overflow-hidden bg-white">
                         <img src="imagenes/img9.png" alt="Sillón de lectura" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
@@ -542,9 +443,119 @@
                 </div>
             </div>
         </section>
-    </main>
+<!-- ========================================== -->
+<!-- SECCIÓN 6: CLIENTES (STACK INTERACTIVO)      -->
+<!-- ========================================== -->
+<section id="clientes" class="py-24 bg-crema text-oscuro relative overflow-hidden gs-section opacity-0 translate-y-10">
+    <div class="container mx-auto px-6 text-center mb-12">
+        <span class="text-magenta font-bold tracking-widest text-sm mb-4 block uppercase">6. CLIENTES</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+            Quienes ya transformaron su espacio
+        </h2>
+        <p class="font-sans text-oscuro/60 text-sm mt-2 flex items-center justify-center gap-2">
+            <span class="inline-block animate-pulse w-2 h-2 rounded-full bg-magenta"></span> 
+            Clickeá para explorar las historias
+        </p>
+    </div>
 
-    <footer class="bg-magenta text-crema pt-24 pb-8 px-6">
+    <!-- Contenedor del Stack de Tarjetas -->
+    <div class="relative w-full max-w-md mx-auto h-[520px] flex items-center justify-center my-8 select-none" id="cardsStackContainer">
+        
+        <!-- Tarjeta 1: Lucía M. -->
+        <div class="absolute w-80 sm:w-85 bg-white border-2 border-oscuro rounded-2xl p-5 shadow-[4px_4px_0px_0px_rgba(26,26,26,1)] transition-transform duration-300 transform origin-bottom cursor-grab active:cursor-grabbing card-stack" data-index="0">
+            <div class="relative w-full h-56 bg-oscuro rounded-xl overflow-hidden mb-4 border border-oscuro/10">
+                <img src="imagenes/img15.png" alt="Aparador de comedor" class="object-cover w-full h-full pointer-events-none">
+            </div>
+            <div class="space-y-3">
+                <p class="font-sans text-sm italic text-oscuro/80 leading-relaxed">
+                    "Restauraron el aparador de mi abuela y volvió a ser el corazón del comedor. No solo recuperé un mueble, también una parte de mi historia."
+                </p>
+                <div class="pt-2 border-t border-oscuro/10 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-serif font-bold text-base">Lucía M.</h4>
+                        <span class="font-sans text-xs text-oscuro/60">Proyecto: Aparador de comedor</span>
+                    </div>
+                    <span class="bg-lima text-oscuro text-xs font-bold px-2 py-1 rounded-md border border-oscuro">✦ 10/10</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2: Martín R. -->
+        <div class="absolute w-80 sm:w-85 bg-white border-2 border-oscuro rounded-2xl p-5 shadow-[4px_4px_0px_0px_rgba(26,26,26,1)] transition-transform duration-300 transform origin-bottom cursor-grab active:cursor-grabbing card-stack" data-index="1">
+            <div class="relative w-full h-56 bg-oscuro rounded-xl overflow-hidden mb-4 border border-oscuro/10">
+                <img src="imagenes/img16.png" alt="Escritorio de roble" class="object-cover w-full h-full pointer-events-none">
+            </div>
+            <div class="space-y-3">
+                <p class="font-sans text-sm italic text-oscuro/80 leading-relaxed">
+                    "Tenía un escritorio antiguo que llevaba años guardado. Hoy es el lugar donde trabajo todos los días y recibe elogios de todo el que viene."
+                </p>
+                <div class="pt-2 border-t border-oscuro/10 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-serif font-bold text-base">Martín R.</h4>
+                        <span class="font-sans text-xs text-oscuro/60">Proyecto: Escritorio de roble</span>
+                    </div>
+                    <span class="bg-lima text-oscuro text-xs font-bold px-2 py-1 rounded-md border border-oscuro">✦ RECO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3: Sofía G. -->
+        <div class="absolute w-80 sm:w-85 bg-white border-2 border-oscuro rounded-2xl p-5 shadow-[4px_4px_0px_0px_rgba(26,26,26,1)] transition-transform duration-300 transform origin-bottom cursor-grab active:cursor-grabbing card-stack" data-index="2">
+            <div class="relative w-full h-56 bg-oscuro rounded-xl overflow-hidden mb-4 border border-oscuro/10">
+                <img src="imagenes/img17.png" alt="Cómoda vintage verde menta y colorida" class="object-cover w-full h-full pointer-events-none">
+            </div>
+            <div class="space-y-3">
+                <p class="font-sans text-sm italic text-oscuro/80 leading-relaxed">
+                    "Quería algo único para el cuarto de mi hija. Transformaron una cómoda heredada en una pieza llena de color y personalidad."
+                </p>
+                <div class="pt-2 border-t border-oscuro/10 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-serif font-bold text-base">Sofía G.</h4>
+                        <span class="font-sans text-xs text-oscuro/60">Proyecto: Cómoda vintage</span>
+                    </div>
+                    <span class="bg-lima text-oscuro text-xs font-bold px-2 py-1 rounded-md border border-oscuro">✦ ÚNICO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4: Javier y Camila P. -->
+        <div class="absolute w-80 sm:w-85 bg-white border-2 border-oscuro rounded-2xl p-5 shadow-[4px_4px_0px_0px_rgba(26,26,26,1)] transition-transform duration-300 transform origin-bottom cursor-grab active:cursor-grabbing card-stack" data-index="3">
+            <div class="relative w-full h-56 bg-oscuro rounded-xl overflow-hidden mb-4 border border-oscuro/10">
+                <img src="imagenes/img18.png" alt="Mesa de comedor antigua restaurada" class="object-cover w-full h-full pointer-events-none">
+            </div>
+            <div class="space-y-3">
+                <p class="font-sans text-sm italic text-oscuro/80 leading-relaxed">
+                    "Pensábamos comprar una mesa nueva, pero decidimos darle una oportunidad a la que estaba en la familia. El resultado superó cualquier expectativa."
+                </p>
+                <div class="pt-2 border-t border-oscuro/10 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-serif font-bold text-base">Javier y Camila P.</h4>
+                        <span class="font-sans text-xs text-oscuro/60">Proyecto: Mesa antigua</span>
+                    </div>
+                    <span class="bg-lima text-oscuro text-xs font-bold px-2 py-1 rounded-md border border-oscuro">✦ AMAMOS</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Indicador inferior dinámico -->
+    <div class="text-center mt-6">
+        <span id="cardIndicatorText" class="inline-block bg-oscuro text-crema text-xs font-semibold uppercase tracking-widest px-5 py-2 rounded-full border border-oscuro shadow-[2px_2px_0px_0px_rgba(99,242,99,1)]">
+            Proyecto: Aparador de comedor
+        </span>
+    </div>
+</section>
+    
+</main>
+
+    <div class="w-full overflow-hidden bg-crema leading-[0]">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[70px] md:h-[110px] fill-magenta text-magenta">
+            <path d="M0,50C150,120,350,10,600,70C850,130,1050,20,1200,50L1200,120L0,120Z"></path>
+        </svg>
+    </div>
+
+    <footer class="bg-magenta text-crema pb-8 pt-6 px-6">
         <div class="container mx-auto grid md:grid-cols-2 gap-16 border-b border-white/10 pb-16 mb-8 gs-section">
             <div>
                 <h2 class="font-serif text-4xl font-bold mb-6">Sumate a la nueva generación de restauradores.</h2>
@@ -581,7 +592,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <script src="js/main.js"></script>
 </body>
 </html>
