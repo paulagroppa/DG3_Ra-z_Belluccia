@@ -2,14 +2,16 @@
    VARIABLES DE PALETA Y CONFIGURACIÓN GENERAL
    ========================================================================== */
 :root {
-    /* Paleta de Colores Solicitada */
-    --color-neutro-fondo: #F6F4EE; /* Arena / Crudo */
-    --color-verde-seco: #3D4A3E;
-    --color-lima-suave: #D6E786;
-    --color-magenta: #D12B6B;
-    --color-lila: #D6C7E8;
-    --color-naranja: #F26430;
-    --color-oscuro-editorial: #151515;
+    /* Tu nueva paleta de colores */
+    --color-neutro-fondo: #F5F2EB;     /* Crema */
+    --color-oscuro-editorial: #1A1A1A; /* Oscuro */
+    --color-magenta: #F233B9;          /* Magenta vibrante */
+    --color-lima-suave: #63F263;       /* Lima */
+    
+    /* Reasignamos para los fondos de secciones que usaban los colores viejos */
+    --color-verde-seco: #1A1A1A;       /* Lo pasamos al oscuro para el footer y botones */
+    --color-naranja: #F233B9;          /* Lo pasamos a tu magenta para el banner de Workshops */
+    --color-lila: #63F263;             /* Lo pasamos a tu lima para las formas abstractas */
     
     /* Tipografías Equivalentes de Google Fonts */
     --font-heading-heavy: 'Syne', sans-serif; /* Alternativa a Owners */
