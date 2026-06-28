@@ -18,9 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // PEGÁ ESTO EN SU LUGAR:
+    // ----------------------------------------------------------------------
+    // 2. COMPONENTE INTERACTIVO: COLOR STUDIO (SECCIÓN 5)
+    // ----------------------------------------------------------------------
     const colorDots = document.querySelectorAll(".color-dot");
-    const muebleBaseImg = document.getElementById("muebleBaseImg");
+    const muebleOverlay = document.getElementById("muebleOverlay");
 
     colorDots.forEach(dot => {
         dot.addEventListener("click", function() {
@@ -29,29 +31,70 @@ document.addEventListener("DOMContentLoaded", () => {
             // Añadimos activa al seleccionado
             this.classList.add("active");
 
-            // Obtenemos la ruta de la imagen desde el data-img
-            const targetImg = this.getAttribute("data-img");
+            // Obtenemos el color RGBA del atributo de datos custom
+            const targetColor = this.getAttribute("data-color");
             
-            // Reemplazamos el origen de la imagen principal
-            if (muebleBaseImg && targetImg) {
-                muebleBaseImg.src = targetImg;
+            // Aplicamos la laca de color con una transición fluida vía CSS
+            if (muebleOverlay) {
+                muebleOverlay.style.backgroundColor = targetColor;
             }
         });
     });
 
+   // ----------------------------------------------------------------------
+    // 3. CONTROL INTERACTIVO DEL SLIDER DE CURSOS (CENTRADO ABSOLUTO EJE WEB)
     // ----------------------------------------------------------------------
-    // 3. DINAMISMO EXTRALÚDICO: ANIMACIÓN DE GRADIENTE EN WORKSHOPS (SECCIÓN 3)
-    // ----------------------------------------------------------------------
-    const workshopSection = document.getElementById("workshops");
-    if (workshopSection) {
-        let hueShift = 0;
-        setInterval(() => {
-            // Altera sutilmente el tono naranja vivo original para darle vibración artística
-            hueShift = (hueShift + 1) % 15; 
-            workshopSection.style.filter = `hue-rotate(${hueShift}deg)`;
-        }, 150);
-    }
+    const coursesTrack = document.getElementById("coursesTrack");
+    const courseCards = document.querySelectorAll(".course-card-wrapper");
+    const prevBtn = document.getElementById("coursePrevBtn");
+    const nextBtn = document.getElementById("courseNextBtn");
 
+    if (coursesTrack && courseCards.length > 0 && prevBtn && nextBtn) {
+        let currentIndex = 0;
+
+        const updateSlider = () => {
+            // 1. Gestionamos la clase activa para aplicar las opacidades del CSS
+            courseCards.forEach(card => card.classList.remove("active"));
+            courseCards[currentIndex].classList.add("active");
+
+            // 2. Calculamos el ancho real de la tarjeta y el espacio (gap) configurado
+            const cardWidth = courseCards[0].getBoundingClientRect().width;
+            const gap = 40; 
+
+            // 3. Renderizado matemático para centrado absoluto:
+            // Desplazamos el track basándonos en el índice, manteniendo el equilibrio visual simétrico
+            const displacement = currentIndex * (cardWidth + gap);
+
+            // Movemos el contenedor usando aceleración por hardware
+            coursesTrack.style.transform = `translateX(-${displacement}px)`;
+        };
+
+        // Evento click para avanzar al siguiente curso
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < courseCards.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Vuelve al primer curso de forma cíclica
+            }
+            updateSlider();
+        });
+
+        // Evento click para volver al curso anterior
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = courseCards.length - 1; // Salta al último curso
+            }
+            updateSlider();
+        });
+
+        // Forzamos recalcular la posición si el usuario cambia el tamaño del navegador o gira el celu
+        window.addEventListener("resize", updateSlider);
+        
+        // Ejecución inicial para posicionar la primera tarjeta al cargar la página
+        updateSlider();
+    }
     // ----------------------------------------------------------------------
     // 4. EFECTOS SCROLL REVEAL (Efectos de aparición gradual simples)
     // ----------------------------------------------------------------------

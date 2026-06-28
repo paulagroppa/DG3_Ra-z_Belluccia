@@ -221,35 +221,6 @@ body {
     box-shadow: 20px 20px 0px var(--color-verde-seco);
 }
 
-/* ==========================================================================
-   SECCIÓN 1: NUEVAS CARDS REINTERPRETADAS (ADAPTADAS AL SISTEMA RAÍZ)
-   ========================================================================== */
-.story-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-.story-editorial-text {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.story-editorial-text h2 {
-    font-family: var(--font-heading-heavy); /* Cambiado a Syne */
-    font-size: clamp(32px, 4vw, 54px);
-    letter-spacing: -2px;
-    line-height: 1;
-    margin-bottom: 20px;
-}
-
-.story-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    align-items: stretch;
-}
 
 /* Estructura de las Tarjetas integradas al diseño */
 .story-card {
@@ -423,129 +394,274 @@ body {
 }
 
 /* ==========================================================================
-   SECCIÓN 3: BANNER WORKSHOPS (VIBRANTE NARANJA)
+   NUEVA MAQUETACIÓN: SLIDER CENTRADO ABSOLUTO (ESTILO TRUUS / RAÍZ)
    ========================================================================== */
-.workshop-banner {
-    background-color: var(--color-naranja);
-    color: #fff;
-    padding: 80px 5%;
-    transition: background 1s ease; /* Para animación de degradado suave por JS opcional */
-}
-
-.workshop-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 60px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.workshop-img-box {
-    position: relative;
-}
-
-.workshop-img-box img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.workshop-title {
-    font-family: var(--font-heading-heavy);
-    font-size: 48px;
-    line-height: 1;
-    letter-spacing: -2px;
-    margin-bottom: 20px;
-}
-
-.workshop-desc {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 32px;
-    opacity: 0.95;
-}
-
-.btn-solid-dark {
-    background-color: var(--color-oscuro-editorial);
-    color: #fff;
-    padding: 18px 36px;
-    font-family: var(--font-heading-heavy);
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    letter-spacing: 1px;
-}
-
-.btn-solid-dark:hover {
-    background-color: #fff;
-    color: var(--color-oscuro-editorial);
-}
-
-/* ==========================================================================
-   SECCIÓN 4: BENEFICIOS (GRILLA ESTILO ABANICO)
-   ========================================================================== */
-.benefits-section {
-    padding: 120px 5%;
+.courses-slider-section {
+    padding: 100px 0 80px 0;
     background-color: var(--color-neutro-fondo);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.courses-editorial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 5%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.courses-main-title {
+    font-family: var(--font-heading-heavy);
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--color-oscuro-editorial);
+    margin-top: 15px;
+}
+
+.serif-italic-courses {
+    font-family: var(--font-serif-luxury);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Contenedor del Escenario de las Tarjetas */
+.courses-deck-container {
+    width: 100%;
+    position: relative;
     display: flex;
     justify-content: center;
 }
 
-.benefits-container {
-    display: grid;
-    grid-template-columns: repeat(3, 320px);
-    gap: 20px;
+.courses-window {
+    width: clamp(300px, 28vw, 400px); /* Obliga a la ventana a medir exactamente lo que mide una tarjeta */
+    overflow: visible; /* Deja que las tarjetas de los lados se asomen armónicamente */
 }
 
-.benefit-card {
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+.courses-track {
+    display: flex;
+    gap: 40px; /* Espaciado entre tarjetas */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+    will-change: transform;
+}
+
+/* Estructura Individual de la Tarjeta */
+.course-card-wrapper {
+    width: clamp(300px, 28vw, 400px);
+    flex-shrink: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1), opacity 0.6s ease;
+    opacity: 0.3; /* Apaga las tarjetas laterales para un look ultra editorial */
+    transform: scale(0.9);
+}
+
+/* Tarjeta Central Activa */
+.course-card-wrapper.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.course-card {
+    background-color: var(--color-oscuro-editorial);
+    color: #fff;
+    border-radius: 28px;
+    padding: 40px 32px;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
 }
 
-/* Efecto abanico inicial simulado */
-.benefit-card:nth-child(1) { transform: rotate(-3deg) translateY(10px); }
-.benefit-card:nth-child(2) { transform: rotate(0deg) z-index: 2; }
-.benefit-card:nth-child(3) { transform: rotate(3deg) translateY(10px); }
-
-/* Micro-interacción hover */
-.benefit-card:hover {
-    transform: translateY(-20px) scale(1.05) rotate(0deg) !important;
-    z-index: 10;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+.course-card-wrapper.active .course-card {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
-.bg-verde { background-color: #E2EFE0; color: var(--color-verde-seco); }
-.bg-lila { background-color: var(--color-lila); color: var(--color-oscuro-editorial); }
-.bg-naranja { background-color: #FCDCD0; color: var(--color-naranja); }
+/* Bordes de color sutiles */
+.course-card.border-magenta { border-color: rgba(242, 51, 185, 0.25); }
+.course-card.border-lima { border-color: rgba(99, 242, 99, 0.25); }
 
-.card-num {
+/* Meta superior (Duración y Badge) */
+.card-course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-duration {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.course-badge {
     font-family: var(--font-heading-heavy);
-    font-size: 14px;
-    display: block;
-    margin-bottom: 40px;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 700;
 }
 
-.benefit-card h3 {
+.badge-magenta { background-color: var(--color-magenta); color: #fff; }
+.badge-lima { background-color: var(--color-lima-suave); color: var(--color-oscuro-editorial); }
+
+/* Cuerpo de la tarjeta */
+.card-course-main {
+    margin-top: 25px;
+    flex-grow: 1;
+}
+
+.course-teacher {
+    font-family: var(--font-serif-luxury);
+    font-style: italic;
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 6px;
+}
+
+.course-card-title {
     font-family: var(--font-heading-heavy);
-    font-size: 24px;
+    font-size: clamp(24px, 2.2vw, 32px);
+    font-weight: 800;
+    line-height: 1.05;
     letter-spacing: -1px;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
-.benefit-card p {
-    font-size: 15px;
-    line-height: 1.5;
-    opacity: 0.85;
+.course-card-desc {
+    font-size: 14px;
+    line-height: 1.45;
+    opacity: 0.7;
+    margin-bottom: 25px;
 }
 
+/* Listado de contenidos */
+.course-includes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.course-includes-list li {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.9;
+}
+
+.course-includes-list li.include-highlight {
+    font-family: var(--font-heading-heavy);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.text-magenta { color: var(--color-magenta); }
+.text-lima { color: var(--color-lima-suave); }
+
+/* Footer de la tarjeta: Precio y Botón */
+.card-course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.course-price-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-currency {
+    font-size: 11px;
+    font-family: var(--font-heading-heavy);
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+
+.price-value {
+    font-family: var(--font-heading-heavy);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Botón de conversión atrapante */
+.btn-course-buy {
+    text-decoration: none;
+    font-family: var(--font-heading-heavy);
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+}
+
+.btn-bg-magenta { background-color: var(--color-magenta); color: #fff; }
+.btn-bg-lima { background-color: var(--color-lima-suave); color: var(--color-oscuro-editorial); }
+
+.btn-course-buy:hover {
+    transform: scale(1.06) rotate(-1deg);
+    background-color: #fff;
+    color: var(--color-oscuro-editorial);
+}
+
+/* Controles abajo del Slider, perfectamente centrados */
+.courses-slider-controls-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.slider-arrow {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--color-oscuro-editorial);
+    background-color: transparent;
+    color: var(--color-oscuro-editorial);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slider-arrow:hover {
+    background-color: var(--color-oscuro-editorial);
+    color: var(--color-neutro-fondo);
+    transform: scale(1.05);
+}
+
+/* Responsive para pantallas chicas */
+@media (max-width: 768px) {
+    .courses-window { width: 290px; }
+    .course-card-wrapper { width: 290px; }
+    .course-card { height: 580px; padding: 30px 20px; }
+}
 /* ==========================================================================
    SECCIÓN 5: COLOR STUDIO INTERACTIVO
    ========================================================================== */
@@ -651,72 +767,159 @@ body {
     100% { transform: translateY(-55%); }
 }
 
+
 /* ==========================================================================
-   SECCIÓN 6: COLECCIÓN CÁPSULA (EL DROP)
+   NUEVA SECCIÓN: DROP MARQUEE INFINITO
    ========================================================================== */
-.capsule-section {
-    padding: 120px 5%;
+.drop-marquee-section {
+    padding: 100px 0 120px 0; /* Sin padding lateral para que las fotos mueran al borde de pantalla */
     background-color: var(--color-neutro-fondo);
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }
 
-.capsule-editorial {
-    margin-bottom: 60px;
+/* Encabezado editorial balanceado y asimétrico */
+.drop-editorial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 5%; /* Mantenemos el bloque alineado al margen de la web */
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.drop-badge {
+.drop-main-title {
+    font-family: var(--font-heading-heavy);
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    text-transform: lowercase; /* Identidad Truus */
+    color: var(--color-oscuro-editorial);
+    margin-bottom: 20px;
+}
+
+.drop-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.5vw, 18px);
+    max-width: 650px;
+    line-height: 1.5;
+    color: var(--color-oscuro-editorial);
+    opacity: 0.9;
+}
+
+.serif-italic-drop {
+    font-family: var(--font-serif-luxury);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Botón adaptado a tu estilo de interacción disruptiva */
+.btn-solid-drop {
     background-color: var(--color-oscuro-editorial);
     color: #fff;
-    padding: 6px 14px;
+    padding: 16px 36px;
     font-family: var(--font-heading-heavy);
-    font-size: 11px;
     text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 0px; /* Mantener estética de bloque rígido */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
 }
 
-.capsule-title {
-    font-family: var(--font-serif-luxury);
-    font-size: 56px;
-    font-weight: 400;
-    margin: 20px 0;
+.btn-solid-drop:hover {
+    transform: scale(1.05) rotate(1deg);
+    background-color: var(--color-magenta);
 }
 
-.capsule-text {
-    font-size: 16px;
-    max-width: 600px;
-    color: #555;
-}
-
-/* Carrusel Asimétrico */
-.gallery-carousel {
-    overflow: hidden;
+/* El escenario del carrusel infinito */
+.marquee-carousel-wrapper {
+    overflow: hidden; /* Oculta el sobrante que va saliendo de pantalla */
     width: 100%;
+    position: relative;
+    cursor: grab;
 }
 
-.carousel-track {
+.marquee-carousel-wrapper:active {
+    cursor: grabbing;
+}
+
+/* El riel contenedor que se desplaza */
+.marquee-infinite-track {
     display: flex;
-    gap: 40px;
+    width: max-content;
 }
 
-.carousel-item {
-    min-width: 350px;
-    transition: transform 0.5s ease;
+/* Los bloques idénticos de contenido */
+.marquee-group {
+    display: flex;
+    gap: 30px;
+    padding-right: 30px; /* Espacio de separación idéntico al gap para evitar saltos */
+    will-change: transform;
+    animation: scrollInfiniteMarquee 35s linear infinite; /* Tiempo total de una vuelta */
 }
 
-.carousel-item img {
+/* Las tarjetas de las imágenes del drop (Estilo rectángulos altos elegantes de estudio) */
+.marquee-card {
+    width: clamp(280px, 25vw, 380px);
+    height: clamp(380px, 35vw, 500px);
+    flex-shrink: 0;
+    border-radius: 20px; /* Bordes redondeados modernos líquidos orgánicos como tus tarjetas superiores */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    border: 1px solid rgba(26, 26, 26, 0.05);
+}
+
+.marquee-card img {
     width: 100%;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 4px;
-    transition: transform 0.5s ease;
+    height: 100%;
+    object-fit: cover; /* Hace que se encuadren perfectas sin deformar el mueble */
+    transition: scale 0.6s ease;
 }
 
-.carousel-item h4 {
-    font-family: var(--font-heading-heavy);
-    font-size: 18px;
-    margin-top: 15px;
+/* Efecto Hover interactivo refinado de estudio sobre las fotos individuales */
+.marquee-card:hover {
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26,26,26,0.12);
 }
 
-.carousel-item:hover img {
-    transform: scale(1.03);
+.marquee-card:hover img {
+    scale: 1.05;
+}
+
+/* Detener la animación general cuando el cursor está sobre el carrusel (Opcional, muy Truus) */
+.marquee-carousel-wrapper:hover .marquee-group {
+    animation-play-state: paused;
+}
+
+/* Keyframes nativos calculados por hardware para bucle invisible */
+@keyframes scrollInfiniteMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0); /* Corre exactamente la mitad del riel (un grupo entero) y resetea */
+    }
+}
+
+/* Ajuste rápido para pantallas chiquitas */
+@media (max-width: 768px) {
+    .drop-editorial-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .marquee-group {
+        gap: 15px;
+        padding-right: 15px;
+    }
+    .marquee-card {
+        width: 240px;
+        height: 320px;
+    }
 }
 
 /* ==========================================================================
@@ -781,4 +984,120 @@ body {
     .color-picker-floating { position: static; transform: none; display: flex; flex-direction: row; justify-content: center; width: 100%; margin-top: 20px; border-radius: 12px; animation: none; }
     .picker-buttons { flex-direction: row; }
     .footer-top { flex-direction: column; gap: 40px; }
+}
+/* ==========================================================================
+   NUEVA MAQUETACIÓN
+   ========================================================================== */
+
+/* Modificamos el contenedor para acercar el título a las tarjetas */
+.truus-layout-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 5% 40px 5%; /* Menos padding inferior */
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Reducido de 120px a 60px para que se integre con las cards */
+}
+
+/* Modificamos el tamaño y espaciado del título masivo */
+.section-title-truus {
+    font-family: var(--font-heading-heavy);
+    font-size: clamp(45px, 6.5vw, 85px); /* Reducido sustancialmente de 140px a un máximo de 85px */
+    font-weight: 800;
+    line-height: 0.95; /* Subimos un toque de 0.85 a 0.95 para mejor legibilidad */
+    letter-spacing: -2px; /* Menos pegadas para que no sea tan tosco el bloque */
+    color: var(--color-oscuro-editorial);
+    text-transform: lowercase;
+}
+
+/* Reducimos un poco el espaciado de la cursiva serif */
+.serif-italic-truus {
+    font-family: var(--font-serif-luxury);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -1px;
+    display: inline-block;
+    padding-top: 5px;
+}
+}
+
+/* Contenedor Orgánico de las Cards (Imagen 2) */
+.story-cards-organic-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La mancha azul asimétrica del fondo */
+.truus-organic-blob {
+    position: absolute;
+    width: clamp(350px, 50vw, 700px);
+    height: clamp(350px, 50vw, 700px);
+    background-color: #6182G7; /* Azul vibrante Truus, ajustalo a tu paleta si preferís */
+    border-radius: 43% 57% 41% 59% / 57% 45% 55% 43%; /* Forma líquida pura */
+    left: 10%;
+    top: 5%;
+    z-index: 1;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+/* El flujo libre y encimado de tarjetas */
+.story-cards-free-flow {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+/* Forzamos que el fondo por defecto sea el lila/lima de tu sistema */
+.story-card {
+    background-color: var(--color-lima-suave) !important;
+    border-radius: 24px; /* Bordes amigables y orgánicos */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+/* Posicionamiento asimétrico individual (Efecto abanico desordenado de la foto) */
+.truus-card-1 {
+    transform: rotate(-8deg) translateY(40px);
+}
+
+.truus-card-2 {
+    transform: rotate(3deg) translateY(-20px) translateX(-15px);
+    z-index: 3; /* Pasa un poco por encima de las demás */
+}
+
+.truus-card-3 {
+    transform: rotate(-4deg) translateY(60px) translateX(-30px);
+}
+
+/* Micro-interacciones interactivas de autor */
+.story-card:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 10;
+    box-shadow: 0 30px 50px rgba(26,26,26,0.15);
+}
+
+/* Responsive total: Si pasa a móviles se reordena de forma segura */
+@media (max-width: 968px) {
+    .story-cards-free-flow {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .truus-card-1, .truus-card-2, .truus-card-3 {
+        transform: none !important;
+    }
+    .section-title-truus {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+    .truus-layout-container {
+        gap: 60px;
+    }
 }
