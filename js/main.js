@@ -18,11 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ----------------------------------------------------------------------
-    // 2. COMPONENTE INTERACTIVO: COLOR STUDIO (SECCIÓN 5)
-    // ----------------------------------------------------------------------
+    // PEGÁ ESTO EN SU LUGAR:
     const colorDots = document.querySelectorAll(".color-dot");
-    const muebleOverlay = document.getElementById("muebleOverlay");
+    const muebleBaseImg = document.getElementById("muebleBaseImg");
 
     colorDots.forEach(dot => {
         dot.addEventListener("click", function() {
@@ -31,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Añadimos activa al seleccionado
             this.classList.add("active");
 
-            // Obtenemos el color RGBA del atributo de datos custom
-            const targetColor = this.getAttribute("data-color");
+            // Obtenemos la ruta de la imagen desde el data-img
+            const targetImg = this.getAttribute("data-img");
             
-            // Aplicamos la laca de color con una transición fluida vía CSS
-            if (muebleOverlay) {
-                muebleOverlay.style.backgroundColor = targetColor;
+            // Reemplazamos el origen de la imagen principal
+            if (muebleBaseImg && targetImg) {
+                muebleBaseImg.src = targetImg;
             }
         });
     });

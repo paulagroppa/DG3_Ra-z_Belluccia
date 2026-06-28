@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="hero-image-block parallax-bg">
-                    <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&w=800&q=80" alt="Mueble de autor Raíz" class="hero-img">
+                    <img src="imagenes/img1.png" alt="Mueble de autor Raíz" class="hero-img">
                     <div class="floating-sticker star-sticker"><i class="fa-solid fa-star"></i></div>
                 </div>
             </div>
@@ -47,22 +47,55 @@
 
         <section id="Nuestra mirada" class="story-section scroll-reveal">
             <div class="organic-bg-shape"></div>
-            <div class="story-grid">
+            <div class="story-container">
+                
                 <div class="story-editorial-text">
                     <h2 class="section-title-large">El diseño no siempre empieza de cero</h2>
-                    <p class="body-text">Creamos piezas únicas reinterpretando muebles con historia, color y una mirada contemporánea.</p>
                 </div>
-                <div class="story-gallery">
-                    <div class="gallery-card card-1 floating-anim">
-                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=500&q=80" alt="Detalle madera histórica">
-                        <span class="script-annotation note-1">Roble de 1920</span>
+
+              <div class="story-cards-grid">
+                    
+                    <!-- Card 01 -->
+                    <div class="story-card">
+                        <div class="card-header-meta">
+                            <span class="card-tag">Ediciones Limitadas</span>
+                            <span class="card-index">01/</span>
+                        </div>
+                        <h3 class="card-title">Piezas con <span class="serif-italic">Historia</span></h3>
+                        <p class="card-description">
+                            No hacemos muebles en serie ni repetimos fórmulas. Rescatamos treasures olvidados, investigamos su origen histórico y los reimaginamos bajo una lente contemporánea.
+                        </p>
+                        <!-- Usamos tus botones del sistema -->
+                        <a href="#capsula" class="btn-outline">Ver piezas disponibles</a>
                     </div>
-                    <div class="gallery-card card-2 floating-anim" style="animation-delay: 1.5s;">
-                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80" alt="Mueble intervenido antiguo">
-                        <span class="script-annotation note-2">Cedro original</span>
+
+                    <!-- Card 02 -->
+                    <div class="story-card">
+                        <div class="card-header-meta">
+                            <span class="card-tag">100% Consciente</span>
+                            <span class="card-index">02/</span>
+                        </div>
+                        <h3 class="card-title">Proceso <br><span class="serif-italic">Circular</span></h3>
+                        <p class="card-description">
+                            Cada marca, veta y ensamble hereda una vida pasada. Diseñamos para expandir esa línea de tiempo utilizando acabados naturales, orgánicos y materiales biodegradables premium.
+                        </p>
+                        <a href="#transformacion" class="btn-outline">Descubrir proceso</a>
                     </div>
+
+                    <!-- Card 03 -->
+                    <div class="story-card">
+                        <div class="card-header-meta">
+                            <span class="card-tag">Nuestra Comunidad</span>
+                            <span class="card-index">03/</span>
+                        </div>
+                        <h3 class="card-title">Aprendé el <br><span class="serif-italic">Oficio</span></h3>
+                        <p class="card-description">
+                            Queremos devolver el diseño a las manos de las personas. Aprendé técnicas de restauración, ebanistería y cuidado de objetos de valor histórico en nuestros talleres intensivos.
+                        </p>
+                        <a href="#Aprendé el oficio" class="btn-outline">Reservar vacante</a>
+                    </div>
+
                 </div>
-            </div>
         </section>
 
         <section id="transformacion" class="transform-section">
@@ -71,10 +104,10 @@
             </div>
             <div class="slider-container">
                 <div class="slider-img img-before">
-                    <img src="https://images.unsplash.com/photo-1501183007986-d0d080b147f9?auto=format&fit=crop&w=1200&q=80" alt="Mueble Antiguo Roto Antes">
+                    <img src="imagenes/img8.png" alt="Mueble Antiguo Roto Antes">
                 </div>
                 <div class="slider-img img-after">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Mueble Moderno Intervenido Después">
+                    <img src="imagenes/img7.png" alt="Mueble Moderno Intervenido Después">
                 </div>
                 <input type="range" min="0" max="100" value="50" class="slider-range-input" id="beforeAfterSlider">
                 <div class="slider-button"></div>
@@ -115,23 +148,24 @@
             </div>
         </section>
 
-        <section id="Tu versión" class="interactive-color-section">
+         <section id="Tu versión" class="interactive-color-section">
             <div class="Tu versión-header">
                 <h2>El color cómo <br><span class="serif-italic">segunda vida</span></h2>
             </div>
             <div class="color-studio-workspace">
                 <div class="mueble-display-container">
-                    <div class="mueble-color-overlay" id="muebleOverlay"></div>
-                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" alt="Sillón de diseño Raíz" class="mueble-base-img">
+                    <img src="imagenes/img3.png" alt="Sillón de diseño Raíz" class="mueble-base-img" id="muebleBaseImg">
                 </div>
                 
                 <div class="color-picker-floating">
                     <p>Elegí la identidad:</p>
                     <div class="picker-buttons">
-                        <button class="color-dot btn-magenta active" data-color="rgba(227, 24, 115, 0.4)" title="Magenta Velvet"></button>
-                        <button class="color-dot btn-lima" data-color="rgba(191, 237, 0, 0.4)" title="Lima Pop"></button>
-                        <button class="color-dot btn-cobalto" data-color="rgba(0, 43, 255, 0.4)" title="Cobalto Eléctrico"></button>
-                        <button class="color-dot btn-naranja" data-color="rgba(255, 102, 0, 0.4)" title="Naranja Ácido"></button>
+                        <!-- Primer botón usa btn-crema-fix para el color crema -->
+                        <button class="color-dot btn-crema-fix active" data-img="imagenes/img3.png" title="Crema"></button>
+                        <button class="color-dot btn-magenta" data-img="imagenes/img4.png" title="Magenta"></button>
+                        <button class="color-dot btn-lima" data-img="imagenes/img5.png" title="Lima"></button>
+                        <!-- Último botón usa btn-oscuro-fix para el color oscuro -->
+                        <button class="color-dot btn-oscuro-fix" data-img="imagenes/img6.png" title="Oscuro"></button>
                     </div>
                 </div>
             </div>
