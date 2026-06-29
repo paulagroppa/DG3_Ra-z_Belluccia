@@ -301,9 +301,7 @@ body {
 /* ==========================================================================
    SECCIÓN 2: INTERACTIVO ANTES Y DESPUÉS (SLIDER)
    ========================================================================== */
-.transform-section {
-    padding: 100px 5%;
-}
+
 
 .section-header-center {
     text-align: center;
@@ -336,14 +334,18 @@ body {
 }
 
 .slider-img img {
-    width: 100%;
+    /* Forzamos a que la imagen mida siempre el ancho máximo del contenedor */
+    /* De este modo, cuando el contenedor se achica, la imagen se recorta en vez de deformarse */
+    width: 1000px; 
     height: 100%;
     object-fit: cover;
     display: block;
+    max-width: none; /* Evita que herede restricciones externas */
 }
 
 .img-after {
     width: 50%; /* Controlado dinámicamente por JS */
+    overflow: hidden; /* Recorta el contenido sobrante al deslizar */
     z-index: 2;
 }
 
@@ -355,7 +357,7 @@ body {
     width: 100%;
     height: 100%;
     background: transparent;
-    z-index: 5;
+    z-index: 1; /* Bajado para dejar pasar el cursor a los hotspots */
     cursor: ew-resize;
     outline: none;
     top: 0;
@@ -1349,4 +1351,181 @@ body {
     .truus-layout-container {
         gap: 60px;
     }
+}
+/* ==========================================================================
+   PUNTOS INTERACTIVOS (HOTSPOTS) - SECCIÓN ANTES/DESPUÉS
+   ========================================================================== */
+.hotspot {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+/* El botón circular con el "+" */
+.hotspot-trigger {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-magenta);
+    color: #fff;
+    border: 2px solid var(--color-neutro-fondo);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Efecto de pulso continuo para llamar la atención */
+.hotspot-trigger::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--color-magenta);
+    animation: hotspot-pulse 2s infinite ease-out;
+    opacity: 0.8;
+}
+
+.hotspot-trigger:hover {
+    background-color: var(--color-oscuro-editorial);
+    transform: scale(1.1);
+}
+
+/* Contenedor del texto descriptivo (oculto por defecto) */
+.hotspot-tooltip {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 220px;
+    background-color: var(--color-oscuro-editorial);
+    color: var(--color-neutro-fondo);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--color-lila);
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.hotspot-tooltip h4 {
+    font-family: var(--font-heading-heavy);
+    color: var(--color-lila);
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.hotspot-tooltip p {
+    font-family: var(--font-body);
+    margin: 0;
+}
+
+/* Mostrar tooltip al pasar el cursor (hover) por el punto */
+.hotspot:hover .hotspot-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Animación del pulso de fondo */
+@keyframes hotspot-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+/* Activar también mediante JS para mobile */
+.hotspot.active .hotspot-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* --- ARREGLO FINAL DE ONDAS Y CONTENEDORES --- */
+
+/* Forzar posicionamiento y márgenes correctos en la sección de las tarjetas */
+.capsula-section {
+    position: relative !important;
+    background-color: var(--color-neutro-fondo) !important;
+    padding-top: 140px !important;    /* Espacio para la onda superior */
+    padding-bottom: 140px !important; /* Espacio para la onda inferior */
+    z-index: 1;
+}
+
+/* Forzar el fondo oscuro editorial en tu footer restaurado */
+.main-footer {
+    position: relative !important;
+    background-color: #1A1A1A !important;
+    color: #F5F2EB !important;
+    padding-top: 140px !important;    /* Espacio para la onda del footer */
+    padding-bottom: 40px !important;
+    z-index: 2;
+}
+
+/* Estructura común para los 3 contenedores de ondas */
+.custom-shape-divider-top, 
+.custom-shape-divider-bottom, 
+.custom-shape-divider-footer {
+    position: absolute !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    line-height: 0 !important;
+    left: 0 !important;
+}
+
+.custom-shape-divider-top svg, 
+.custom-shape-divider-bottom svg, 
+.custom-shape-divider-footer svg {
+    position: relative !important;
+    display: block !important;
+    width: calc(100% + 1.3px) !important;
+    height: 90px !important; /* Altura ideal de la curva visual */
+}
+
+/* Forzar el color oscuro en los vectores de las 3 ondas */
+.custom-shape-divider-top svg path,
+.custom-shape-divider-bottom svg path,
+.custom-shape-divider-footer svg path {
+    fill: #1A1A1A !important;
+}
+
+/* UBICACIONES PRECISAS DE LAS ONDAS */
+
+/* 1. Al principio de la sección (Apunta hacia abajo) */
+.custom-shape-divider-top {
+    top: 0 !important;
+    z-index: 5 !important;
+}
+
+/* 2. Al final de la sección (Rotada para el cierre fluido) */
+.custom-shape-divider-bottom {
+    bottom: 0 !important;
+    transform: rotate(180deg) !important;
+    z-index: 5 !important;
+}
+
+/* 3. Al principio del Footer (Apunta hacia abajo sobre el fondo negro) */
+.custom-shape-divider-footer {
+    top: 0 !important;
+    z-index: 5 !important;
+}
+
+/* Garantizar que tus tarjetas y contenidos queden sobre el área de la onda */
+.capsula-section .container, 
+.footer-container {
+    position: relative !important;
+    z-index: 10 !important;
 }
