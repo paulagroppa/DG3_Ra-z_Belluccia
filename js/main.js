@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ----------------------------------------------------------------------
-    // 1. COMPONENTE INTERACTIVO: SLIDER ANTES Y DESPUÉS (SECCIÓN 2)
+    // 1. COMPONENTE INTERACTIVO: SLIDER ANTES Y DESPUÉS + TOOLTIPS
     // ----------------------------------------------------------------------
     const sliderInput = document.getElementById("beforeAfterSlider");
     const imgAfterContainer = document.querySelector(".img-after");
     const sliderHandleButton = document.querySelector(".slider-button");
 
+    // A) Movimiento del Slider (Revelar Antes y Después)
     if (sliderInput && imgAfterContainer && sliderHandleButton) {
         sliderInput.addEventListener("input", (e) => {
             const sliderValue = e.target.value;
@@ -17,6 +18,29 @@ document.addEventListener("DOMContentLoaded", () => {
             sliderHandleButton.style.left = `${sliderValue}%`;
         });
     }
+
+    // B) Soporte para clicks en Mobile para Tooltips Interactivos
+    const hotspots = document.querySelectorAll(".hotspot-trigger");
+    hotspots.forEach(trigger => {
+        trigger.addEventListener("click", (e) => {
+            e.stopPropagation(); // Evita que interfiera con el arrastre del slider
+            const parent = trigger.parentElement;
+            
+            // Si ya estaba activo lo cierra; si no, apaga los demás y enciende este
+            if (parent.classList.contains("active")) {
+                parent.classList.remove("active");
+            } else {
+                document.querySelectorAll(".hotspot").forEach(h => h.classList.remove("active"));
+                parent.classList.add("active");
+            }
+        });
+    });
+
+    // C) Cerrar tooltips abiertos al hacer click/tap en cualquier parte vacía
+    document.addEventListener("click", () => {
+        document.querySelectorAll(".hotspot").forEach(h => h.classList.remove("active"));
+    });
+
 
     // ----------------------------------------------------------------------
     // 2. COMPONENTE INTERACTIVO: COLOR STUDIO (SECCIÓN 5)
