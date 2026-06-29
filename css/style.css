@@ -107,16 +107,19 @@ body {
    HEADER / NAVEGACIÓN EDITORIAL
    ========================================================================== */
 .main-header {
+position: relative; /* AGREGAR ESTA LÍNEA */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 5%;
-    border-bottom: 1px solid rgba(21, 21, 21, 0.1);
-    position: sticky;
+    padding: 20px 40px;
+    background-color: #F5F2EB;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: fixed;
     top: 0;
-    background-color: rgba(246, 244, 238, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 100;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -1526,4 +1529,120 @@ body {
     display: block;
     width: calc(100% + 1.3px);
     height: 75px; /* Mantiene la misma proporción estética */
+}
+/* ==========================================================================
+   ELEMENTOS DECORATIVOS ABSTRACTOS (CORREGIDOS)
+   ========================================================================== */
+
+/* Forzamos que el logo sea el eje de coordenadas de la estrella */
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
+/* Regla general para que floten sin molestar */
+.decoracion-forma {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* --- 1. Estrella en el Logo --- */
+.estrella-hero {
+    top: -12px;       /* La sube un poquito por encima del texto */
+    right: -25px;     /* La corre a la derecha del texto RAÍZ */
+    width: 24px;      /* Un tamaño más sutil para que no compita */
+    height: 24px;
+    animation: rotarSuave 12s linear infinite;
+}
+
+
+/* ==========================================================================
+   ANIMACIONES
+   ========================================================================== */
+@keyframes rotarSuave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes flotarOnda {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+/* ==========================================================================
+   ARREGLOS ORGÁNICOS & CORRECCIÓN DE FORMAS (NUESTRA MIRADA)
+   ========================================================================== */
+
+/* 1. Asegurar el contenedor orgánico para que nada se rompa */
+.story-cards-organic-wrap {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. La gran mancha azul de fondo (Corregida, líquida y atrás de las tarjetas) */
+.truus-organic-blob {
+    position: absolute;
+    width: clamp(320px, 45vw, 600px);
+    height: clamp(320px, 45vw, 600px);
+    background-color: var(--color-magenta);
+    border-radius: 43% 57% 41% 59% / 57% 45% 55% 43%; /* Deformación orgánica real */
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.85;
+    pointer-events: none;
+    filter: blur(1px); /* Suavizado sutil de bordes vectoriales */
+}
+
+/* 3. Reajuste de la grilla libre sobre la mancha */
+.story-cards-free-flow {
+    position: relative;
+    z-index: 2; /* Pasa por encima de la mancha azul */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+/* 4. Forzar tarjetas limpias con tu lila/lima del sistema */
+.story-card {
+    position: relative; /* Clave para los destellos internos */
+    background-color: var(--color-lima-suave) !important;
+    border: none !important; /* Chau bordes duros de prototipo */
+    border-radius: 32px !important; /* Curvatura amigable líquida */
+    padding: 45px 35px !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12) !important;
+    overflow: hidden;
+}
+
+/* 5. Agregamos "cositas": El destello flotante adentro de la card 2 */
+.decoracion-card-star {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 28px;
+    color: var(--color-magenta);
+    opacity: 0.8;
+    font-family: var(--font-heading-heavy);
+    animation: rotarSuave 8s linear infinite;
+}
+
+/* 6. Animación extra de flotación para la mancha azul del fondo */
+@keyframes flotarBlob {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-48%, -52%) scale(1.04) border-radius: 50% 40% 60% 40% / 40% 60% 40% 60%; }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); }
+}
+
+/* Aplicamos la animación a la mancha */
+.truus-organic-blob {
+    animation: flotarBlob 16s ease-in-out infinite;
 }
