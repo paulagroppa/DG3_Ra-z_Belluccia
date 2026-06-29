@@ -1,4 +1,5 @@
 
+
 :root {
     
     --color-neutro-fondo: #F5F2EB;     /* Crema */
@@ -301,7 +302,9 @@ body {
 /* ==========================================================================
    SECCIÓN 2: INTERACTIVO ANTES Y DESPUÉS (SLIDER)
    ========================================================================== */
-
+.transform-section {
+    padding: 100px 5%;
+}
 
 .section-header-center {
     text-align: center;
@@ -1003,9 +1006,11 @@ body {
 
 /* Fondo oscuro real para toda la sección */
 #nuestra-mirada {
+    position: relative; /* ¡Clave para que las ondas se queden adentro de la sección! */
     background-color: var(--color-oscuro-editorial);
-    padding: 80px 0; /* Un buen espacio arriba y abajo para que respire */
+    padding: 100px 0 140px 0; /* Espacio extra abajo para que la curva respire */
     width: 100%;
+    z-index: 5;
 }
 
 /* El título en crema para que resalte */
@@ -1454,78 +1459,52 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
-/* --- ARREGLO FINAL DE ONDAS Y CONTENEDORES --- */
+/* ==========================================================================
+   TERMINACIONES DE ONDAS AMORFIZADAS/ORGÁNICAS 
+   ========================================================================== */
 
-/* Forzar posicionamiento y márgenes correctos en la sección de las tarjetas */
-.capsula-section {
-    position: relative !important;
-    background-color: var(--color-neutro-fondo) !important;
-    padding-top: 140px !important;    /* Espacio para la onda superior */
-    padding-bottom: 140px !important; /* Espacio para la onda inferior */
-    z-index: 1;
+/* Asegurar que las secciones contenedoras permitan posicionar las ondas */
+.manifesto-section {
+    position: relative;
+    padding-bottom: 140px !important; /* Espacio extra para que la onda no tape el texto */
 }
 
-/* Forzar el fondo oscuro editorial en tu footer restaurado */
 .main-footer {
-    position: relative !important;
-    background-color: #1A1A1A !important;
-    color: #F5F2EB !important;
-    padding-top: 140px !important;    /* Espacio para la onda del footer */
-    padding-bottom: 40px !important;
-    z-index: 2;
+    position: relative;
+    padding-top: 100px !important; /* Espacio para que la onda superior respire */
 }
 
-/* Estructura común para los 3 contenedores de ondas */
-.custom-shape-divider-top, 
-.custom-shape-divider-bottom, 
-.custom-shape-divider-footer {
-    position: absolute !important;
-    width: 100% !important;
-    overflow: hidden !important;
-    line-height: 0 !important;
-    left: 0 !important;
-}
-
-.custom-shape-divider-top svg, 
-.custom-shape-divider-bottom svg, 
-.custom-shape-divider-footer svg {
-    position: relative !important;
-    display: block !important;
-    width: calc(100% + 1.3px) !important;
-    height: 90px !important; /* Altura ideal de la curva visual */
-}
-
-/* Forzar el color oscuro en los vectores de las 3 ondas */
-.custom-shape-divider-top svg path,
-.custom-shape-divider-bottom svg path,
-.custom-shape-divider-footer svg path {
-    fill: #1A1A1A !important;
-}
-
-/* UBICACIONES PRECISAS DE LAS ONDAS */
-
-/* 1. Al principio de la sección (Apunta hacia abajo) */
-.custom-shape-divider-top {
-    top: 0 !important;
-    z-index: 5 !important;
-}
-
-/* 2. Al final de la sección (Rotada para el cierre fluido) */
+/* Estilos de la Onda Inferior (Sección Manifiesto) */
 .custom-shape-divider-bottom {
-    bottom: 0 !important;
-    transform: rotate(180deg) !important;
-    z-index: 5 !important;
+    position: absolute;
+    bottom: -1px; /* Evita líneas residuales */
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg); /* Invierte la onda para que apunte hacia abajo */
 }
 
-/* 3. Al principio del Footer (Apunta hacia abajo sobre el fondo negro) */
-.custom-shape-divider-footer {
-    top: 0 !important;
-    z-index: 5 !important;
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 75px; /* Controla la altura/pronunciación de la curva */
 }
 
-/* Garantizar que tus tarjetas y contenidos queden sobre el área de la onda */
-.capsula-section .container, 
-.footer-container {
-    position: relative !important;
-    z-index: 10 !important;
+/* Estilos de la Onda Superior (Sección Footer) */
+.custom-shape-divider-top {
+    position: absolute;
+    top: -1px; /* Muerde el fondo crema */
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 75px; /* Mantiene la misma proporción estética */
 }
