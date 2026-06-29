@@ -43,27 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ----------------------------------------------------------------------
-    // 2. COMPONENTE INTERACTIVO: COLOR STUDIO (SECCIÓN 5)
+    // 2. INTERACCIÓN SECCIÓN: EL COLOR COMO SEGUNDA VIDA
     // ----------------------------------------------------------------------
-    const colorDots = document.querySelectorAll(".color-dot");
-    const muebleOverlay = document.getElementById("muebleOverlay");
+    const colorCircles = document.querySelectorAll(".color-circle-btn");
+    const muebleBaseImg = document.getElementById("muebleBaseImg");
 
-    colorDots.forEach(dot => {
-        dot.addEventListener("click", function() {
-            // Quitamos la clase activa de todos los botones
-            colorDots.forEach(d => d.classList.remove("active"));
-            // Añadimos activa al seleccionado
-            this.classList.add("active");
+    if (colorCircles.length > 0 && muebleBaseImg) {
+        colorCircles.forEach(circle => {
+            circle.addEventListener("click", function() {
+                // 1. Quitar la clase activa de todos los círculos
+                colorCircles.forEach(c => c.classList.remove("active"));
+                // 2. Agregar la clase activa al círculo clickeado
+                this.classList.add("active");
 
-            // Obtenemos el color RGBA del atributo de datos custom
-            const targetColor = this.getAttribute("data-color");
-            
-            // Aplicamos la laca de color con una transición fluida vía CSS
-            if (muebleOverlay) {
-                muebleOverlay.style.backgroundColor = targetColor;
-            }
+                // 3. Capturar la ruta de la imagen del atributo 'data-img'
+                const nuevaImagen = this.getAttribute("data-img");
+
+                // 4. Cambiar el src con un efecto de transición de opacidad suave
+                muebleBaseImg.style.opacity = "0.3";
+                setTimeout(() => {
+                    muebleBaseImg.src = nuevaImagen;
+                    muebleBaseImg.style.opacity = "1";
+                }, 150);
+            });
         });
-    });
+    }
 
    // ----------------------------------------------------------------------
     // 3. CONTROL INTERACTIVO DEL SLIDER DE CURSOS (CENTRADO ABSOLUTO EJE WEB)

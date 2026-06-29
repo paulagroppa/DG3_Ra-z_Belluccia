@@ -668,108 +668,127 @@ body {
     .course-card { height: 580px; padding: 30px 20px; }
 }
 /* ==========================================================================
-   SECCIÓN 5: COLOR STUDIO INTERACTIVO
+   NUEVA MAQUETACIÓN: EL COLOR COMO SEGUNDA VIDA (FONDO OSCURO EDITORIAL)
    ========================================================================== */
-.interactive-color-section {
-    padding: 100px 5%;
-    background-color: #fff;
-    text-align: center;
-}
-
-.color-studio-header h2 {
-    font-family: var(--font-heading-heavy);
-    font-size: 48px;
-    letter-spacing: -2px;
-    line-height: 1;
-    margin-bottom: 50px;
-}
-
-.color-studio-workspace {
+.color-segunda-vida-sec {
     position: relative;
-    max-width: 700px;
-    margin: 0 auto;
+    background-color: var(--color-oscuro-editorial);
+    padding: 160px 5% 180px 5%; /* Espacio para que respiren las curvas superiores e inferiores */
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
 }
 
-.mueble-display-container {
+.color-vida-grid-container {
+    max-width: 1300px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Asimetría elegante */
+    gap: 80px;
+    align-items: center;
+    z-index: 6;
+}
+
+/* Columna Izquierda: Textos y Botonera */
+.color-vida-left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.color-vida-title {
+    font-family: var(--font-heading-heavy);
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--color-neutro-fondo);
+    margin-bottom: 30px;
+}
+
+.color-vida-description {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-neutro-fondo);
+    opacity: 0.8;
+    max-width: 440px;
+    margin-bottom: 35px;
+}
+
+/* Contenedor de Botones Circulares */
+.color-picker-circles {
+    display: flex;
+    gap: 16px;
+}
+
+.color-circle-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+}
+
+.color-circle-btn:hover {
+    transform: scale(1.15);
+}
+
+/* Clases de colores específicos para los botones */
+.color-circle-btn.btn-crema { background-color: var(--color-neutro-fondo); border: 1px solid rgba(255,255,255,0.2); }
+.color-circle-btn.btn-magenta { background-color: var(--color-magenta); }
+.color-circle-btn.btn-lima { background-color: var(--color-lima-suave); }
+.color-circle-btn.btn-oscuro { background-color: #111111; border: 1px solid rgba(255,255,255,0.4); }
+
+/* Círculo Activo Seleccionado (Estilo Imagen 1: Borde del color correspondiente separado por un anillo) */
+.color-circle-btn.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-neutro-fondo);
+}
+.color-circle-btn.btn-magenta.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-magenta); }
+.color-circle-btn.btn-lima.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-lima-suave); }
+.color-circle-btn.btn-oscuro.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px rgba(255,255,255,0.8); }
+
+/* Columna Derecha: Contenedor del Marco de Imagen */
+.color-vida-right-col {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mueble-image-frame {
     position: relative;
     width: 100%;
-    height: 500px;
-    border-radius: 8px;
+    max-width: 550px;
+    aspect-ratio: 1.15 / 1; /* Estilo landscape de estudio como la foto */
     overflow: hidden;
 }
 
-.btn-crema-fix { background-color: var(--color-neutro-fondo); border: 1px solid #ccc !important; }
-.btn-magenta { background-color: var(--color-magenta); }
-.btn-lima { background-color: var(--color-lima-suave); }
-.btn-oscuro-fix { background-color: var(--color-oscuro-editorial); }
-.mueble-base-img {
+.mueble-fade-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    mix-blend-mode: multiply; /* Permite que el color del overlay interactúe con las sombras */
+    object-fit: cover;
+    transition: opacity 0.2s ease-in-out;
 }
 
-.mueble-color-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(227, 24, 115, 0.4); /* Color por defecto */
-    transition: background-color 0.5s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Botonera flotante interactiva */
-.color-picker-floating {
-    position: absolute;
-    right: -80px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #151515;
-    color: #fff;
-    padding: 20px;
-    border-radius: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    animation: floatBounce 3s ease-in-out infinite alternate;
-}
-
-.color-picker-floating p {
-    font-size: 11px;
-    text-transform: uppercase;
-    font-family: var(--font-heading-heavy);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-}
-
-.picker-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-.color-dot {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.color-dot:hover { transform: scale(1.15); }
-.color-dot.active { border-color: #fff; }
-
-.btn-magenta { background-color: var(--color-magenta); }
-.btn-lima { background-color: var(--color-lima-suave); }
-.btn-cobalto { background-color: #002BFF; }
-.btn-naranja { background-color: var(--color-naranja); }
-
-@keyframes floatBounce {
-    0% { transform: translateY(-45%); }
-    100% { transform: translateY(-55%); }
+/* Ajustes de Adaptabilidad Mobile */
+@media (max-width: 968px) {
+    .color-vida-grid-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .color-segunda-vida-sec {
+        padding: 120px 5% 140px 5%;
+    }
+    .color-vida-left-col {
+        align-items: center;
+        text-align: center;
+    }
+    .color-vida-description {
+        max-width: 100%;
+    }
 }
 
 
