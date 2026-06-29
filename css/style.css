@@ -999,18 +999,25 @@ body {
     gap: 60px; /* Reducido de 120px a 60px para que se integre con las cards */
 }
 
-/* Modificamos el tamaño y espaciado del título masivo */
+/* Fondo oscuro real para toda la sección */
+#nuestra-mirada {
+    background-color: var(--color-oscuro-editorial);
+    padding: 80px 0; /* Un buen espacio arriba y abajo para que respire */
+    width: 100%;
+}
+
+/* El título en crema para que resalte */
 .section-title-truus {
     font-family: var(--font-heading-heavy);
-    font-size: clamp(45px, 6.5vw, 85px); /* Reducido sustancialmente de 140px a un máximo de 85px */
+    font-size: clamp(45px, 6.5vw, 85px); 
     font-weight: 800;
-    line-height: 0.95; /* Subimos un toque de 0.85 a 0.95 para mejor legibilidad */
-    letter-spacing: -2px; /* Menos pegadas para que no sea tan tosco el bloque */
-    color: var(--color-oscuro-editorial);
+    line-height: 0.95; 
+    letter-spacing: -2px; 
+    color: var(--color-neutro-fondo); 
     text-transform: lowercase;
 }
 
-/* Reducimos un poco el espaciado de la cursiva serif */
+/* Reducimos un poco el espaciado de la cursiva serif y aseguramos color crema */
 .serif-italic-truus {
     font-family: var(--font-serif-luxury);
     font-style: italic;
@@ -1018,6 +1025,7 @@ body {
     letter-spacing: -1px;
     display: inline-block;
     padding-top: 5px;
+    color: var(--color-neutro-fondo); /* Asegura que la cursiva también sea crema */
 }
 }
 
