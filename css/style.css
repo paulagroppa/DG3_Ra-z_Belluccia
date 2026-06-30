@@ -949,9 +949,10 @@ body {
    FOOTER EDITORIAL MASIVO
    ========================================================================== */
 .main-footer {
-    background-color: var(--color-verde-seco);
+    background-color: var(--color-magenta);
     color: var(--color-neutro-fondo);
     padding: 80px 5% 20px 5%;
+    position: relative; /* Garantiza el correcto posicionamiento de la onda */
 }
 
 .footer-top {
