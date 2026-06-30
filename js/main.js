@@ -148,4 +148,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", checkScroll);
     checkScroll(); // Ejecución inicial por si ya están visibles
+// ----------------------------------------------------------------------
+    // 5. CONTROL INTERACTIVO: MAZO DE CARTAS APILADAS (ESTILO TRUUS / RAÍZ)
+    // ----------------------------------------------------------------------
+    const stackContainer = document.getElementById("clientsStack");
+    const deckProjectTitle = document.getElementById("deckProjectTitle");
+
+    if (stackContainer) {
+        // Obtenemos una matriz viva de las cartas internas
+        let cards = Array.from(stackContainer.querySelectorAll(".client-card"));
+        let isAnimating = false; // Candado lógico para evitar clicks simultáneos roturas
+
+        // Función matemática y visual que posiciona las cartas como un abanico apilado
+        const layoutDeck = () => {
+            cards.forEach((card, index) => {
+                // Removemos estados anteriores de interacción
+                card.classList.remove("active-top");
+                
+                // Las cartas se acomodan basándose en su orden de ordenamiento del Array
+                // index === 0 es la carta del frente (activa superior)
+                if (index === 0) {
+                    card.style.zIndex = "10";
+                    card.style.opacity = "1";
+                    // Posición central estable con leve rotación orgánica de autor
+                    card.style.transform = "translate3d(0, 0, 0) rotate(0deg) scale(1)";
+                    card.classList.add("active-top");
+                    
+                    // Actualizamos el título del banner inferior dinámicamente
+                    if (deckProjectTitle) {
+                        deckProjectTitle.textContent = card.getAttribute("data-project");
+                    }
+                } else if (index === 1) {
+                    card.style.zIndex = "8";
+                    card.style.opacity = "0.9";
+                    // Desplazada a la derecha y rotada sutilmente hacia atrás
+                    card.style.transform = "translate3d(20px, 0, -40px) rotate(4deg) scale(0.96)";
+                } else if (index === 2) {
+                    card.style.zIndex = "6";
+                    card.style.opacity = "0.7";
+                    // Desplazada hacia el ala izquierda profunda
+                    card.style.transform = "translate3d(-25px, 10px, -80px) rotate(-5deg) scale(0.92)";
+                } else {
+                    // El resto de las cartas se guardan ocultas o colapsadas al fondo
+                    card.style.zIndex = "2";
+                    card.style.opacity = "0";
+                    card.style.transform = "translate3d(0, 0, -120px) rotate(0deg) scale(0.85)";
+                }
+            });
+        };
+
+        // Evento clic sobre el contenedor para disparar el paso de carta
+        stackContainer.addEventListener("click", () => {
+            if (isAnimating) return; // Si la animación previa sigue corriendo, frena el evento
+            isAnimating = true;
+
+            const topCard = cards[0]; // Capturamos la del frente
+
+            // 1. Fase de Despegue: La carta vuela hacia la izquierda y gana rotación exagerada en el aire
+            topCard.style.transform = "translate3d(-130%, -20px, 50px) rotate(-20deg) scale(0.95)";
+            topCard.style.opacity = "0";
+            topCard.style.zIndex = "15"; // Se mantiene por encima durante el vuelo
+
+            // 2. Fase de Reubicación (A mitad de la transición de CSS)
+            setTimeout(() => {
+                // Mandamos físicamente el elemento al final de nuestro arreglo lineal
+                cards.push(cards.shift());
+
+                // Re-calculamos los z-index de las que quedaron para que la nueva frente pase al frente de inmediato
+                cards.forEach((card, idx) => {
+                    if (idx === 0) card.style.zIndex = "10";
+                });
+
+                // 3. Fase de Reingreso: Redibujamos todo el mazo para que la carta vieja entre suave por detrás
+                layoutDeck();
+
+                // Liberamos el candado para permitir nuevos clics
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
+
+            }, 300); // 300ms equivale a la mitad exacta de los 0.6s definidos en tu propiedad transition de CSS
+        });
+
+        // Ejecución inicial limpia al montar la página
+        layoutDeck();
+    }
 });
