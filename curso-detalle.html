@@ -27,144 +27,328 @@
 
     <main>
         <!-- SECCIÓN 1: HERO DE CURSO (El gancho inicial) -->
-        <section class="course-hero">
-            <div class="course-hero-container">
+        <section class="hero-section">
+            <div class="hero-container">
                 <div class="course-hero-text">
                     <span class="mini-tag" style="background-color: var(--color-lima-suave);">Formación Profesional</span>
                     <h1 class="hero-title">
-                        Dominá el oficio.<br>Restaurá con <span class="highlight-text">identidad</span> y <span class="serif-italic">criterio.</span>
+                        Restauración <span class="highlight-text">profesional</span><br>
                     </h1>
-                    <p class="course-hero-lead">Un programa intensivo de 3 meses diseñado para transformar maderas muertas en piezas de alto valor comercial. Sin recetas fáciles, técnicas de taller real.</p>
+                    <p class="course-hero-lead" style="font-size: 20px; opacity: 0.85; line-height: 1.6; margin-bottom: 40px; max-width: 550px;">
+                        Dominá el proceso completo de restauración con un enfoque profesional.
+                    </p>
                     <div class="hero-actions">
-                        <a href="#inscripcion-directa" class="btn-solid">Reservar mi Banco</a>
-                        <a href="#programa" class="btn-outline">Ver Plan de Estudios</a>
+                        <a href="#inscripcion-directa" class="btn-solid">Reservar mi lugar</a>
+                        <a href="#programa" class="btn-outline">Plan de Estudios</a>
                     </div>
                 </div>
-                <div class="course-hero-image">
-                    <img src="imagenes/img7.png" alt="Taller de restauración real" class="hero-img-detail">
-                    <div class="floating-sticker star-sticker"><i class="fa-solid fa-hammer"></i></div>
+                <div class="hero-image-block" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="imagenes/img21.png" alt="Mueble restauración Raíz" style="width: 100%; 680px; height: auto; max-height: 75vh; object-fit: contain;">
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 2: EL MANIFIESTO (Tus textos actitudinales Truus) -->
-        <section class="course-manifesto-sec">
-            <div class="truus-layout-container">
-                <div class="story-editorial-text-truus">
-                    <h2 class="section-title-truus">
-                        Basta de parches.<br>Es hora de aprender <br>el oficio <span class="serif-italic-truus">de verdad.</span>
-                    </h2>
+        <!-- SECCIÓN 2: ¿POR QUÉ ESTE CURSO ES DIFERENTE? (Diferenciación y deseo) -->
+<section id="nuestra-mirada">
+    <div class="truus-layout-container">
+        
+        <div class="story-editorial-text-truus" style="max-width: 900px; margin-bottom: 20px;">
+            <h2 class="section-title-truus">
+                Restaurar muebles ya no es suficiente.
+            </h2>
+            <p style="font-family: var(--font-body); font-size: 22px; line-height: 1.5; color: var(--color-neutro-fondo); opacity: 0.9; margin-top: 24px; max-width: 750px;">
+                Aprendé un sistema pensado para transformar piezas... y convertir esa habilidad en un proyecto profesional.
+            </p>
+        </div>
+        
+        <div class="story-cards-organic-wrap">
+            <!-- Contenedor de flujo libre de 4 columnas (adaptable) -->
+            <div class="story-cards-free-flow" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                
+                <!-- Tarjeta 1: Restauración Profesional -->
+                <div class="story-card truus-card-1">
+                    <div class="card-header-meta">
+                        <span class="card-tag" style="color: var(--color-magenta);">Pilar 01</span>
+                        <span class="card-index">01</span>
+                    </div>
+                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Restauración profesional, <br><span class="serif-italic-truus">no manualidades.</span></h3>
+                    <p class="card-description" style="color: var(--color-oscuro-editorial);">Olvidate de las recetas caseras y de tapar la madera con pintura. Acá vas a dominar la química del oficio, el comportamiento real de los materiales y técnicas con estándar de mercado.</p>
                 </div>
-                <div class="manifesto-grid-text">
-                    <p>Internet está lleno de tutoriales que te enseñan a pintar con tiza y tapar la nobleza de una madera. En <strong>RAÍZ</strong> no tapamos el pasado; lo rediseñamos. Este curso no es un pasatiempo de fin de semana, es una inmersión profunda en la química, la física y el arte del rescate mobiliario.</p>
-                    <p>Vas a meter mano en piezas estructuralmente dañadas, diagnosticar patologías de la madera y dominar acabados premium que solo los restauradores de autor conocen.</p>
+                
+                <!-- Tarjeta 2: Método Paso a Paso -->
+                <div class="story-card truus-card-2" style="background-color: var(--color-neutro-fondo) !important;">
+                    <div class="card-header-meta">
+                        <span class="card-tag" style="color: var(--color-oscuro-editorial);">Pilar 02</span>
+                        <span class="card-index">02</span>
+                    </div>
+                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1; color: var(--color-oscuro-editorial);">Método <br><span class="serif-italic-truus" style="color: var(--color-magenta);">paso a paso.</span></h3>
+                    <p class="card-description" style="color: var(--color-oscuro-editorial);">Un sistema milimétrico estructurado desde el diagnóstico biológico hasta el lustre final. Sin baches informativos, diseñado para que puedas replicar el proceso con total autonomía.</p>
                 </div>
+                
+                <!-- Tarjeta 3: Enfoque en Diseño -->
+                <div class="story-card truus-card-3">
+                    <div class="card-header-meta">
+                        <span class="card-tag" style="color: var(--color-magenta);">Pilar 03</span>
+                        <span class="card-index">03</span>
+                    </div>
+                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Enfoque en diseño <br><span class="serif-italic-truus">contemporáneo.</span></h3>
+                    <p class="card-description" style="color: var(--color-oscuro-editorial);">No nos quedamos solo en la nostalgia del pasado. Vas a aprender a intervenir piezas bajo una mirada curatorial moderna, listas para integrarse a los espacios de vanguardia actuales.</p>
+                </div>
+
+                <!-- Tarjeta 4: Comunidad y Acompañamiento (Ajustada a estilo Card 2) -->
+                <div class="story-card truus-card-4" style="background-color: var(--color-neutro-fondo) !important;">
+                    <div class="card-header-meta">
+                        <span class="card-tag" style="color: var(--color-oscuro-editorial);">Pilar 04</span>
+                        <span class="card-index" style="color: rgba(0,0,0,0.15);">04</span>
+                    </div>
+                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1; color: var(--color-oscuro-editorial);">Comunidad y <br><span class="serif-italic-truus" style="color: var(--color-magenta);">acompañamiento.</span></h3>
+                    <p class="card-description" style="color: var(--color-oscuro-editorial);">El aprendizaje no termina cuando apagas la pantalla. Vas a formar parte de una red privada de restauradores con tutoría activa, devoluciones en vivo y soporte para destrabar tus proyectos reales.</p>
+                </div>
+
             </div>
-        </section>
+        </div>
+
+    </div>
+</section>
 
         <!-- SECCIÓN 3: EL PROGRAMA DE 6 BLOQUES (Estructura modular disruptiva) -->
-        <section id="programa" class="course-program-sec">
-            <div class="program-header">
-                <span class="mini-tag">Plan de estudios</span>
-                <h2>6 Bloques estratégicos para dominar el taller</h2>
-            </div>
-            
-            <div class="program-modules-grid">
-                <!-- Bloque 1 -->
-                <div class="module-card">
-                    <span class="mod-num">01</span>
-                    <h3>Anatomía & Diagnóstico</h3>
-                    <p>Identificación de estilos históricos, maderas nativas vs. exóticas y lectura de daños biológicos o estructurales.</p>
+       
+        <section id="programa" style="padding: 100px 5%; background-color: var(--color-neutro-fondo); border-bottom: 1px solid rgba(26,26,26,0.08);">
+            <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start;">
+                
+                <div style="position: sticky; top: 140px;">
+                    <span class="mini-tag" style="background-color: var(--color-magenta); color: #fff; font-weight: 700;">Plan de estudios</span>
+                    <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(36px, 4vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial);">
+                        Qué vas a <span class="serif-italic" style="color: var(--color-magenta); font-weight: 400;">aprender.</span>
+                    </h2>
+                    <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.85; margin-bottom: 40px; max-width: 380px;">
+                        Un recorrido milimétrico estructurado en 8 módulos estratégicos para dominar el oficio desde cero hasta tu propia monetización. Sin secretos.
+                    </p>
+                    <a href="#inscripcion-directa" class="btn-solid">Asegurar mi lugar</a>
                 </div>
-                <!-- Bloque 2 -->
-                <div class="module-card">
-                    <span class="mod-num">02</span>
-                    <h3>Química del Desarmado</h3>
-                    <p>Remoción técnica de barnices y lacas antiguas utilizando métodos mecánicos y químicos controlados sin dañar la veta.</p>
-                </div>
-                <!-- Bloque 3 -->
-                <div class="module-card">
-                    <span class="mod-num">03</span>
-                    <h3>Ebanistería de Rescate</h3>
-                    <p>Encolados críticos, reconstrucción de molduras faltantes, sustitución de enchapados y corrección de holguras.</p>
-                </div>
-                <!-- Bloque 4 -->
-                <div class="module-card">
-                    <span class="mod-num">04</span>
-                    <h3>Tratamientos Orgánicos</h3>
-                    <p>Curación e inmunización profunda contra insectos xilófagos (taladro/polilla) y estabilización de humedades rigurosas.</p>
-                </div>
-                <!-- Bloque 5 -->
-                <div class="module-card">
-                    <span class="mod-num">05</span>
-                    <h3>Acabados de Autor</h3>
-                    <p>Preparación y aplicación de gomalaca a muñeca, pátinas vanguardistas, aceites naturales fluidos y ceras microcristalinas.</p>
-                </div>
-                <!-- Bloque 6 -->
-                <div class="module-card">
-                    <span class="mod-num">06</span>
-                    <h3>Visión de Negocio</h3>
-                    <p>Cómo presupuestar tus horas de taller, embalaje de obras de arte, fotografía editorial de producto y canales de venta premium.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- SECCIÓN 4: LO QUE VAS A LOGRAR (Asimetría con fondo de color) -->
-        <section class="course-outcomes-sec">
-            <div class="truus-layout-container">
-                <div class="story-cards-organic-wrap">
-                    <div class="truus-organic-blob" style="background-color: var(--color-magenta); opacity: 0.15;"></div>
+                <div class="program-accordion-container" style="display: flex; flex-direction: column; gap: 16px;">
                     
-                    <div class="story-cards-free-flow">
-                        <div class="story-card truus-card-1" style="background-color: var(--color-neutro-fondo) !important; border: 2px solid var(--color-oscuro-editorial);">
-                            <div class="card-header-meta">
-                                <span class="card-tag" style="color: var(--color-oscuro-editorial);">Resultado 01</span>
-                            </div>
-                            <h3 class="card-title" style="font-size:28px;">Autonomía <br><span class="serif-italic">Técnica</span></h3>
-                            <p class="card-description">Vas a poder mirar cualquier mueble antiguo tirado en la calle y saber exactamente qué madera es, qué valor de mercado tiene y cómo restaurarlo de punta a punta.</p>
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;" open>
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">01</span> 
+                                Fundamentos
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Introducción al espacio de taller. Herramientas indispensables, diagnóstico inicial de la madera, reconocimiento de estilos estéticos y evaluación biológica de la pieza para evitar errores irreversibles.
                         </div>
+                    </details>
 
-                        <div class="story-card truus-card-2" style="background-color: var(--color-oscuro-editorial) !important; color: #fff;">
-                            <div class="card-header-meta">
-                                <span class="card-tag" style="color: var(--color-lima-suave);">Resultado 02</span>
-                            </div>
-                            <h3 class="card-title" style="color:#fff; font-size:28px;">Portafolio de <br><span class="serif-italic" style="color:var(--color-lima-suave);">Autor</span></h3>
-                            <p class="card-description" style="color:rgba(255,255,255,0.8);">Terminarás el curso habiendo intervenido una pieza completa bajo el sello de calidad estética disruptiva de nuestra marca.</p>
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">02</span> 
+                                Preparación
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Técnicas profesionales de desarmado químico y mecánico. Eliminación de barnices viejos, decapado controlado, lijado progresivo respetando las vetas nativas y tratamiento contra insectos xilófagos.
                         </div>
+                    </details>
 
-                        <div class="story-card truus-card-3" style="background-color: var(--color-lima-suave) !important;">
-                            <div class="card-header-meta">
-                                <span class="card-tag">Resultado 03</span>
-                            </div>
-                            <h3 class="card-title" style="font-size:28px;">Salida Laboral <br><span class="serif-italic">Rentable</span></h3>
-                            <p class="card-description">Te daremos las herramientas reales de cotización para transformar el polvo del taller en un negocio premium sustentable de revalorización.</p>
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">03</span> 
+                                Pinturas
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Teoría del color aplicada y selección de materiales de alta resistencia. Aplicación técnica de lacas, chalk paint, esmaltes e imprimaciones modernas con un acabado liso de estándar comercial.
                         </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">04</span> 
+                                Tapizados
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Estructuras de asiento, cinchas y rellenos orgánicos vs. sintéticos. Técnicas básicas y avanzadas de entelado, cálculo de metros necesarios y terminaciones estéticas limpias para sillas, banquetas y sillones.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">05</span> 
+                                Herrajes
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Restauración química de metales (bronce, hierro, copas). Limpieza profunda, pátinas de envejecimiento natural, reemplazo ergonómico de tiradores y ajuste milimétrico de cerraduras antiguas.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">06</span> 
+                                Diseño
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Criterio curatorial contemporáneo. Cómo intervenir un mueble respetando su alma pero adaptándolo a las tendencias de interiorismo actuales. Combinación de texturas, maderas lavadas y bloques de color audaces.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">07</span> 
+                                Terminaciones
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Protección final de nivel profesional. Aplicación técnica de cera de abejas, aceites orgánicos (linaza/tung) y la técnica clásica de lustre a la goma laca con muñequera para un brillo profundo de alta gama.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            <span style="display: flex; align-items: center; gap: 20px;">
+                                <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">08</span> 
+                                Cómo vender tu trabajo
+                            </span>
+                            <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Tu modelo de negocio. Cómo presupuestar mano de obra y materiales sin perder plata, técnicas de fotografía de producto en taller, storytelling en redes para atraer clientes premium y empaque seguro de piezas mobiliarias.
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Quitar la flechita nativa horrible en navegadores modernos */
+            summary::-webkit-details-marker { display: none; }
+            
+            /* Animación visual al abrir/cerrar acordeones */
+            details[open] {
+                background-color: #fff !important;
+                box-shadow: 8px 8px 0px var(--color-oscuro-editorial);
+            }
+            details[open] summary .accordion-icon {
+                transform: rotate(180deg);
+                color: var(--color-magenta);
+            }
+            details summary:hover {
+                background-color: rgba(26,26,26,0.02);
+            }
+            
+            /* Ajuste responsive para pantallas pequeñas */
+            @media (max-width: 968px) {
+                #programa > div { grid-template-columns: 1fr !important; gap: 40px !important; }
+                #programa div[style*="position: sticky;"] { position: static !important; }
+                details summary { padding: 20px !important; font-size: 16px !important; }
+                details div { padding: 0 20px 20px 50px !important; }
+            }
+        </style>
+
+        <!-- SECCIÓN 4: TRANSFORMACIÓN / ANTES Y DESPUÉS (Enfoque Emocional de Autor) -->
+        <section class="course-transform-section" style="padding: 120px 5%; background-color: var(--color-neutro-fondo); border-bottom: 1px solid rgba(26,26,26,0.08);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                
+                <!-- Encabezado Emocional/Editorial -->
+                <div style="margin-bottom: 80px; max-width: 750px;">
+                    <span class="mini-tag" style="background-color: var(--color-magenta); color: #fff; font-weight: 700;">Resultados & Transformación</span>
+                    <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(38px, 5vw, 64px); font-weight: 800; line-height: 0.95; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial); text-transform: lowercase;">
+                        el cambio real no está en el contenido, <span class="serif-italic" style="color: var(--color-magenta); font-weight: 400; font-size: 1.05em;">está en tu mirada.</span>
+                    </h2>
+                    <p style="font-family: var(--font-body); font-size: 18px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.85;">
+                        Dejá atrás la duda intuitiva y convertite en un profesional capaz de dominar el oficio y proyectar un modelo de negocio rentable.
+                    </p>
+                </div>
+
+                <!-- Bloque de Contraste: El viaje del alumno -->
+                <div class="transform-journey-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px;">
+                    
+                    <!-- Tarjeta del Antes: Bloque Rígido Editorial -->
+                    <div style="background-color: #fff; border: 2px solid var(--color-oscuro-editorial); padding: 50px 40px; box-shadow: 12px 12px 0px rgba(26,26,26,0.05);">
+                        <span style="font-family: var(--font-heading-heavy); text-transform: uppercase; font-size: 13px; letter-spacing: 2px; color: #aaa; display: block; margin-bottom: 30px;">[ el punto de partida ]</span>
+                        <h3 style="font-family: var(--font-heading-heavy); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; color: var(--color-oscuro-editorial);">Antes del curso</h3>
+                        
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; padding: 0;">
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
+                                <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> Restaurás por intuición y corrés riesgos
+                            </li>
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
+                                <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> Dudás al elegir los materiales adecuados
+                            </li>
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
+                                <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> No sabés cuánto cobrar tu mano de obra
+                            </li>
+                        </ul>
                     </div>
+
+                    <!-- Tarjeta del Después: Shock de Color / Bloque Activo -->
+                    <div style="background-color: var(--color-oscuro-editorial); border: 2px solid var(--color-oscuro-editorial); padding: 50px 40px; color: #fff; box-shadow: 12px 12px 0px var(--color-magenta); position: relative;">
+                        <span style="font-family: var(--font-heading-heavy); text-transform: uppercase; font-size: 13px; letter-spacing: 2px; color: var(--color-lima-suave); display: block; margin-bottom: 30px;">[ la transformación ]</span>
+                        <h3 style="font-family: var(--font-heading-heavy); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; color: #fff;">Después del curso</h3>
+                        
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; padding: 0;">
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Restaurás cualquier mueble con autonomía técnica
+                            </li>
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Elegís herramientas y químicos con criterio profesional
+                            </li>
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Tenés un proceso metódico y milimétrico de punta a punta
+                            </li>
+                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Podés empezar un emprendimiento sustentable y premium
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
+
+                <!-- Bloque Visual: Galería Antes / Después Editorial (Estilo Estudio Fotográfico) -->
+                <div class="transform-images-showcase" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    
+                    <div style="position: relative; border: 2px solid var(--color-oscuro-editorial); background-color: rgba(26,26,26,0.03); overflow: hidden; aspect-ratio: 4/3;">
+    <img src="imagenes/img2.png" alt="Mueble antes de restaurar" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 20px; left: 20px; background-color: var(--color-oscuro-editorial); color: #fff; font-family: var(--font-heading-heavy); font-size: 11px; text-transform: uppercase; padding: 6px 14px; font-weight: 700; letter-spacing: 1px;">Estado Inicial</span>
+</div>
+
+<div style="position: relative; border: 2px solid var(--color-oscuro-editorial); overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
+    <img src="imagenes/img1.png" alt="Mueble restaurado resultado final" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 20px; right: 20px; background-color: var(--color-magenta); color: #fff; font-family: var(--font-heading-heavy); font-size: 11px; text-transform: uppercase; padding: 6px 14px; font-weight: 700; letter-spacing: 1px;">Resultado Raíz</span>
+</div>
+
+                </div>
+
             </div>
         </section>
 
-        <!-- SECCIÓN 5: LA EXPERIENCIA POR DENTRO (Eliminación de fricción) -->
-        <section class="course-experience">
-            <div class="experience-container">
-                <div class="exp-box">
-                    <h3>¿Qué incluye tu matrícula?</h3>
-                    <ul class="course-includes-list">
-                        <li><i class="fa-solid fa-square text-magenta"></i> Acceso de por vida a los bloques grabados en alta definición.</li>
-                        <li><i class="fa-solid fa-square text-magenta"></i> Clases de consulta en vivo y corrección de tus piezas en tiempo real.</li>
-                        <li><i class="fa-solid fa-square text-magenta"></i> Guía PDF descargable de proveedores de insumos (herramientas, químicos, maderas).</li>
-                        <li><i class="fa-solid fa-square text-magenta"></i> Acceso a la comunidad privada de restauradores Raíz.</li>
-                    </ul>
-                </div>
-                <div class="exp-instructor">
-                    <span class="script-tag" style="font-family: var(--font-script-retro); font-size: 32px; color: var(--color-magenta); display: block; margin-bottom: 10px;">Dictado por profesionales</span>
-                    <h4 style="font-family: var(--font-heading-heavy); font-size: 24px; text-transform: uppercase; margin-bottom: 15px;">Sofía Martínez & Equipo RAÍZ</h4>
-                    <p style="font-size: 14px; opacity: 0.8; line-height: 1.6;">Diseñadora industrial, ebanista y fundadora de proyectos de preservación. Vas a aprender con la misma metodología con la que creamos nuestros exclusivos "Drops".</p>
-                </div>
-            </div>
-        </section>
+        <!-- Soporte Responsive para la nueva sección -->
+        <style>
+            @media (max-width: 868px) {
+                .transform-journey-grid { grid-template-columns: 1fr !important; gap: 25px !important; }
+                .transform-images-showcase { grid-template-columns: 1fr !important; gap: 20px !important; }
+            }
+        </style>
 
-        <!-- SECCIÓN 6: CIERRE DE CONVERSIÓN MASIVO (El checkout marketinero) -->
+        <!-- SECCIÓN 5: CIERRE DE CONVERSIÓN MASIVO (El checkout marketinero) -->
         <section id="inscripcion-directa" class="course-checkout-sec">
             <div class="checkout-card-box">
                 <div class="floating-sticker smiley-sticker"><i class="fa-solid fa-face-smile"></i></div>
@@ -191,7 +375,138 @@
                 </div>
             </div>
         </section>
+
+<!-- SECCIÓN 6: PREGUNTAS FRECUENTES + GARANTÍA (Baja de fricción masiva) -->
+        <section id="faq-garantia" style="padding: 100px 5%; background-color: var(--color-neutro-fondo); border-bottom: 1px solid rgba(26,26,26,0.08);">
+            <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start;" class="faq-grid-container">
+                
+                <!-- Columna Izquierda: Garantía Dinámica -->
+                <div style="position: sticky; top: 140px;" class="faq-sticky-sidebar">
+                    <span class="mini-tag" style="background-color: var(--color-lima-suave); color: var(--color-oscuro-editorial); font-weight: 700;">Tu riesgo es cero</span>
+                    <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(36px, 4vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial);">
+                        Garantía de <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400;">satisfacción.</span>
+                    </h2>
+                    
+                    <!-- Tarjeta de Garantía estilo RAÍZ -->
+                    <div style="background-color: #fff; border: 2px solid var(--color-oscuro-editorial); padding: 30px; box-shadow: 8px 8px 0px var(--color-oscuro-editorial); margin-top: 30px;">
+                        <div style="font-size: 24px; color: var(--color-magenta); margin-bottom: 15px;">
+                            <i class="fa-solid fa-shield-check"></i> <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); margin: 0;">
+                            Mirá los primeros módulos. Si el nivel, las técnicas o el acompañamiento no superan tus expectativas, tenés <strong>7 días de garantía</strong> para pedir la devolución total de tu dinero. Sin preguntas incómodas.
+                        </p>
+                    </div>
+
+                    <!-- Mensaje de Acompañamiento Final -->
+                    <div style="margin-top: 40px; border-left: 3px solid var(--color-magenta); padding-left: 20px;">
+                        <p style="font-family: var(--font-serif-luxury); font-style: italic; font-size: 22px; color: var(--color-oscuro-editorial); margin-bottom: 5px; line-height: 1.2;">"No estás solo."</p>
+                        <p style="font-family: var(--font-body); font-size: 14px; color: var(--color-oscuro-editorial); opacity: 0.8; margin: 0;">Nuestro equipo te acompaña durante todo el recorrido.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Acordeones de Preguntas Frecuentes -->
+                <div class="faq-accordion-container" style="display: flex; flex-direction: column; gap: 16px;">
+                    
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿Necesito experiencia previa?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Para nada. El programa está estructurado para llevarte desde el reconocimiento absoluto de las herramientas básicas y el diagnóstico de la madera en el Módulo 1, hasta los procesos químicos complejos y las terminaciones de alta gama.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿Las clases quedan grabadas?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Sí, totalmente. Todo el contenido teórico-práctico está grabado en alta definición para que puedas verlo a tu propio ritmo, las veces que necesites. Además, las mentorías y devoluciones en vivo también se archivan en tu panel de alumno por si no podés asistir en directo.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿Cuánto dura el curso?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            El programa está pensado para completarse de manera óptima en 8 semanas (siguiendo un módulo por semana), pero el acceso es ilimitado en el tiempo. Vos decidís cuándo avanzar según la disponibilidad de tu taller o espacio.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿Qué materiales necesito para empezar?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            En el primer bloque te damos una lista detallada de herramientas esenciales (muchas seguro ya las tenés en casa). No necesitas comprar nada por adelantado; te enseñamos a elegir con criterio profesional para que inviertas de forma inteligente solo en lo necesario.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿El curso tiene certificado?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Sí. Una vez que completes los 8 módulos estratégicos y presentes tu proyecto final de intervención con el estándar de calidad Raíz, se te emitirá una certificación oficial de nuestra escuela que avala tus competencias en el oficio.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿Cómo accedo al contenido del programa?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            Inmediatamente después de procesar tu inscripción, vas a recibir de forma automática un mail con tus credenciales de acceso a nuestra plataforma privada. Desde ahí vas a poder ver los videos, descargar el material complementario y entrar al grupo de soporte.
+                        </div>
+                    </details>
+
+                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                        <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
+                            ¿Puedo hacerlo si vivo en otro país?
+                            <span class="faq-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="padding: 0 30px 30px 30px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.9;">
+                            ¡Por supuesto! Tenemos alumnos de toda Hispanoamérica. Al ser una formación 100% online y flexible, podés cursar sin importar las zonas horarias. Contamos con pasarelas de pago internacionales adaptadas para que te inscribas de forma segura estés donde estés.
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Estilos específicos de refuerzo visual para la Sección 6 -->
+        <style>
+            /* Sincronización del comportamiento de acordeones abiertos para FAQ */
+            #faq-garantia details[open] {
+                background-color: #fff !important;
+                box-shadow: 6px 6px 0px var(--color-oscuro-editorial);
+            }
+            #faq-garantia details[open] summary .faq-icon {
+                transform: rotate(180deg);
+                color: var(--color-magenta);
+            }
+            #faq-garantia details summary:hover {
+                background-color: rgba(26,26,26,0.02);
+            }
+            
+            /* Ajuste responsive para la grilla de FAQ */
+            @media (max-width: 968px) {
+                .faq-grid-container { grid-template-columns: 1fr !important; gap: 40px !important; }
+                .faq-sticky-sidebar { position: static !important; }
+                #faq-garantia details summary { padding: 20px !important; font-size: 16px !important; }
+                #faq-garantia details div { padding: 0 20px 20px 20px !important; }
+            }
+        </style>
+        
     </main>
+
 
     <!-- FOOTER REUTILIZADO -->
     <footer class="main-footer">

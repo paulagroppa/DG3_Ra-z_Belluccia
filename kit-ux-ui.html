@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit UX/UI | RAÍZ Sistema de Identidad</title>
+    <!-- Vinculamos tu CSS actual y FontAwesome para los íconos -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Estilos específicos y ordenamiento para la página del Kit */
+        .kit-body {
+            background-color: var(--color-neutro-fondo, #F5F2EB);
+            color: var(--color-oscuro-editorial, #1A1A1A);
+            padding: 60px 20px;
+        }
+        .kit-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .kit-header {
+            border-bottom: 2px solid var(--color-oscuro-editorial, #1A1A1A);
+            padding-bottom: 30px;
+            margin-bottom: 60px;
+        }
+        .kit-header h1 {
+            font-family: var(--font-heading-heavy, 'Syne', sans-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 15px;
+        }
+        .kit-header p {
+            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        .kit-section {
+            margin-bottom: 80px;
+        }
+        .kit-section-title {
+            font-family: var(--font-heading-heavy, 'Syne', sans-serif);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        
+        /* Sub-grillas para organizar las muestras */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        .color-card {
+            background: #fff;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .color-sample {
+            height: 140px;
+            width: 100%;
+        }
+        .color-info {
+            padding: 15px;
+            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
+        }
+        .color-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .color-info span {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            display: block;
+        }
+
+        .typo-sample {
+            margin-bottom: 35px;
+        }
+        .typo-label {
+            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 8px;
+        }
+
+        .component-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            background: rgba(26, 26, 26, 0.02);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px dashed rgba(26, 26, 26, 0.1);
+        }
+
+        .back-home {
+            margin-bottom: 40px;
+        }
+        .back-link {
+            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
+            text-decoration: none;
+            color: var(--color-oscuro-editorial, #1A1A1A);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="kit-body">
+
+    <div class="kit-container">
+        
+        <!-- Botón para volver atrás -->
+        <div class="back-home">
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+
+        <!-- Encabezado del Kit -->
+        <header class="kit-header">
+            <h1>Guía de Estilos</h1>
+            <p>Sistemas visuales, UI Kit y componentes de diseño para el ecosistema de RAÍZ.</p>
+        </header>
+
+        <!-- Sección 1: Colores -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">01. Paleta de Colores</h2>
+            <div class="color-grid">
+                
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: var(--color-neutro-fondo, #F5F2EB);"></div>
+                    <div class="color-info">
+                        <h4>Fondo Neutro</h4>
+                        <span>--color-neutro-fondo</span>
+                        <span>#F5F2EB</span>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: var(--color-oscuro-editorial, #1A1A1A);"></div>
+                    <div class="color-info">
+                        <h4 style="color: #1A1A1A;">Oscuro Editorial</h4>
+                        <span>--color-oscuro-editorial</span>
+                        <span>#1A1A1A</span>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: var(--color-magenta, #F233B9);"></div>
+                    <div class="color-info">
+                        <h4>Magenta Primario</h4>
+                        <span>--color-magenta</span>
+                        <span>#F233B9</span>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: var(--color-verde-acido, #63F263);"></div>
+                    <div class="color-info">
+                        <h4>Verde Ácido</h4>
+                        <span>--color-verde-acido</span>
+                        <span>#63F263</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección 2: Tipografías -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">02. Tipografías</h2>
+            
+            <div class="typo-sample">
+                <div class="typo-label">Titulares Heavy (--font-heading-heavy) - Syne</div>
+                <h2 style="font-family: var(--font-heading-heavy, 'Syne', sans-serif); font-size: 2.5rem; text-transform: uppercase; font-weight: 800;">
+                    ESTO ES UN TITULAR CONTUNDENTE
+                </h2>
+            </div>
+
+            <div class="typo-sample">
+                <div class="typo-label">Titulares Serif (--font-heading-serif) - Playfair Display</div>
+                <h2 style="font-family: var(--font-heading-serif, 'Playfair Display', serif); font-size: 2.8rem; font-style: italic; font-weight: 400;">
+                    Narrativas y matices de marca.
+                </h2>
+            </div>
+
+            <div class="typo-sample">
+                <div class="typo-label">Acentos Manuales (--font-accent-script) - Caveat</div>
+                <p style="font-family: var(--font-accent-script, 'Caveat', cursive); font-size: 3rem; color: var(--color-magenta, #F233B9);">
+                    un toque orgánico y humano
+                </p>
+            </div>
+
+            <div class="typo-sample">
+                <div class="typo-label">Cuerpo de Texto y Datos (--font-body-tech) - Plus Jakarta Sans</div>
+                <p style="font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif); font-size: 1rem; line-height: 1.6; max-width: 700px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diseñado para optimizar la legibilidad digital.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección 3: Botones y Elementos de Acción -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">03. Componentes de Interacción</h2>
+            <div class="component-showcase">
+                
+                <!-- Botón Sólido Clásico si usás en tu index -->
+                <a href="#" class="btn-solid" style="display: inline-block; padding: 12px 28px; background: var(--color-oscuro-editorial, #1A1A1A); color: var(--color-neutro-fondo, #F5F2EB); font-family: var(--font-body-tech); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; text-decoration: none; border-radius: 4px;">
+                    Botón Primario
+                </a>
+
+                <!-- El píldora/hint interactivo -->
+                <span class="action-pill-hint" style="display: inline-flex; align-items: center; gap: 8px; background: var(--color-verde-acido, #63F263); padding: 8px 16px; border-radius: 30px; font-family: var(--font-body-tech); font-size: 0.85rem; font-weight: 600;">
+                    <i class="fa-solid fa-bolt"></i> Componente Activo
+                </span>
+
+                <!-- Tu nuevo link del footer para pruebas en el propio kit -->
+                <a href="#" class="btn-kit-link">
+                    <span>Kit UX / UI</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
