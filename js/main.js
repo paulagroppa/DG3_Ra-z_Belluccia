@@ -1,23 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // ----------------------------------------------------------------------
-    // 1. COMPONENTE INTERACTIVO: SLIDER ANTES Y DESPUÉS + TOOLTIPS
-    // ----------------------------------------------------------------------
-    const sliderInput = document.getElementById("beforeAfterSlider");
-    const imgAfterContainer = document.querySelector(".img-after");
-    const sliderHandleButton = document.querySelector(".slider-button");
-
-    // A) Movimiento del Slider (Revelar Antes y Después)
-    if (sliderInput && imgAfterContainer && sliderHandleButton) {
-        sliderInput.addEventListener("input", (e) => {
-            const sliderValue = e.target.value;
-            
-            // Ajustamos el ancho del contenedor 'Después' de forma dinámica
-            imgAfterContainer.style.width = `${sliderValue}%`;
-            // Posicionamos la barra y el botón divisor
-            sliderHandleButton.style.left = `${sliderValue}%`;
-        });
-    }
 
     // B) Soporte para clicks en Mobile para Tooltips Interactivos
     const hotspots = document.querySelectorAll(".hotspot-trigger");

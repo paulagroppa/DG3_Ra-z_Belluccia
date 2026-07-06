@@ -299,10 +299,11 @@ body {
     font-size: 13px;
 }
 /* ==========================================================================
-   SECCIÓN 2: INTERACTIVO ANTES Y DESPUÉS (SLIDER)
+   SECCIÓN 2: EXHIBICIÓN INTERACTIVA (MUEBLE NUEVO + HOTSPOTS)
    ========================================================================== */
 .transform-section {
     padding: 100px 5%;
+    background-color: var(--color-neutro-fondo);
 }
 
 .section-header-center {
@@ -310,91 +311,139 @@ body {
     margin-bottom: 50px;
 }
 
-.section-header-center h2 {
-    font-family: var(--font-serif-luxury);
-    font-size: 38px;
-    font-weight: 400;
+/* Título con la tipografía Syne unificada */
+.section-header-center .transform-title {
+    font-family: var(--font-heading-heavy);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--color-oscuro-editorial);
 }
 
-.slider-container {
+.interactive-showcase-container {
     position: relative;
     width: 100%;
     max-width: 1000px;
-    height: 600px;
     margin: 0 auto;
-    overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-.slider-img {
-    position: absolute;
-    top: 0;
-    left: 0;
+.showcase-img-block {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 600px;
 }
 
-.slider-img img {
-    /* Forzamos a que la imagen mida siempre el ancho máximo del contenedor */
-    /* De este modo, cuando el contenedor se achica, la imagen se recorta en vez de deformarse */
-    width: 1000px; 
+.showcase-main-img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    max-width: none; /* Evita que herede restricciones externas */
 }
 
-.img-after {
-    width: 50%; /* Controlado dinámicamente por JS */
-    overflow: hidden; /* Recorta el contenido sobrante al deslizar */
-    z-index: 2;
-}
-
-/* El input invisible superpuesto para control nativo táctil y desktop */
-.slider-range-input {
+/* --- HOTSPOTS (INTERACCIÓN HOVER/ACTIVE) --- */
+.hotspot {
     position: absolute;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 1; /* Bajado para dejar pasar el cursor a los hotspots */
-    cursor: ew-resize;
-    outline: none;
-    top: 0;
-    left: 0;
-}
-
-/* Línea divisoria visual */
-.slider-button {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background-color: #fff;
-    z-index: 4;
-    transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.slider-button::after {
-    content: "↔";
-    position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
+    z-index: 10;
+}
+
+.hotspot-trigger {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-magenta);
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hotspot:hover .hotspot-trigger,
+.hotspot.active .hotspot-trigger {
+    transform: scale(1.15) rotate(45deg);
+    background-color: var(--color-oscuro-editorial);
+}
+
+/* Tooltip oculto por defecto */
+.hotspot-tooltip {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 240px;
     background-color: var(--color-oscuro-editorial);
     color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 46px;
-    font-size: 20px;
-    font-weight: bold;
-    border: 2px solid #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hotspot-tooltip h4 {
+    font-family: var(--font-heading-heavy);
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    color: var(--color-lima-suave);
+    letter-spacing: 0.5px;
+}
+
+.hotspot-tooltip p {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* Mostrar tooltip al pasar el mouse en Desktop o al hacer click en Mobile con la clase .active */
+.hotspot:hover .hotspot-tooltip,
+.hotspot.active .hotspot-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+/* Botón arriba a la derecha */
+.btn-course-top {
+    text-decoration: none;
+    font-family: var(--font-heading-heavy);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.btn-course-top:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    color: var(--color-oscuro-editorial);
+}
+
+/* Badge debajo del título */
+.course-badge-inline {
+    font-family: var(--font-heading-heavy);
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 25px;
 }
 
 /* ==========================================================================
@@ -577,14 +626,13 @@ body {
 .text-magenta { color: var(--color-magenta); }
 .text-lima { color: var(--color-lima-suave); }
 
-/* Footer de la tarjeta: Precio y Botón */
 .card-course-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
+    align-items: flex-end;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 15px;
 }
 
 .course-price-box {
@@ -601,8 +649,9 @@ body {
 
 .price-value {
     font-family: var(--font-heading-heavy);
-    font-size: 26px;
+    font-size: 42px; /* Agrandado considerablemente para hacer match con la imagen */
     font-weight: 800;
+    line-height: 1;
     letter-spacing: -1px;
 }
 
@@ -1762,4 +1811,47 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 
 .btn-kit-link:hover i {
     transform: translateX(4px); /* La flechita se mueve un toque a la derecha */
+}
+
+/* ==========================================================================
+   OPTIMIZACIÓN ACORDEÓN DINÁMICO — PROGRAMA DE ESTUDIOS (RAÍZ)
+   ========================================================================== */
+.program-accordion-container summary::-webkit-details-marker {
+    display: none; /* Remueve la flecha nativa molesta */
+}
+
+.program-accordion-container details {
+    overflow: hidden;
+}
+
+.program-accordion-container details[open] {
+    background-color: #ffffff !important;
+    box-shadow: 8px 8px 0px var(--color-oscuro-editorial);
+}
+
+.program-accordion-container details[open] summary .accordion-icon {
+    transform: rotate(180deg);
+    color: var(--color-magenta);
+}
+
+.program-accordion-container details summary:hover {
+    background-color: rgba(26,26,26,0.02);
+}
+
+/* Soporte Responsivo Estricto */
+@media (max-width: 968px) {
+    .program-dynamic-layout {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+    .program-dynamic-layout div[style*="position: sticky;"] {
+        position: static !important;
+    }
+    .program-accordion-container details summary {
+        padding: 20px !important;
+        font-size: 16px !important;
+    }
+    .program-accordion-container details div {
+        padding: 0 20px 20px 45px !important;
+    }
 }
