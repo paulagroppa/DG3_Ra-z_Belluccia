@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById("courseNextBtn");
 
     if (coursesTrack && courseCards.length > 0 && prevBtn && nextBtn) {
-        let currentIndex = 0;
+        let currentIndex = 1;
 
         const updateSlider = () => {
             // 1. Gestionamos la clase activa para aplicar las opacidades del CSS
