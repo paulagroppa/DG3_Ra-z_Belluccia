@@ -255,16 +255,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-const storyGrid = document.querySelector('.story-grid');
-    const nextArrow = document.querySelector('.next-arrow');
-    const prevArrow = document.querySelector('.prev-arrow');
+// ----------------------------------------------------------------------
+    // 5. CONTROL DEL MINI SLIDER HORIZONTAL EN MOBILE (SECCIÓN HISTORIA)
+    // ----------------------------------------------------------------------
+    const storyTrack = document.getElementById("storyCardsTrack");
+    const storyPrev = document.querySelector(".prev-arrow");
+    const storyNext = document.querySelector(".next-arrow");
 
-    if (storyGrid && nextArrow && prevArrow) {
-        nextArrow.addEventListener('click', () => {
-            storyGrid.scrollBy({ left: 300, behavior: 'smooth' });
+    if (storyTrack && storyPrev && storyNext) {
+        storyNext.addEventListener("click", () => {
+            // Desplaza hacia la derecha el ancho de una tarjeta promedio
+            const scrollAmount = window.innerWidth * 0.85 + 20;
+            storyTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
         });
-        prevArrow.addEventListener('click', () => {
-            storyGrid.scrollBy({ left: -300, behavior: 'smooth' });
+
+        storyPrev.addEventListener("click", () => {
+            // Desplaza hacia la izquierda
+            const scrollAmount = window.innerWidth * 0.85 + 20;
+            storyTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
         });
     }
 });

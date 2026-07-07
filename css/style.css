@@ -1967,3 +1967,64 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
         justify-content: center;
     }
 }
+/* --- SLIDER STORY CARDS MOBILE --- */
+
+/* Ocultar las flechas por defecto en Desktop */
+.story-slider-controls {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Transformamos el contenedor vertical en una fila de scroll horizontal */
+    .story-cards-free-flow {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Oculta la barra en Firefox */
+        padding: 20px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .story-cards-free-flow::-webkit-scrollbar {
+        display: none; /* Oculta la barra en Chrome y Safari */
+    }
+
+    /* Forzamos a que cada tarjeta ocupe el ancho casi completo del celu */
+    .story-card {
+        width: 85vw; 
+        flex-shrink: 0;
+    }
+
+    /* Mostramos y damos estilo a los botones de las flechas */
+    .story-slider-controls {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        position: relative;
+        z-index: 20;
+    }
+
+    .story-arrow-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid var(--color-oscuro-editorial);
+        background-color: var(--color-neutro-fondo);
+        color: var(--color-oscuro-editorial);
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .story-arrow-btn:active {
+        background-color: var(--color-oscuro-editorial);
+        color: var(--color-neutro-fondo);
+    }
+}
