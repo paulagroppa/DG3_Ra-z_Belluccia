@@ -214,4 +214,57 @@ document.addEventListener("DOMContentLoaded", () => {
         // Ejecución inicial limpia al montar la página
         layoutDeck();
     }
+// ----------------------------------------------------------------------
+    // MENÚ HAMBURGUESA INTERACTIVO
+    // ----------------------------------------------------------------------
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const menuIcon = menuToggle ? menuToggle.querySelector("i") : null;
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle("active");
+            
+            // Cambiar dinámicamente el ícono entre hamburguesa y cruz
+            if (navLinks.classList.contains("active")) {
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-xmark");
+            } else {
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+        });
+
+        // Cerrar el menú automáticamente al hacer click en cualquier enlace de navegación
+        const links = navLinks.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            });
+        });
+
+        // Cerrar el menú si se hace click afuera de la barra desplegable
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove("active");
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+            }
+        });
+    }
+const storyGrid = document.querySelector('.story-grid');
+    const nextArrow = document.querySelector('.next-arrow');
+    const prevArrow = document.querySelector('.prev-arrow');
+
+    if (storyGrid && nextArrow && prevArrow) {
+        nextArrow.addEventListener('click', () => {
+            storyGrid.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+        prevArrow.addEventListener('click', () => {
+            storyGrid.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+    }
 });

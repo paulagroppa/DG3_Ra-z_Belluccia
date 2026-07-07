@@ -840,7 +840,15 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
         max-width: 100%;
     }
 }
-
+/* Buscá esta línea cerca del final de tu archivo css/style.css */
+@media (max-width: 968px) {
+    .hero-actions {
+        display: none; /* <--- Agregá esto para ocultar los botones del Hero */
+    }
+    .hero-container { grid-template-columns: 1fr; gap: 40px; }
+    .hero-img { height: 350px; }
+    /* ... el resto de tus estilos mobile existentes ... */
+}
 
 /* ==========================================================================
    NUEVA SECCIÓN: DROP MARQUEE INFINITO
@@ -1853,5 +1861,109 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     }
     .program-accordion-container details div {
         padding: 0 20px 20px 45px !important;
+    }
+}
+/* --- MENÚ HAMBURGUESA LOGIC --- */
+
+/* Esconder el botón en pantallas grandes (Desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color-oscuro-editorial);
+    cursor: pointer;
+    z-index: 110; /* Por encima del nav */
+}
+
+/* Estilos Mobile mediante tu Media Query existente o una nueva */
+@media (max-width: 968px) {
+    .menu-toggle {
+        display: block; /* Mostrar el botón en mobile */
+    }
+
+    /* Convertir el nav en un menú desplegable de pantalla completa o cortina */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido por defecto a la derecha */
+        width: 80%;
+        height: 100vh;
+        background-color: var(--color-neutro-fondo);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+    }
+
+    /* Cuando el menú tenga la clase .active, se desliza hacia adentro */
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        margin: 0;
+        font-size: 20px; /* Tipografía más grande y cómoda para tocar con el dedo */
+    }
+    
+    /* Opcional: Si querés que el botón "Cotizar pieza" también se guarde en mobile o se acomode */
+    .cta-nav {
+        display: none; /* Podés ocultarlo o meterlo dentro del nav si querés */
+    }
+}
+/* --- SLIDER DE TARJETAS EN MOBILE --- */
+
+/* Ocultar las flechas por defecto en Desktop */
+.slider-arrows {
+    display: none;
+}
+
+@media (max-width: 968px) {
+    /* Convertimos el contenedor de las 3 tarjetas en una fila horizontal con scroll */
+    .story-grid {
+        display: flex !important; /* Fuerza a que pase de grid a fila */
+        flex-direction: row;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Oculta barra en Firefox */
+        padding: 10px 20px;
+        margin: 0 -20px; /* Para que el scroll llegue al borde de la pantalla */
+    }
+    
+    .story-grid::-webkit-scrollbar {
+        display: none; /* Oculta barra en Chrome/Safari */
+    }
+
+    /* Le damos un ancho fijo a cada tarjeta para que entren de a una en el celular */
+    .story-card {
+        width: 280px; 
+        flex-shrink: 0;
+    }
+
+    /* Estilos para las flechas que tocaremos con JS */
+    .slider-arrows {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .arrow-btn {
+        background-color: var(--color-oscuro-editorial);
+        color: var(--color-neutro-fondo);
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
