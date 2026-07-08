@@ -50,64 +50,91 @@
 
         <!-- SECCIÓN 2: ¿POR QUÉ ESTE CURSO ES DIFERENTE? (Diferenciación y deseo) -->
 <section id="nuestra-mirada">
+    
+    <!-- ONDA SUPERIOR -->
+    <div class="custom-shape-divider-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#F5F2EB"></path>
+        </svg>
+    </div>
+
     <div class="truus-layout-container">
         
-        <div class="story-editorial-text-truus" style="max-width: 900px; margin-bottom: 20px;">
+        <div class="story-editorial-text-truus" style="width: 100%; margin-bottom: 40px;">
             <h2 class="section-title-truus">
-                Restaurar muebles ya no es suficiente.
+                Restaurar muebles <br> ya no es suficiente
             </h2>
-            <p style="font-family: var(--font-body); font-size: 22px; line-height: 1.5; color: var(--color-neutro-fondo); opacity: 0.9; margin-top: 24px; max-width: 750px;">
-               
-            </p>
         </div>
         
-        <div class="story-cards-organic-wrap">
-            <!-- Contenedor de flujo libre de 4 columnas (adaptable) -->
-            <div class="story-cards-free-flow" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-                
-                <!-- Tarjeta 1: Restauración Profesional -->
-                <div class="story-card truus-card-1">
-                    <div class="card-header-meta">
-                        <span class="card-tag" style="color: var(--color-magenta);">Pilar 01</span>
-                        <span class="card-index">01</span>
+        <div class="pilares-grid">
+            
+            <div class="story-card flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-color: var(--color-lima-suave);">
+                        <div class="card-header-meta">
+                            <span class="card-tag" style="color: var(--color-magenta);">Pilar 01</span>
+                            <span class="card-index"></span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Restauración profesional, <br><span class="serif-italic-truus">no manualidades</span></h3>
                     </div>
-                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Restauración profesional, <br><span class="serif-italic-truus">no manualidades.</span></h3>
-                    <p class="card-description" style="color: var(--color-oscuro-editorial);">Olvidate de las recetas caseras y de tapar la madera con pintura. Acá vas a dominar la química del oficio, el comportamiento real de los materiales y técnicas con estándar de mercado.</p>
-                </div>
-                
-                <!-- Tarjeta 2: Método Paso a Paso -->
-                <div class="story-card truus-card-2" style="background-color: var(--color-neutro-fondo) !important;">
-                    <div class="card-header-meta">
-                        <span class="card-tag" style="color: var(--color-oscuro-editorial);">Pilar 02</span>
-                        <span class="card-index">02</span>
+                    <div class="flip-card-back">
+                        <img src="imagenes/img22.png" alt="Pilar 01 - Restauración">
                     </div>
-                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1; color: var(--color-oscuro-editorial);">Método <br><span class="serif-italic-truus" style="color: var(--color-magenta);">paso a paso.</span></h3>
-                    <p class="card-description" style="color: var(--color-oscuro-editorial);">Un sistema milimétrico estructurado desde el diagnóstico biológico hasta el lustre final. Sin baches informativos, diseñado para que puedas replicar el proceso con total autonomía.</p>
                 </div>
-                
-                <!-- Tarjeta 3: Enfoque en Diseño -->
-                <div class="story-card truus-card-3">
-                    <div class="card-header-meta">
-                        <span class="card-tag" style="color: var(--color-magenta);">Pilar 03</span>
-                        <span class="card-index">03</span>
-                    </div>
-                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Enfoque en diseño <br><span class="serif-italic-truus">contemporáneo.</span></h3>
-                    <p class="card-description" style="color: var(--color-oscuro-editorial);">No nos quedamos solo en la nostalgia del pasado. Vas a aprender a intervenir piezas bajo una mirada curatorial moderna, listas para integrarse a los espacios de vanguardia actuales.</p>
-                </div>
-
-                <!-- Tarjeta 4: Comunidad y Acompañamiento (Ajustada a estilo Card 2) -->
-                <div class="story-card truus-card-4" style="background-color: var(--color-neutro-fondo) !important;">
-                    <div class="card-header-meta">
-                        <span class="card-tag" style="color: var(--color-oscuro-editorial);">Pilar 04</span>
-                        <span class="card-index" style="color: rgba(0,0,0,0.15);">04</span>
-                    </div>
-                    <h3 class="card-title" style="font-size: 24px; line-height: 1.1; color: var(--color-oscuro-editorial);">Comunidad y <br><span class="serif-italic-truus" style="color: var(--color-magenta);">acompañamiento.</span></h3>
-                    <p class="card-description" style="color: var(--color-oscuro-editorial);">El aprendizaje no termina cuando apagas la pantalla. Vas a formar parte de una red privada de restauradores con tutoría activa, devoluciones en vivo y soporte para destrabar tus proyectos reales.</p>
-                </div>
-
             </div>
-        </div>
+            
+            <div class="story-card flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-color: var(--color-neutro-fondo);">
+                        <div class="card-header-meta">
+                            <span class="card-tag" style="color: var(--color-oscuro-editorial);">Pilar 02</span>
+                            <span class="card-index"></span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 24px; line-height: 1.1; color: var(--color-oscuro-editorial);">Método <br><span class="serif-italic-truus" style="color: var(--color-magenta);">paso a paso</span></h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="imagenes/img23.png" alt="Pilar 02 - Método">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-card flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-color: var(--color-lima-suave);">
+                        <div class="card-header-meta">
+                            <span class="card-tag" style="color: var(--color-magenta);">Pilar 03</span>
+                            <span class="card-index"></span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Enfoque en diseño <br><span class="serif-italic-truus">contemporáneo</span></h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="imagenes/img24.png" alt="Pilar 03 - Diseño">
+                    </div>
+                </div>
+            </div>
 
+            <div class="story-card flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="background-color: var(--color-neutro-fondo);">
+                        <div class="card-header-meta">
+                            <span class="card-tag" style="color: var(--color-oscuro-editorial);">Pilar 04</span>
+                            <span class="card-index" style="color: rgba(0,0,0,0.15);"></span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 24px; line-height: 1.1; color: var(--color-oscuro-editorial);">Comunidad<br><span class="serif-italic-truus" style="color: var(--color-magenta);">y acompañamiento</span></h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="imagenes/img25.png" alt="Pilar 04 - Comunidad">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    <!-- ONDA INFERIOR -->
+    <div class="custom-shape-divider-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#F5F2EB"></path>
+        </svg>
     </div>
 </section>
 
@@ -119,7 +146,7 @@
                 <div style="position: sticky; top: 140px;">
                     <span class="mini-tag" style="background-color: var(--color-magenta); color: #fff; font-weight: 700;">Plan de estudios</span>
                     <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(36px, 4vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial);">
-                        El camino <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400;">del oficio.</span>
+                        El camino <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400;">del oficio</span>
                     </h2>
                     <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.85; margin-bottom: 40px; max-width: 380px;">
                         Cuatro módulos estratégicos diseñados de forma milimétrica para dominar la restauración y transformarla en tu propio proyecto profesional.
@@ -131,7 +158,7 @@
                 <div class="program-accordion-container" style="display: flex; flex-direction: column; gap: 16px;">
                     
                     <!-- Módulo 1 -->
-                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;" open>
+                    <details name="camino" style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;" open>
                         <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
                             <span style="display: flex; align-items: center; gap: 20px;">
                                 <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">01</span> 
@@ -154,7 +181,7 @@
                     </details>
 
                     <!-- Módulo 2 -->
-                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                    <details name="camino" style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
                         <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
                             <span style="display: flex; align-items: center; gap: 20px;">
                                 <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">02</span> 
@@ -177,7 +204,7 @@
                     </details>
 
                     <!-- Módulo 3 -->
-                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                    <details name="camino" style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
                         <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
                             <span style="display: flex; align-items: center; gap: 20px;">
                                 <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">03</span> 
@@ -200,7 +227,7 @@
                     </details>
 
                     <!-- Módulo 4 -->
-                    <details style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                    <details name="camino" style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
                         <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; user-select: none; color: var(--color-oscuro-editorial);">
                             <span style="display: flex; align-items: center; gap: 20px;">
                                 <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">04</span> 
@@ -257,10 +284,10 @@
             <div style="max-width: 1200px; margin: 0 auto;">
                 
                 <!-- Encabezado Emocional/Editorial -->
-                <div style="margin-bottom: 80px; max-width: 750px;">
-                    <span class="mini-tag" style="background-color: var(--color-magenta); color: #fff; font-weight: 700;">Resultados & Transformación</span>
+                <div style="margin-bottom: 80px; width: 100%;">
+                  
                     <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(38px, 5vw, 64px); font-weight: 800; line-height: 0.95; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial); text-transform: lowercase;">
-                        el cambio real no está en el contenido, <span class="serif-italic" style="color: var(--color-magenta); font-weight: 400; font-size: 1.05em;">está en tu mirada.</span>
+                        el cambio real no está en el contenido, <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400; font-size: 1.05em;">está en tu mirada</span>
                     </h2>
                     <p style="font-family: var(--font-body); font-size: 18px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.85;">
                     </p>
@@ -370,9 +397,9 @@
                 
                 <!-- Columna Izquierda: Garantía Dinámica -->
                 <div style="position: sticky; top: 140px;" class="faq-sticky-sidebar">
-                    <span class="mini-tag" style="background-color: var(--color-lima-suave); color: var(--color-oscuro-editorial); font-weight: 700;">Tu riesgo es cero</span>
+                    
                     <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(36px, 4vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial);">
-                        Garantía de <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400;">satisfacción.</span>
+                        Garantía de <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400;">satisfacción</span>
                     </h2>
                     
                     <!-- Tarjeta de Garantía estilo RAÍZ -->
@@ -387,7 +414,7 @@
 
                     <!-- Mensaje de Acompañamiento Final -->
                     <div style="margin-top: 40px; border-left: 3px solid var(--color-magenta); padding-left: 20px;">
-                        <p style="font-family: var(--font-serif-luxury); font-style: italic; font-size: 22px; color: var(--color-oscuro-editorial); margin-bottom: 5px; line-height: 1.2;">"No estás solo."</p>
+                        <p style="font-family: var(--font-serif-luxury); font-style: italic; font-size: 22px; color: var(--color-oscuro-editorial); margin-bottom: 5px; line-height: 1.2;">"No estás solo"</p>
                         <p style="font-family: var(--font-body); font-size: 14px; color: var(--color-oscuro-editorial); opacity: 0.8; margin: 0;">Nuestro equipo te acompaña durante todo el recorrido.</p>
                     </div>
                 </div>
@@ -497,7 +524,13 @@
 
 
     <!-- FOOTER REUTILIZADO -->
-    <footer class="main-footer">
+   <footer class="main-footer" style="position: relative; padding-top: 80px;">
+        <div class="custom-shape-divider-top" style="position: absolute; top: 0; left: 0; width: 100%; overflow: hidden; line-height: 0;">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 80px;">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#F233B9"></path>
+            </svg>
+        </div>
+<footer class="main-footer">
         <div class="footer-top">
             <div class="footer-col">
                 <p class="footer-manifesto">Nada se pierde cuando el diseño encuentra una nueva mirada.</p>

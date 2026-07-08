@@ -323,23 +323,24 @@ body {
 .interactive-showcase-container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
+    max-width: 500px; /* Ancho ideal controlado para destacar una pieza vertical */
     margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    overflow: hidden;
+    overflow: visible; /* Permite que los tooltips sobresalgan con elegancia si es necesario */
 }
 
 .showcase-img-block {
     position: relative;
     width: 100%;
-    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .showcase-main-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 700px; /* Evita que se haga infinitamente alta en pantallas enormes */
+    object-fit: contain; /* Cuida las proporciones originales del render sin fondo */
     display: block;
 }
 
@@ -1535,7 +1536,8 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 
 .main-footer {
     position: relative;
-    padding-top: 100px !important; /* Espacio para que la onda superior respire */
+    z-index: 6; /* Por encima del .clients-deck-section (z-index: 5) para que la onda no quede tapada */
+    padding-top: 100px !important;
 }
 
 /* Estilos de la Onda Inferior (Sección Manifiesto) */
@@ -1556,7 +1558,7 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     height: 75px; /* Controla la altura/pronunciación de la curva */
 }
 
-/* Estilos de la Onda Superior (Sección Footer) */
+/* Estilos de la Onda Superior (Secciones Generales) */
 .custom-shape-divider-top {
     position: absolute;
     top: -1px; /* Muerde el fondo crema */
@@ -1570,7 +1572,26 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 75px; /* Mantiene la misma proporción estética */
+    height: 75px; 
+}
+
+/* Estilos ESPECÍFICOS para la Onda del Footer (Soluciona la franja blanca) */
+.custom-shape-divider-footer-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: translateY(-99%); /* Empuja la onda por encima del footer para pisar lo oscuro */
+    z-index: 10;
+}
+
+.custom-shape-divider-footer-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 75px; 
 }
 /* ==========================================================================
    NUEVA MAQUETACIÓN: MAZO DE CARTAS DE CLIENTES INTERACTIVO (FONDO OSCURO)
@@ -2026,5 +2047,86 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     .story-arrow-btn:active {
         background-color: var(--color-oscuro-editorial);
         color: var(--color-neutro-fondo);
+    }
+}
+/* ==========================================================================
+   NUEVAS FLIP CARDS INTERACTIVAS (SECCIÓN PILARES)
+   ========================================================================== */
+
+.flip-card {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    perspective: 1200px; /* Genera el entorno de profundidad 3D */
+    aspect-ratio: 1 / 1; /* <-- Esto las hace cuadradas */
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Curva de rebote sutil */
+    transform-style: preserve-3d;
+}
+
+/* Al hacer click, el HTML le suma la clase .is-flipped y esto la da vuelta */
+.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Estilos compartidos para frente y dorso */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Oculta la cara que no se está viendo */
+    backface-visibility: hidden;
+    border-radius: 24px;
+    border: 2px solid var(--color-oscuro-editorial);
+    overflow: hidden;
+}
+
+/* Frente: Ajustamos el padding que le quitamos al contenedor original */
+.flip-card-front {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Dorso: Ya arranca dada vuelta y recibe la foto */
+.flip-card-back {
+    background-color: var(--color-oscuro-editorial);
+    transform: rotateY(180deg); 
+}
+
+.flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ==========================================================================
+   GRILLA DE PILARES (4 COLUMNAS SIMÉTRICAS)
+   ========================================================================== */
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Divide el espacio en 4 partes iguales */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Para que no se rompan en pantallas más chicas (Tablets y Celulares) */
+@media (max-width: 1024px) {
+    .pilares-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 arriba y 2 abajo en tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .pilares-grid {
+        grid-template-columns: 1fr; /* 1 debajo de la otra en celulares */
     }
 }

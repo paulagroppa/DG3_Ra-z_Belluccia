@@ -275,4 +275,5 @@ document.addEventListener("DOMContentLoaded", () => {
             storyTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
         });
     }
+
 });
