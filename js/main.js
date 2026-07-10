@@ -264,15 +264,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (storyTrack && storyPrev && storyNext) {
         storyNext.addEventListener("click", () => {
-            // Desplaza hacia la derecha el ancho de una tarjeta promedio
             const scrollAmount = window.innerWidth * 0.85 + 20;
             storyTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
         });
 
         storyPrev.addEventListener("click", () => {
-            // Desplaza hacia la izquierda
             const scrollAmount = window.innerWidth * 0.85 + 20;
             storyTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 6. CONTROL DEL MINI SLIDER HORIZONTAL EN MOBILE (PILARES CURSO)
+    // ----------------------------------------------------------------------
+    const pilaresTrack = document.getElementById("pilaresTrack");
+    const pilaresPrev = document.querySelector(".pilares-prev");
+    const pilaresNext = document.querySelector(".pilares-next");
+
+    if (pilaresTrack && pilaresPrev && pilaresNext) {
+        pilaresNext.addEventListener("click", () => {
+            const scrollAmount = 300; 
+            pilaresTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        });
+
+        pilaresPrev.addEventListener("click", () => {
+            const scrollAmount = 300;
+            pilaresTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
         });
     }
 

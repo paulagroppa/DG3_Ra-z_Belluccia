@@ -714,7 +714,14 @@ body {
 @media (max-width: 768px) {
     .courses-window { width: 290px; }
     .course-card-wrapper { width: 290px; }
-    .course-card { height: 580px; padding: 30px 20px; }
+    .course-card { 
+        height: auto; /* Sacamos el alto fijo para eliminar el espacio vacío */
+        min-height: 480px; /* Mantenemos un alto mínimo para la estructura */
+        padding: 30px 20px; 
+    }
+    .price-value {
+        font-size: 34px; /* Achicamos el número del precio para que no desborde hacia afuera */
+    }
 }
 /* ==========================================================================
    NUEVA MAQUETACIÓN: EL COLOR COMO SEGUNDA VIDA (FONDO OSCURO EDITORIAL)
@@ -1975,17 +1982,25 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     }
 
     .arrow-btn {
-        background-color: var(--color-oscuro-editorial);
-        color: var(--color-neutro-fondo);
-        border: none;
-        width: 45px;
-        height: 45px;
+        background-color: transparent;
+        color: var(--color-neutro-fondo); /* Pasamos el ícono a crema para que resalte en el fondo oscuro */
+        border: 2px solid var(--color-neutro-fondo); /* Borde crema fino */
+        width: 55px;
+        height: 55px;
         border-radius: 50%;
-        font-size: 18px;
+        font-size: 20px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    /* En el hover invertimos los colores para que se note la interacción */
+    .arrow-btn:hover {
+        background-color: var(--color-neutro-fondo);
+        color: var(--color-oscuro-editorial);
+        transform: scale(1.05);
     }
 }
 /* --- SLIDER STORY CARDS MOBILE --- */
@@ -2113,20 +2128,52 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
    ========================================================================== */
 .pilares-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Divide el espacio en 4 partes iguales */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
 }
 
-/* Para que no se rompan en pantallas más chicas (Tablets y Celulares) */
+/* Ocultamos las flechas en Desktop */
+#pilaresArrows {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .pilares-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 arriba y 2 abajo en tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    /* Transformamos la grilla en un carrusel horizontal */
     .pilares-grid {
-        grid-template-columns: 1fr; /* 1 debajo de la otra en celulares */
+        display: flex !important;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; 
+        padding-bottom: 10px;
+        width: 100%;
+        max-width: 100%; /* CLAVE 1: Le pone límite al ancho para obligarlo a scrollear */
+    }
+    
+    .pilares-grid::-webkit-scrollbar {
+        display: none; 
+    }
+    
+    .pilares-grid .flip-card {
+        width: 280px;
+        flex-shrink: 0;
+        aspect-ratio: 1 / 1;
+    }
+    
+    /* Mostramos las flechas debajo del carrusel */
+    #pilaresArrows {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+        position: relative; 
+        z-index: 50; /* CLAVE 2: Evita que la onda inferior bloquee el click invisiblemente */
     }
 }
