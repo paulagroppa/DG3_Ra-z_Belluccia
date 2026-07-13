@@ -15,6 +15,11 @@
     <!-- NAV REUTILIZADA -->
     <header class="main-header">
         <div class="logo">RAÍZ</div>
+        
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <nav class="nav-links">
             <a href="index.html#Nuestra mirada">Nuestra mirada</a>
             <a href="index.html#transformacion">Transformaciones</a>
@@ -34,7 +39,7 @@
                     <h1 class="hero-title">
                         Restauración <span class="highlight-text">profesional</span><br>
                     </h1>
-                    <p class="course-hero-lead" style="font-size: 20px; opacity: 0.85; line-height: 1.6; margin-bottom: 40px; max-width: 550px;">
+                    <p class="course-hero-lead hide-on-mobile" style="font-size: 20px; opacity: 0.85; line-height: 1.6; margin-bottom: 40px; max-width: 550px;">
                         Dominá el proceso completo de restauración con un enfoque profesional.
                     </p>
                     <div class="hero-actions">
@@ -159,7 +164,7 @@
                     </h2>
                     
                     </p>
-                    <a href="#inscripcion-directa" class="btn-solid">Asegurar mi lugar</a>
+                    <a href="#inscripcion-directa" class="btn-solid hide-on-mobile">Asegurar mi lugar</a>
                 </div>
 
                 <!-- Bloque Interactivo Derecho (Contenedor Dinámico) -->
@@ -257,6 +262,9 @@
                         </div>
                     </details>
 
+                    <!-- Botón exclusivo para Mobile (debajo del acordeón) -->
+                    <a href="#inscripcion-directa" class="btn-solid show-on-mobile" style="text-align: center; margin-top: 15px; width: 100%;">Asegurar mi lugar</a>
+
                 </div>
             </div>
         </section>
@@ -294,7 +302,7 @@
                 <!-- Encabezado Emocional/Editorial -->
                 <div style="margin-bottom: 80px; width: 100%;">
                   
-                    <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(38px, 5vw, 64px); font-weight: 800; line-height: 0.95; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial); text-transform: lowercase;">
+                    <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(38px, 5vw, 64px); font-weight: 800; line-height: 0.95; letter-spacing: -2px; margin: 20px 0; color: var(--color-oscuro-editorial);">
                         El cambio real no está en el contenido, <br><span class="serif-italic" style="color: var(--color-magenta); font-weight: 400; font-size: 1.05em;">está en tu mirada</span>
                     </h2>
                     <p style="font-family: var(--font-body); font-size: 18px; line-height: 1.6; color: var(--color-oscuro-editorial); opacity: 0.85;">
@@ -304,43 +312,72 @@
                 <!-- Bloque de Contraste: El viaje del alumno -->
                 <div class="transform-journey-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px;">
                     
-                    <!-- Tarjeta del Antes: Bloque Rígido Editorial -->
-                    <div style="background-color: #fff; border: 2px solid var(--color-oscuro-editorial); padding: 50px 40px; box-shadow: 12px 12px 0px rgba(26,26,26,0.05);">
-                        <span style="font-family: var(--font-heading-heavy); text-transform: uppercase; font-size: 13px; letter-spacing: 2px; color: #aaa; display: block; margin-bottom: 30px;">[ el punto de partida ]</span>
-                        <h3 style="font-family: var(--font-heading-heavy); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; color: var(--color-oscuro-editorial);">Antes del curso</h3>
-                        
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; padding: 0;">
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
-                                <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> Restaurás por intuición y corrés riesgos
-                            </li>
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
-                                <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> Dudás al elegir los materiales adecuados
-                            </li>
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
-                                <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> No sabés cuánto cobrar tu mano de obra
-                            </li>
-                        </ul>
+                    <!-- Tarjeta del Antes (Con reverso en móvil) -->
+                    <div class="flip-card" onclick="if(window.innerWidth <= 868) this.classList.toggle('is-flipped')">
+                        <div class="flip-card-inner">
+                            
+                            <!-- Cara de Frente (El texto) -->
+                            <div class="flip-card-front" style="background-color: #fff; border: 2px solid var(--color-oscuro-editorial); padding: 50px 40px; box-shadow: 12px 12px 0px rgba(26,26,26,0.05); height: 100%;">
+                                <span style="font-family: var(--font-heading-heavy); text-transform: uppercase; font-size: 13px; letter-spacing: 2px; color: #aaa; display: block; margin-bottom: 30px;">[ el punto de partida ]</span>
+                                <h3 style="font-family: var(--font-heading-heavy); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; color: var(--color-oscuro-editorial);">Antes del curso</h3>
+                                
+                                <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; padding: 0;">
+                                    <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
+                                        <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> Restaurás por intuición y corrés riesgos
+                                    </li>
+                                    <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
+                                        <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> Dudás al elegir los materiales adecuados
+                                    </li>
+                                    <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; opacity: 0.85;">
+                                        <i class="fa-solid fa-xmark" style="color: var(--color-magenta); font-size: 18px;"></i> No sabés cuánto cobrar tu mano de obra
+                                    </li>
+                                </ul>
+                                <div class="show-on-mobile" style="margin-top: auto; padding-top: 20px; text-align: right; color: var(--color-magenta); font-size: 12px; font-weight: 700; text-transform: uppercase;">
+                                    <i class="fa-solid fa-rotate-right"></i> Ver Mueble
+                                </div>
+                            </div>
+                            
+                            <!-- Cara de Atrás (La imagen - visible solo en móvil al girar) -->
+                            <div class="flip-card-back show-on-mobile" style="border: 2px solid var(--color-oscuro-editorial); background-color: rgba(26,26,26,0.03); overflow: hidden; position: relative;">
+                                <img src="imagenes/img2.png" alt="Mueble antes de restaurar" style="width: 100%; height: 100%; object-fit: cover;">
+                                <span style="position: absolute; bottom: 20px; left: 20px; background-color: var(--color-oscuro-editorial); color: #fff; font-family: var(--font-heading-heavy); font-size: 11px; text-transform: uppercase; padding: 6px 14px; font-weight: 700; letter-spacing: 1px;">Estado Inicial</span>
+                            </div>
+
+                        </div>
                     </div>
 
-                    <!-- Tarjeta del Después: Shock de Color / Bloque Activo -->
-                    <div style="background-color: var(--color-oscuro-editorial); border: 2px solid var(--color-oscuro-editorial); padding: 50px 40px; color: #fff; box-shadow: 12px 12px 0px var(--color-magenta); position: relative;">
-                        <span style="font-family: var(--font-heading-heavy); text-transform: uppercase; font-size: 13px; letter-spacing: 2px; color: var(--color-lima-suave); display: block; margin-bottom: 30px;">[ la transformación ]</span>
-                        <h3 style="font-family: var(--font-heading-heavy); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; color: #fff;">Después del curso</h3>
-                        
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; padding: 0;">
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
-                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Restaurás cualquier mueble con autonomía técnica
-                            </li>
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
-                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Elegís herramientas y químicos con criterio profesional
-                            </li>
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
-                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Tenés un proceso metódico y milimétrico de punta a punta
-                            </li>
-                            <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
-                                <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Podés empezar un emprendimiento sustentable y premium
-                            </li>
-                        </ul>
+                    <!-- Tarjeta del Después (Con reverso en móvil) -->
+                    <div class="flip-card" onclick="if(window.innerWidth <= 868) this.classList.toggle('is-flipped')">
+                        <div class="flip-card-inner">
+
+                            <!-- Cara de Frente (El texto) -->
+                            <div class="flip-card-front" style="background-color: var(--color-oscuro-editorial); border: 2px solid var(--color-oscuro-editorial); padding: 50px 40px; color: #fff; box-shadow: 12px 12px 0px var(--color-magenta); height: 100%;">
+                                <span style="font-family: var(--font-heading-heavy); text-transform: uppercase; font-size: 13px; letter-spacing: 2px; color: var(--color-lima-suave); display: block; margin-bottom: 30px;">[ la transformación ]</span>
+                                <h3 style="font-family: var(--font-heading-heavy); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px; color: #fff;">Después del curso</h3>
+                                
+                                <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px; padding: 0;">
+                                    <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                        <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Restaurás cualquier mueble con autonomía técnica
+                                    </li>
+                                    <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                        <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Elegís herramientas con criterio profesional
+                                    </li>
+                                    <li style="font-family: var(--font-body); font-size: 16px; display: flex; align-items: center; gap: 15px; font-weight: 500;">
+                                        <i class="fa-solid fa-check" style="color: var(--color-lima-suave); font-size: 18px;"></i> Tenés un proceso metódico de punta a punta
+                                    </li>
+                                </ul>
+                                <div class="show-on-mobile" style="margin-top: auto; padding-top: 20px; text-align: right; color: var(--color-lima-suave); font-size: 12px; font-weight: 700; text-transform: uppercase;">
+                                    <i class="fa-solid fa-rotate-right"></i> Ver Mueble
+                                </div>
+                            </div>
+                            
+                            <!-- Cara de Atrás (La imagen - visible solo en móvil al girar) -->
+                            <div class="flip-card-back show-on-mobile" style="border: 2px solid var(--color-oscuro-editorial); overflow: hidden; position: relative;">
+                                <img src="imagenes/img1.png" alt="Mueble restaurado resultado final" style="width: 100%; height: 100%; object-fit: cover;">
+                                <span style="position: absolute; bottom: 20px; right: 20px; background-color: var(--color-magenta); color: #fff; font-family: var(--font-heading-heavy); font-size: 11px; text-transform: uppercase; padding: 6px 14px; font-weight: 700; letter-spacing: 1px;">Resultado Raíz</span>
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
@@ -365,9 +402,67 @@
 
         <!-- Soporte Responsive para la nueva sección -->
         <style>
+            /* ===== FIX DESKTOP: Desactivamos el comportamiento 3D global para que no deje espacio vacío ===== */
+            @media (min-width: 869px) {
+                .transform-journey-grid .flip-card {
+                    aspect-ratio: auto !important; /* Mata la restricción cuadrada que dejaba el hueco gigante */
+                    cursor: default !important;
+                }
+                .transform-journey-grid .flip-card-inner {
+                    transform: none !important;
+                }
+                .transform-journey-grid .flip-card-front {
+                    position: relative !important; /* Evita que flote, haciendo que el texto dicte la altura */
+                    height: 100% !important; /* Mantiene ambas tarjetas equilibradas */
+                    border-radius: 0px !important; /* Devuelve los bordes rectos de tu diseño original */
+                }
+                .transform-journey-grid .flip-card-back {
+                    display: none !important; /* Se asegura de ocultar el reverso en compu */
+                }
+            }
+
+            /* ===== COMPORTAMIENTO MOBILE: Queda intacto, tal cual lo dejamos ===== */
             @media (max-width: 868px) {
-                .transform-journey-grid { grid-template-columns: 1fr !important; gap: 25px !important; }
-                .transform-images-showcase { grid-template-columns: 1fr !important; gap: 20px !important; }
+                /* Transformamos las tarjetas planas en flip-cards interactivas */
+                .transform-journey-grid .flip-card-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    transform-style: preserve-3d;
+                }
+                .transform-journey-grid .flip-card.is-flipped .flip-card-inner {
+                    transform: rotateY(180deg);
+                }
+                .transform-journey-grid .flip-card-front, 
+                .transform-journey-grid .flip-card-back {
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                }
+                /* La cara de atrás (las imágenes) arranca dada vuelta */
+                .transform-journey-grid .flip-card-back {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: rotateY(180deg);
+                }
+                
+                /* Escondemos la galería estática de fotos porque ahora están adentro de las cards */
+                .transform-images-showcase { 
+                    display: none !important; 
+                }
+                /* Ajuste de grilla para apilar las dos tarjetas interactivas */
+                .transform-journey-grid { 
+                    grid-template-columns: 1fr !important; 
+                    gap: 30px !important; 
+                }
+                .transform-journey-grid .flip-card {
+                    perspective: 1200px;
+                    min-height: 380px; /* Asegura que el contenido entre bien */
+                    cursor: pointer;
+                }
             }
         </style>
 
@@ -400,69 +495,73 @@
         </section>
 
 <!-- SECCIÓN 6: PREGUNTAS FRECUENTES + GARANTÍA (Baja de fricción masiva) -->
-        <section id="confianza-faq" style="padding: 120px 5%; background-color: #F5F2EB;">
-    <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start;">
-        
-        <div class="garantia-card" style="background-color: var(--color-oscuro-editorial); padding: 50px; border-radius: 24px; position: sticky; top: 140px;">
-            <div style="font-size: 40px; color: var(--color-magenta); margin-bottom: 20px;">
-                <i class="fa-solid fa-heart-circle-check"></i>
-            </div>
-            <h2 style="font-family: var(--font-heading-heavy); font-size: 32px; color: #fff; line-height: 1; margin-bottom: 20px;">7 días<br><span class="serif-italic" style="color: var(--color-magenta);">sin riesgos</span></h2>
-            <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: #fff; opacity: 0.8;">
-                Probá el curso completo. Si sentís que el nivel técnico o el acompañamiento no son lo que esperabas, te devolvemos el 100% de tu dinero. Sin vueltas.
-            </p>
-        </div>
-
-        <div class="faq-minimal-list">
-            <h3 style="font-family: var(--font-heading-heavy); font-size: clamp(36px, 4vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -2px; margin-bottom: 50px; color: var(--color-oscuro-editorial); text-transform: lowercase;">dudas frecuentes</h3>
+        <section id="confianza-faq" style="padding: 120px 5%; background-color: var(--color-neutro-fondo);">
             
-            <div style="margin-bottom: 30px;">
-                <h4 style="font-family: var(--font-heading-heavy); font-size: 18px; margin-bottom: 8px;">¿Necesito herramientas caras?</h4>
-                <p style="font-family: var(--font-body); font-size: 15px; opacity: 0.8; line-height: 1.6;">No. Te enseñamos a restaurar con lo básico y a invertir inteligentemente solo cuando realmente es necesario.</p>
+            <!-- Título centrado de la sección -->
+            <div style="text-align: center; margin-bottom: 60px; width: 100%;">
+                <h2 style="font-family: var(--font-heading-heavy); font-size: clamp(36px, 4vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -2px; color: var(--color-oscuro-editorial);">
+                    Dudas frecuentes
+                </h2>
             </div>
 
-            <div style="margin-bottom: 30px;">
-                <h4 style="font-family: var(--font-heading-heavy); font-size: 18px; margin-bottom: 8px;">¿Las clases son en vivo?</h4>
-                <p style="font-family: var(--font-body); font-size: 15px; opacity: 0.8; line-height: 1.6;">Todo el contenido está en HD y disponible 24/7. Además, tenés acceso a mentorías grupales de soporte para que nunca estés solo/a.</p>
-            </div>
+            <!-- Grilla de dos columnas -->
+            <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch;">
 
-            <div>
-                <h4 style="font-family: var(--font-heading-heavy); font-size: 18px; margin-bottom: 8px;">¿Tiene certificación profesional?</h4>
-                <p style="font-family: var(--font-body); font-size: 15px; opacity: 0.8; line-height: 1.6;">Sí, al finalizar los módulos y presentar tu proyecto, recibís nuestra certificación avalando tus competencias en el oficio.</p>
-            </div>
-        </div>
-    </div>
-</section>
+                <!-- IZQUIERDA: Garantía (Exactamente igual a como estaba) -->
+                <div class="garantia-card" style="background-color: var(--color-oscuro-editorial); padding: 50px; border-radius: 24px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 40px; color: var(--color-magenta); margin-bottom: 20px;">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <h2 style="font-family: var(--font-heading-heavy); font-size: 32px; color: #fff; line-height: 1; margin-bottom: 20px;">7 días<br><span class="serif-italic" style="color: var(--color-magenta);">sin riesgos</span></h2>
+                    <p style="font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: #fff; opacity: 0.8;">
+                        Probá el curso completo. Si sentís que el nivel técnico o el acompañamiento no son lo que esperabas, te devolvemos el 100% de tu dinero. Sin vueltas.
+                    </p>
+                </div>
 
-        <!-- Estilos específicos de refuerzo visual para la Sección 6 -->
-        <style>
-            /* Sincronización del comportamiento de acordeones abiertos para FAQ */
-            #faq-garantia details[open] {
-                background-color: #fff !important;
-                box-shadow: 6px 6px 0px var(--color-oscuro-editorial);
-            }
-            #faq-garantia details[open] summary .faq-icon {
-                transform: rotate(180deg);
-                color: var(--color-magenta);
-            }
-            #faq-garantia details summary:hover {
-                background-color: rgba(26,26,26,0.02);
-            }
-            
-            /* Ajuste responsive para la grilla de FAQ */
-            @media (max-width: 968px) {
-                .faq-grid-container { grid-template-columns: 1fr !important; gap: 40px !important; }
-                .faq-sticky-sidebar { position: static !important; }
-                #faq-garantia details summary { padding: 20px !important; font-size: 16px !important; }
-                #faq-garantia details div { padding: 0 20px 20px 20px !important; }
-            }
-        </style>
+                <!-- DERECHA: Mazo apilable de Dudas Frecuentes -->
+                <div class="faq-deck-wrapper">
+                    <div id="faqStack" class="faq-stack">
+                        <!-- Carta 1 -->
+                        <div class="faq-card active-top">
+                            <div>
+                                <h4 style="font-family: var(--font-heading-heavy); font-size: 22px; margin-bottom: 15px; color: var(--color-oscuro-editorial);">¿Necesito herramientas caras?</h4>
+                                <p style="font-family: var(--font-body); font-size: 15px; opacity: 0.8; line-height: 1.6; color: var(--color-oscuro-editorial);">No. Te enseñamos a restaurar con lo básico y a invertir inteligentemente solo cuando realmente es necesario.</p>
+                            </div>
+                            <div style="text-align: right; color: var(--color-magenta); font-size: 13px; font-weight: 700; font-family: var(--font-heading-heavy); text-transform: uppercase;"><i class="fa-solid fa-arrow-pointer"></i> Siguiente duda</div>
+                        </div>
+
+                        <!-- Carta 2 -->
+                        <div class="faq-card">
+                            <div>
+                                <h4 style="font-family: var(--font-heading-heavy); font-size: 22px; margin-bottom: 15px; color: var(--color-oscuro-editorial);">¿Las clases son en vivo?</h4>
+                                <p style="font-family: var(--font-body); font-size: 15px; opacity: 0.8; line-height: 1.6; color: var(--color-oscuro-editorial);">Todo el contenido está en HD y disponible 24/7. Además, tenés acceso a mentorías grupales de soporte para que nunca estés solo/a.</p>
+                            </div>
+                            <div style="text-align: right; color: var(--color-magenta); font-size: 13px; font-weight: 700; font-family: var(--font-heading-heavy); text-transform: uppercase;"><i class="fa-solid fa-arrow-pointer"></i> Siguiente duda</div>
+                        </div>
+
+                        <!-- Carta 3 -->
+                        <div class="faq-card">
+                            <div>
+                                <h4 style="font-family: var(--font-heading-heavy); font-size: 22px; margin-bottom: 15px; color: var(--color-oscuro-editorial);">¿Tiene certificación profesional?</h4>
+                                <p style="font-family: var(--font-body); font-size: 15px; opacity: 0.8; line-height: 1.6; color: var(--color-oscuro-editorial);">Sí, al finalizar los módulos y presentar tu proyecto, recibís nuestra certificación avalando tus competencias en el oficio.</p>
+                            </div>
+                            <div style="text-align: right; color: var(--color-magenta); font-size: 13px; font-weight: 700; font-family: var(--font-heading-heavy); text-transform: uppercase;"><i class="fa-solid fa-rotate-right"></i> Volver a empezar</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
         
     </main>
 
 
-    <!-- FOOTER REUTILIZADO -->
-<footer class="main-footer">
+    <footer class="main-footer">
+    <div class="custom-shape-divider-footer-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,120V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V120Z" fill="var(--color-magenta)"></path>
+        </svg>
+    </div>
         <div class="footer-top">
             <div class="footer-col">
                 <p class="footer-manifesto">Nada se pierde cuando el diseño encuentra una nueva mirada.</p>
@@ -477,7 +576,14 @@
         <div class="footer-massive-logo">
             <h2>RAÍZ</h2>
         </div>
+<div class="footer-ux-kit">
+    <a href="kit-ux-ui.html" class="btn-kit-link">
+        <span>Kit UX / UI</span>
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</div>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>

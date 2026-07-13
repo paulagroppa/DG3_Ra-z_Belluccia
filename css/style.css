@@ -804,7 +804,7 @@ body {
     box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-neutro-fondo);
 }
 .color-circle-btn.btn-magenta.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-magenta); }
-limited drop.color-circle-btn.btn-lima.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-lima-suave); }
+.color-circle-btn.btn-lima.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px var(--color-lima-suave); }
 .color-circle-btn.btn-oscuro.active { box-shadow: 0 0 0 3px var(--color-oscuro-editorial), 0 0 0 5px rgba(255,255,255,0.8); }
 
 /* Columna Derecha: Contenedor del Marco de Imagen */
@@ -885,7 +885,6 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -2px;
-    text-transform: lowercase; /* Identidad Truus */
     color: var(--color-oscuro-editorial);
     margin-bottom: 20px;
 }
@@ -1053,8 +1052,9 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 .footer-massive-logo h2 {
     font-family: var(--font-heading-heavy);
     font-size: clamp(60px, 18vw, 260px);
+font-weight: 800;
     line-height: 0.8;
-    letter-spacing: -10px;
+    letter-spacing: -5px;
     text-align: center;
     margin: 0;
     opacity: 0.9;
@@ -1064,9 +1064,25 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 /* ==========================================================================
    RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
    ========================================================================== */
+.show-on-mobile {
+    display: none !important; /* Oculta elementos exclusivos de celular en Desktop */
+}
+
 @media (max-width: 968px) {
+    .hide-on-mobile {
+        display: none !important; /* Oculta elementos marcados solo en celular */
+    }
+    .show-on-mobile {
+        display: block !important; /* Muestra el botón de abajo solo en celulares */
+    }
     .hero-container { grid-template-columns: 1fr; gap: 40px; }
-    .hero-img { height: 350px; }
+    .hero-img { 
+        height: 350px; 
+        box-shadow: none; /* Elimina el reborde oscuro */
+    }
+    .star-sticker { 
+        display: none; /* Oculta la estrella que gira */
+    }
     .story-grid { grid-template-columns: 1fr; }
     .story-gallery { flex-direction: column; align-items: center; gap: 60px; }
     .workshop-grid { grid-template-columns: 1fr; }
@@ -1084,17 +1100,17 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 .truus-layout-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 80px 5% 40px 5%; /* Menos padding inferior */
+    padding: 40px 5% 20px 5%; /* Reducimos padding general para achicar aire */
     display: flex;
     flex-direction: column;
-    gap: 60px; /* Reducido de 120px a 60px para que se integre con las cards */
+    gap: 30px; /* Aire mínimo entre título y cards en desktop */
 }
 
 /* Fondo oscuro real para toda la sección */
 #nuestra-mirada {
-    position: relative; /* ¡Clave para que las ondas se queden adentro de la sección! */
+    position: relative; 
     background-color: var(--color-oscuro-editorial);
-    padding: 100px 0 140px 0; /* Espacio extra abajo para que la curva respire */
+    padding: 110px 0 120px 0; /* Reducimos drásticamente el aire superior e inferior (onda) */
     width: 100%;
     z-index: 5;
 }
@@ -1106,8 +1122,7 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     font-weight: 800;
     line-height: 0.95; 
     letter-spacing: -2px; 
-    color: var(--color-neutro-fondo); 
-    text-transform: lowercase;
+    color: var(--color-neutro-fondo);
 }
 
 /* Reducimos un poco el espaciado de la cursiva serif y aseguramos color crema */
@@ -1120,13 +1135,13 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     padding-top: 5px;
     color: var(--color-neutro-fondo); /* Asegura que la cursiva también sea crema */
 }
-}
 
 /* Contenedor Orgánico de las Cards (Imagen 2) */
 .story-cards-organic-wrap {
     position: relative;
     width: 100%;
-    min-height: 750px;
+    min-height: auto; /* Sacamos el alto fijo que generaba el vacío enorme abajo en desktop */
+    padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1347,9 +1362,17 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 }
 .price-tag-big .val {
     font-family: var(--font-heading-heavy);
-    font-size: clamp(38px, 5vw, 54px);
+    font-size: clamp(38px, 5vw, 54px); /* Dejamos el comportamiento original intacto para compu */
     font-weight: 800;
     color: var(--color-oscuro-editorial);
+}
+
+/* Regla exclusiva para que el precio se achique y no desborde SOLO en celulares */
+@media (max-width: 768px) {
+    .price-tag-big .val {
+        font-size: clamp(20px, 6.5vw, 30px); /* Un poco más chico para asegurar que entre */
+        white-space: nowrap; /* Obligamos a que el número NUNCA se parta en dos renglones */
+    }
 }
 .installments-hint {
     margin: 10px 0 0 0 !important;
@@ -1414,19 +1437,28 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
 
 /* Responsive total: Si pasa a móviles se reordena de forma segura */
 @media (max-width: 968px) {
+    #nuestra-mirada {
+        padding: 90px 0 100px 0; /* Mantenemos el aire súper ajustado también en mobile */
+    }
+    .truus-layout-container {
+        gap: 30px; 
+        padding-top: 20px;
+    }
+    .story-cards-organic-wrap {
+        min-height: auto;
+        padding: 0;
+    }
     .story-cards-free-flow {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 20px;
     }
     .truus-card-1, .truus-card-2, .truus-card-3 {
         transform: none !important;
     }
     .section-title-truus {
-        font-size: 55px;
-        letter-spacing: -2px;
-    }
-    .truus-layout-container {
-        gap: 60px;
+        font-size: clamp(32px, 8vw, 42px); /* Se adapta fluido al ancho de la pantalla como el resto de los H2 */
+        letter-spacing: -1.5px; /* Suavizamos el interletraje para que respire mejor */
+        padding: 0 10px; /* Un toquecito de margen extra interno por las dudas */
     }
 }
 /* ==========================================================================
@@ -1974,12 +2006,14 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     }
 
     /* Estilos para las flechas que tocaremos con JS */
-    .slider-arrows {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 20px;
-    }
+.slider-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 0px; /* Elimina el margen para pegar las flechas al carrusel */
+    position: relative;
+    z-index: 20;
+}
 
     .arrow-btn {
         background-color: transparent;
@@ -2077,16 +2111,34 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
     cursor: pointer;
 }
 
+/* Animación sutil para insinuar que las cartas tienen volumen 3D */
+@keyframes flip-hint {
+    0%, 100% { transform: rotateY(0deg); }
+    5%, 15% { transform: rotateY(15deg); } /* Se asoma un poquito */
+    10%, 20% { transform: rotateY(-5deg); }
+    25% { transform: rotateY(0deg); }
+}
+
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Curva de rebote sutil */
     transform-style: preserve-3d;
+    /* Ejecuta el temblor cada 6 segundos de forma infinita */
+    animation: flip-hint 6s infinite ease-in-out;
 }
 
-/* Al hacer click, el HTML le suma la clase .is-flipped y esto la da vuelta */
-.flip-card.is-flipped .flip-card-inner {
+/* Efecto "Peek" (Asomar): Cuando pasan el mouse, la carta se inclina invitando al click */
+.flip-card:hover .flip-card-inner {
+    animation: none; /* Frenamos la animación automática */
+    transform: rotateY(18deg); /* Inclinamos la carta hacia el usuario */
+}
+
+/* Al hacer click, el HTML le suma la clase .is-flipped y esto la da vuelta por completo */
+.flip-card.is-flipped .flip-card-inner,
+.flip-card.is-flipped:hover .flip-card-inner {
+    animation: none; /* Frenamos cualquier otra animación */
     transform: rotateY(180deg);
 }
 
@@ -2175,5 +2227,57 @@ border-radius: 24px; /* <--- Esto le da la misma curvatura que a tus story-cards
         margin-top: 15px;
         position: relative; 
         z-index: 50; /* CLAVE 2: Evita que la onda inferior bloquee el click invisiblemente */
+    }
+}
+/* ==========================================================================
+   MAZO APILABLE DE DUDAS FRECUENTES (SECCIÓN CURSO)
+   ========================================================================== */
+.faq-deck-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 380px; /* Asegura un alto mínimo para que no colapse */
+    perspective: 1200px;
+}
+
+.faq-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.faq-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 24px;
+    border: 2px solid var(--color-oscuro-editorial);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Arriba el texto, abajo la flecha */
+    cursor: pointer;
+    box-shadow: 12px 12px 0px rgba(26,26,26,0.04);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1), opacity 0.6s ease, z-index 0.6s step-end;
+    will-change: transform, opacity;
+    user-select: none;
+}
+
+/* Interacción micro-UI para que incite al click */
+.faq-card.active-top:hover {
+    transform: translate3d(0, -5px, 0) rotate(0deg) scale(1.02) !important;
+    box-shadow: 15px 15px 0px rgba(26,26,26,0.08);
+}
+
+/* Soporte responsive */
+@media (max-width: 968px) {
+    #confianza-faq > div {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+    .faq-deck-wrapper {
+        min-height: 320px;
     }
 }

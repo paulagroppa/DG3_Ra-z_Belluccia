@@ -293,4 +293,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+// ----------------------------------------------------------------------
+    // 7. CONTROL INTERACTIVO: MAZO DE DUDAS FRECUENTES
+    // ----------------------------------------------------------------------
+    const faqStackContainer = document.getElementById("faqStack");
+
+    if (faqStackContainer) {
+        let faqCards = Array.from(faqStackContainer.querySelectorAll(".faq-card"));
+        let isFaqAnimating = false;
+
+        const layoutFaqDeck = () => {
+            faqCards.forEach((card, index) => {
+                card.classList.remove("active-top");
+                
+                if (index === 0) {
+                    card.style.zIndex = "10";
+                    card.style.opacity = "1";
+                    card.style.transform = "translate3d(0, 0, 0) rotate(0deg) scale(1)";
+                    card.classList.add("active-top");
+                } else if (index === 1) {
+                    card.style.zIndex = "8";
+                    card.style.opacity = "0.9";
+                    // Asoma sutilmente por detrás
+                    card.style.transform = "translate3d(15px, 15px, -40px) rotate(2deg) scale(0.96)";
+                } else if (index === 2) {
+                    card.style.zIndex = "6";
+                    card.style.opacity = "0.6";
+                    card.style.transform = "translate3d(30px, 30px, -80px) rotate(4deg) scale(0.92)";
+                } else {
+                    card.style.zIndex = "2";
+                    card.style.opacity = "0";
+                    card.style.transform = "translate3d(0, 0, -120px) rotate(0deg) scale(0.85)";
+                }
+            });
+        };
+
+        faqStackContainer.addEventListener("click", () => {
+            if (isFaqAnimating) return;
+            isFaqAnimating = true;
+
+            const topCard = faqCards[0];
+
+            // 1. Fase de despegue (vuela rápido a la izquierda)
+            topCard.style.transform = "translate3d(-80%, -30px, 50px) rotate(-10deg) scale(0.95)";
+            topCard.style.opacity = "0";
+            topCard.style.zIndex = "15";
+
+            setTimeout(() => {
+                // 2. Reubicación en el array
+                faqCards.push(faqCards.shift());
+
+                faqCards.forEach((card, idx) => {
+                    if (idx === 0) card.style.zIndex = "10";
+                });
+
+                // 3. Reacomodo visual
+                layoutFaqDeck();
+
+                setTimeout(() => {
+                    isFaqAnimating = false;
+                }, 300);
+
+            }, 300);
+        });
+
+        // Configuración inicial
+        layoutFaqDeck();
+    }
 });
