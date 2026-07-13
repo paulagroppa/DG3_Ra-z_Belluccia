@@ -4,243 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kit UX/UI | RAÍZ Sistema de Identidad</title>
-    <!-- Vinculamos tu CSS actual y FontAwesome para los íconos -->
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fuentes de Google (¡Acá estaba el error! Ahora heredará todo tu sistema) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Íconos y tu CSS principal con la ruta corregida a la carpeta css/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* Estilos específicos y ordenamiento para la página del Kit */
-        .kit-body {
-            background-color: var(--color-neutro-fondo, #F5F2EB);
-            color: var(--color-oscuro-editorial, #1A1A1A);
-            padding: 60px 20px;
-        }
-        .kit-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .kit-header {
-            border-bottom: 2px solid var(--color-oscuro-editorial, #1A1A1A);
-            padding-bottom: 30px;
-            margin-bottom: 60px;
-        }
-        .kit-header h1 {
-            font-family: var(--font-heading-heavy, 'Syne', sans-serif);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 15px;
-        }
-        .kit-header p {
-            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-        .kit-section {
-            margin-bottom: 80px;
-        }
-        .kit-section-title {
-            font-family: var(--font-heading-heavy, 'Syne', sans-serif);
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(26, 26, 26, 0.2);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
+        /* Estilos de estructura EXCLUSIVOS para organizar la vista del Kit */
+        .kit-body { background-color: var(--color-neutro-fondo); color: var(--color-oscuro-editorial); padding: 60px 20px; }
+        .kit-container { max-width: 1200px; margin: 0 auto; }
+        .kit-header { border-bottom: 2px solid var(--color-oscuro-editorial); padding-bottom: 30px; margin-bottom: 60px; }
+        .kit-header h1 { font-family: var(--font-heading-heavy); font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 15px; }
+        .kit-header p { font-family: var(--font-body); font-size: 1.1rem; opacity: 0.8; }
+        .kit-section { margin-bottom: 100px; }
+        .kit-section-title { font-family: var(--font-heading-heavy); font-size: 1.5rem; text-transform: uppercase; border-bottom: 1px dashed rgba(26, 26, 26, 0.2); padding-bottom: 10px; margin-bottom: 40px; letter-spacing: 1px; }
         
-        /* Sub-grillas para organizar las muestras */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-        }
-        .color-card {
-            background: #fff;
-            border: 1px solid rgba(26, 26, 26, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .color-sample {
-            height: 140px;
-            width: 100%;
-        }
-        .color-info {
-            padding: 15px;
-            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
-        }
-        .color-info h4 {
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        .color-info span {
-            font-size: 0.8rem;
-            opacity: 0.6;
-            display: block;
-        }
-
-        .typo-sample {
-            margin-bottom: 35px;
-        }
-        .typo-label {
-            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            opacity: 0.5;
-            margin-bottom: 8px;
-        }
-
-        .component-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
-            background: rgba(26, 26, 26, 0.02);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px dashed rgba(26, 26, 26, 0.1);
-        }
-
-        .back-home {
-            margin-bottom: 40px;
-        }
-        .back-link {
-            font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif);
-            text-decoration: none;
-            color: var(--color-oscuro-editorial, #1A1A1A);
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: opacity 0.2s;
-        }
-        .back-link:hover {
-            opacity: 0.6;
-        }
+        /* Grillas de exhibición */
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+        .color-card { background: #fff; border: 2px solid var(--color-oscuro-editorial); border-radius: 12px; overflow: hidden; box-shadow: 8px 8px 0px rgba(26,26,26,0.05); }
+        .color-sample { height: 140px; width: 100%; }
+        .color-info { padding: 15px; font-family: var(--font-body); }
+        .color-info h4 { font-size: 0.95rem; margin-bottom: 5px; text-transform: uppercase; font-family: var(--font-heading-heavy); }
+        .color-info span { font-size: 0.8rem; opacity: 0.6; display: block; }
+        
+        .typo-sample { margin-bottom: 45px; padding: 30px; background: rgba(255,255,255,0.5); border-radius: 12px; border: 1px solid rgba(26,26,26,0.1); }
+        .typo-label { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; color: var(--color-magenta); font-weight: 600; margin-bottom: 15px; letter-spacing: 1px; }
+        
+        .component-showcase { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; padding: 40px; border-radius: 16px; border: 2px dashed rgba(26, 26, 26, 0.2); background: rgba(255,255,255,0.3); }
+        .showcase-dark { background-color: var(--color-oscuro-editorial); border: none; }
+        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start; }
+        
+        .back-home { margin-bottom: 40px; }
+        .back-link { font-family: var(--font-body); text-decoration: none; color: var(--color-oscuro-editorial); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s; }
+        .back-link:hover { opacity: 0.6; }
     </style>
 </head>
 <body class="kit-body">
 
     <div class="kit-container">
         
-        <!-- Botón para volver atrás -->
         <div class="back-home">
-            <a href="index.html" class="back-link">
-                <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
-            </a>
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver a Raíz</a>
         </div>
 
-        <!-- Encabezado del Kit -->
         <header class="kit-header">
-            <h1>Guía de Estilos</h1>
-            <p>Sistemas visuales, UI Kit y componentes de diseño para el ecosistema de RAÍZ.</p>
+            <h1>Guía de Estilos UI</h1>
+            <p>Sistemas visuales, UI Kit y componentes de interacción para el ecosistema de RAÍZ.</p>
         </header>
 
-        <!-- Sección 1: Colores -->
+        <!-- 01. COLORES -->
         <section class="kit-section">
             <h2 class="kit-section-title">01. Paleta de Colores</h2>
             <div class="color-grid">
-                
                 <div class="color-card">
-                    <div class="color-sample" style="background-color: var(--color-neutro-fondo, #F5F2EB);"></div>
+                    <div class="color-sample" style="background-color: var(--color-neutro-fondo);"></div>
                     <div class="color-info">
-                        <h4>Fondo Neutro</h4>
+                        <h4>Crema Fondo</h4>
                         <span>--color-neutro-fondo</span>
-                        <span>#F5F2EB</span>
                     </div>
                 </div>
-
                 <div class="color-card">
-                    <div class="color-sample" style="background-color: var(--color-oscuro-editorial, #1A1A1A);"></div>
+                    <div class="color-sample" style="background-color: var(--color-oscuro-editorial);"></div>
                     <div class="color-info">
                         <h4 style="color: #1A1A1A;">Oscuro Editorial</h4>
                         <span>--color-oscuro-editorial</span>
-                        <span>#1A1A1A</span>
                     </div>
                 </div>
-
                 <div class="color-card">
-                    <div class="color-sample" style="background-color: var(--color-magenta, #F233B9);"></div>
+                    <div class="color-sample" style="background-color: var(--color-magenta);"></div>
                     <div class="color-info">
-                        <h4>Magenta Primario</h4>
+                        <h4>Magenta Vibrante</h4>
                         <span>--color-magenta</span>
-                        <span>#F233B9</span>
                     </div>
                 </div>
-
                 <div class="color-card">
-                    <div class="color-sample" style="background-color: var(--color-verde-acido, #63F263);"></div>
+                    <div class="color-sample" style="background-color: var(--color-lima-suave);"></div>
                     <div class="color-info">
                         <h4>Verde Ácido</h4>
-                        <span>--color-verde-acido</span>
-                        <span>#63F263</span>
+                        <span>--color-lima-suave</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. TIPOGRAFÍAS Y JERARQUÍA -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">02. Jerarquía Tipográfica</h2>
+            
+            <div class="typo-sample">
+                <div class="typo-label">Título Hero / Displays (Syne - Heavy)</div>
+                <h1 class="hero-title" style="margin-bottom: 0;">Diseñamos futuro</h1>
+            </div>
+
+            <div class="typo-sample">
+                <div class="typo-label">Títulos de Sección (Syne - Bold) + Acentos Itálicos (Playfair Display)</div>
+                <h2 class="section-title-truus" style="color: var(--color-oscuro-editorial);">
+                    El diseño no <br>
+                    siempre empieza <br>
+                    <span class="serif-italic-truus" style="color: var(--color-magenta);">de cero</span>
+                </h2>
+            </div>
+
+            <div class="typo-sample">
+                <div class="typo-label">Etiquetas y Mini Tags (Syne - Uppercase)</div>
+                <span class="mini-tag" style="margin-bottom: 0;">Formación Profesional</span>
+                <span class="card-tag" style="margin-left: 15px;">Ediciones Limitadas</span>
+            </div>
+
+            <div class="typo-sample">
+                <div class="typo-label">Párrafos y Lectura Larga (Plus Jakarta Sans)</div>
+                <p class="card-description" style="max-width: 800px; margin-bottom: 0;">
+                    No hacemos muebles en serie ni repetimos fórmulas. Rescatamos treasures olvidados, investigamos su origen histórico y los reimaginamos bajo una lente contemporánea.
+                </p>
+            </div>
+        </section>
+
+        <!-- 03. BOTONERA Y ACCIONES -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">03. Botones y Elementos de Acción</h2>
+            <div class="component-showcase">
+                <a href="#" class="btn-solid">Botón Principal</a>
+                <a href="#" class="btn-outline">Botón Secundario</a>
+                <a href="#" class="btn-checkout-cta" style="margin-bottom: 0; font-size: 14px; padding: 16px;">Checkout Fuerte <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#" class="btn-course-buy btn-bg-magenta">Comprar Curso</a>
+                
+                <!-- Botón Kit Footer -->
+                <div style="background-color: var(--color-oscuro-editorial); padding: 20px; border-radius: 8px;">
+                    <a href="#" class="btn-kit-link"><span>Kit Interactivo</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <span class="action-pill-hint">hacé click para pasar</span>
+                
+                <!-- Stickers flotantes estáticos para muestra -->
+                <div style="position: relative; width: 60px; height: 60px;">
+                    <div class="floating-sticker star-sticker" style="position: relative; top:0; right:0; animation:none;"><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div style="position: relative; width: 60px; height: 60px;">
+                    <div class="floating-sticker smiley-sticker" style="position: relative; bottom:0; left:0; transform: none;"><i class="fa-solid fa-face-smile"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. FORMAS Y CONTENEDORES -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">04. Formas Estructurales (Ondas)</h2>
+            <div class="component-showcase" style="padding: 0; overflow: hidden; position: relative; height: 250px; background-color: var(--color-oscuro-editorial);">
+                <h3 style="color: #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-heading-heavy);">Contenedor de Sección</h3>
+                <!-- Onda Superior -->
+                <div class="custom-shape-divider-top">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" fill="#F5F2EB"></path>
+                    </svg>
+                </div>
+                <!-- Onda Inferior -->
+                <div class="custom-shape-divider-bottom">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" fill="#F5F2EB"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. SISTEMA DE CARDS -->
+        <section class="kit-section">
+            <h2 class="kit-section-title">05. Sistema de Tarjetas (Cards)</h2>
+            <div class="showcase-grid">
+                
+                <!-- Story Card -->
+                <div>
+                    <div class="typo-label">Story Card (Estilo Orgánico)</div>
+                    <div class="story-card" style="min-height: 400px;">
+                        <div class="card-header-meta">
+                            <span class="card-tag">Identidad</span>
+                        </div>
+                        <h3 class="card-title">Piezas con <span class="serif-italic">Historia</span></h3>
+                        <p class="card-description">
+                            Rescatamos objetos olvidados y los reimaginamos bajo una lente contemporánea.
+                        </p>
+                        <a href="#" class="btn-outline">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Course Card -->
+                <div>
+                    <div class="typo-label">Card de Cursos (Checkout)</div>
+                    <div class="course-card border-magenta" style="height: 400px; transform: scale(1); opacity: 1;">
+                        <div class="card-course-meta">
+                            <span class="course-duration"><i class="fa-regular fa-clock"></i> 1 Mes</span>
+                        </div>
+                        <div class="card-course-main">
+                            <span class="course-badge-inline" style="color: var(--color-magenta);">Módulo Base</span>
+                            <h3 class="course-card-title">Introducción a la Restauración</h3>
+                        </div>
+                        <div class="card-course-footer" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+                            <a href="#" class="btn-course-top btn-bg-magenta" style="width: 100%; justify-content: center;">Ver Curso <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card -->
+                <div>
+                    <div class="typo-label">Flip Card (Hover o Click)</div>
+                    <div class="flip-card" onclick="this.classList.toggle('is-flipped')" style="height: 400px;">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background-color: var(--color-lima-suave);">
+                                <div class="card-header-meta">
+                                    <span class="card-tag" style="color: var(--color-magenta);">Pilar 01</span>
+                                </div>
+                                <h3 class="card-title" style="font-size: 24px; line-height: 1.1;">Restauración profesional, <br><span class="serif-italic-truus">no manualidades</span></h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <img src="imagenes/img22.png" alt="Demo" style="width:100%; height:100%; object-fit:cover; background-color:#ccc;">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Sección 2: Tipografías -->
+        <!-- 06. COMPONENTES INTERACTIVOS AVANZADOS -->
         <section class="kit-section">
-            <h2 class="kit-section-title">02. Tipografías</h2>
+            <h2 class="kit-section-title">06. Interacciones Avanzadas</h2>
             
-            <div class="typo-sample">
-                <div class="typo-label">Titulares Heavy (--font-heading-heavy) - Syne</div>
-                <h2 style="font-family: var(--font-heading-heavy, 'Syne', sans-serif); font-size: 2.5rem; text-transform: uppercase; font-weight: 800;">
-                    ESTO ES UN TITULAR CONTUNDENTE
-                </h2>
-            </div>
-
-            <div class="typo-sample">
-                <div class="typo-label">Titulares Serif (--font-heading-serif) - Playfair Display</div>
-                <h2 style="font-family: var(--font-heading-serif, 'Playfair Display', serif); font-size: 2.8rem; font-style: italic; font-weight: 400;">
-                    Narrativas y matices de marca.
-                </h2>
-            </div>
-
-            <div class="typo-sample">
-                <div class="typo-label">Acentos Manuales (--font-accent-script) - Caveat</div>
-                <p style="font-family: var(--font-accent-script, 'Caveat', cursive); font-size: 3rem; color: var(--color-magenta, #F233B9);">
-                    un toque orgánico y humano
-                </p>
-            </div>
-
-            <div class="typo-sample">
-                <div class="typo-label">Cuerpo de Texto y Datos (--font-body-tech) - Plus Jakarta Sans</div>
-                <p style="font-family: var(--font-body-tech, 'Plus Jakarta Sans', sans-serif); font-size: 1rem; line-height: 1.6; max-width: 700px;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diseñado para optimizar la legibilidad digital.
-                </p>
-            </div>
-        </section>
-
-        <!-- Sección 3: Botones y Elementos de Acción -->
-        <section class="kit-section">
-            <h2 class="kit-section-title">03. Componentes de Interacción</h2>
-            <div class="component-showcase">
+            <div class="showcase-grid">
                 
-                <!-- Botón Sólido Clásico si usás en tu index -->
-                <a href="#" class="btn-solid" style="display: inline-block; padding: 12px 28px; background: var(--color-oscuro-editorial, #1A1A1A); color: var(--color-neutro-fondo, #F5F2EB); font-family: var(--font-body-tech); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; text-decoration: none; border-radius: 4px;">
-                    Botón Primario
-                </a>
+                <!-- Acordeón -->
+                <div>
+                    <div class="typo-label">Acordeón Dinámico (Programa)</div>
+                    <div class="program-accordion-container" style="display: flex; flex-direction: column; gap: 16px;">
+                        <details name="camino" style="border: 2px solid var(--color-oscuro-editorial); background-color: transparent; transition: all 0.3s ease;">
+                            <summary style="font-family: var(--font-heading-heavy); font-size: 18px; font-weight: 800; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: var(--color-oscuro-editorial);">
+                                <span style="display: flex; align-items: center; gap: 20px;">
+                                    <span style="font-family: var(--font-serif-luxury); font-style: italic; color: var(--color-magenta); opacity: 0.8;">01</span> 
+                                    Diagnóstico
+                                </span>
+                                <span class="accordion-icon" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                            </summary>
+                            <div style="padding: 0 30px 30px 70px; font-family: var(--font-body); font-size: 15px;">
+                                <p style="font-family: var(--font-serif-luxury); font-style: italic; font-size: 17px; color: var(--color-magenta); margin-bottom: 15px;">
+                                    "Aprendé a leer un mueble."
+                                </p>
+                                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0.9;">
+                                    <li><i class="fa-solid fa-chevron-right" style="color: var(--color-magenta); font-size: 11px;"></i> Identificación de materiales</li>
+                                    <li><i class="fa-solid fa-chevron-right" style="color: var(--color-magenta); font-size: 11px;"></i> Evaluación de daños</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
 
-                <!-- El píldora/hint interactivo -->
-                <span class="action-pill-hint" style="display: inline-flex; align-items: center; gap: 8px; background: var(--color-verde-acido, #63F263); padding: 8px 16px; border-radius: 30px; font-family: var(--font-body-tech); font-size: 0.85rem; font-weight: 600;">
-                    <i class="fa-solid fa-bolt"></i> Componente Activo
-                </span>
+                <!-- Hotspots -->
+                <div>
+                    <div class="typo-label">Hotspots (Puntos sobre Imagen/Mueble)</div>
+                    <div class="interactive-showcase-container" style="background: rgba(26,26,26,0.05); height: 350px; border-radius: 12px; position: relative;">
+                        <div class="hotspot" style="top: 50%; left: 50%;">
+                            <button class="hotspot-trigger"><i class="fa-solid fa-plus"></i></button>
+                            <div class="hotspot-tooltip">
+                                <h4>Estructura modular</h4>
+                                <p>Diseño compuesto por piezas desmontables que facilita el transporte.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Tu nuevo link del footer para pruebas en el propio kit -->
-                <a href="#" class="btn-kit-link">
-                    <span>Kit UX / UI</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <!-- Mazo Apilable -->
+                <div class="showcase-dark" style="padding: 20px; border-radius: 12px; position: relative; overflow: hidden;">
+                    <div class="typo-label" style="color: var(--color-neutro-fondo); margin-bottom: 0;">Mazo de Cartas Apilable (Click para animar)</div>
+                    <div class="deck-wrapper" style="margin-top: 20px; height: 350px;">
+                        <div class="cards-stack" id="clientsStack">
+                            <div class="client-card" data-project="Aparador de comedor">
+                                <div class="card-image-bg"><img src="imagenes/img17.png" alt="Demo" style="background:#555;"></div>
+                                <div class="card-content-overlay">
+                                    <p class="client-quote">"Volvió a ser el corazón del comedor."</p>
+                                    <div class="card-footer-meta">
+                                        <h3 class="client-name">Lucía M.</h3>
+                                        <span class="project-tag">Aparador</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="client-card" data-project="Escritorio">
+                                <div class="card-image-bg"><img src="imagenes/img18.png" alt="Demo" style="background:#333;"></div>
+                                <div class="card-content-overlay">
+                                    <p class="client-quote">"Recibe elogios de todo el que viene."</p>
+                                    <div class="card-footer-meta">
+                                        <h3 class="client-name">Martín R.</h3>
+                                        <span class="project-tag">Escritorio</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </section>
 
     </div>
 
+    <!-- SCRIPT CLAVE: Necesario para que funcionen los hotspots, flip cards y mazos -->
+    <script src="js/main.js"></script>
 </body>
 </html>
